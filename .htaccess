@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule ^(.*)$ public/$1 [L]
+RewriteCond %{HTTP_HOST} ^rumorhasitnepal\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.rumorhasitnepal\.com$
+RewriteRule ^/?$ "https\:\/\/rumorhasitnepal\.com\/" [R=301,L]
+
