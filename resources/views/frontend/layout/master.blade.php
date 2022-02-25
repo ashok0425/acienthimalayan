@@ -73,6 +73,9 @@
 .event-cards img{
   height: 300px!important;
 }
+.card-style-1 img{
+  height: 250px!important;
+}
             </style>
 @stack('style')
 
