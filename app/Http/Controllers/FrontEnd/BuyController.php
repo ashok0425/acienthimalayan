@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
 use App\Models\Booking;
 use App\Models\Package;
 use Illuminate\Http\Request;
@@ -20,7 +19,7 @@ class BuyController extends Controller
       {
             $packages = Package::orderBy('id', 'desc')->get();
             $package = null;
-            $agents = DB::connection('mysql2')->table('users')->get();
+            $agents = json_decode(file_get_contents('http://nepalvisiontrecks.com/crm/agents'));
             if ($package_id != null) {
                   $package = Package::find($package_id);
             }
