@@ -15,7 +15,7 @@
 <section class="hero">
     <div class="container">
         <div class="search-box">
-            <h1 class="title custom-fs-28 my-3 my-md-5">
+            <h1 class="title custom-fs-28 mt-3 mt-md-5 pt-3 pt-md-3">
                 {{ $banner->title }}
             </h1>
             <form action="{{ route('search') }}" method="GET">
