@@ -7,11 +7,11 @@
 </style>
 <section class="blog-img">
     <div class="container">
-        @if ($blog->guid==null)
-        <img src="{{ asset('frontend/assets/blogread.png')}}" alt="IMG" class="img-fluid w-100">
-
-        @else 
+        @if ($blog->guid!=null && file_exists($blog->guid))
         <img src="{{ asset($blog->guid)}}"  class="img-fluid w-100">
+       
+        @else 
+        <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid"  >
         @endif
     </div>
 </section>
@@ -41,11 +41,12 @@
 
                                 <div class="row">
                                     <div class="col-5">
-                                        @if ($blog->guid==null)
-                                        <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid"  >
-                                        @else 
-                                        <img src="{{ asset($blog->guid)}}"  class="img-fluid w-100">
-                                        @endif
+                                        @if ($blog->guid!=null && file_exists($blog->guid))
+                        <img src="{{ asset($blog->guid)}}"  class="img-fluid w-100">
+                       
+                        @else 
+                        <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid"  >
+                        @endif
                                     </div>
                                     <div class="col-7">
                                         <p>{{ $more->post_title }}</p>

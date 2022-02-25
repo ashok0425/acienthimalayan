@@ -13,12 +13,11 @@
                 <div class="post-card-1 card">
                     <a href="{{ route('blog.detail',['id'=>$blog->ID]) }}">
                     <div class="img-container">
-                        
-
-                        @if ($blog->guid==null)
-                        <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid"  >
-                        @else 
+                        @if ($blog->guid!=null && file_exists($blog->guid))
                         <img src="{{ asset($blog->guid)}}"  class="img-fluid w-100">
+                       
+                        @else 
+                        <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid"  >
                         @endif
                         <div class="date">
                             <span>
