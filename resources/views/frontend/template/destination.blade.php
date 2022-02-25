@@ -5,7 +5,7 @@
     <div class="container">
         <div class="heading ">
             <h2>
-                Best Place Destination
+                Top Destination
             </h2>
         </div>
         <div class="owl-carousel destinations ">
