@@ -34,11 +34,14 @@ public function loadRegion($data) {
 }
 
 public function search(Request $request) {
-
-  $query="SELECT * FROM  `packages` WHERE `status`=1 AND `destination_id`=$request->destination ";
+  if(isset($request->destination)&&!empty($request->destination)){
+    $query.=" AND `destination_id`=$request->destination ";
+  }
+  $query="SELECT * FROM  `packages` WHERE `status`=1  ";
   if(isset($request->category)&&!empty($request->category)){
     $query.=" AND `category_destination_id`=$request->category ";
 }
+
 if(isset($request->month)&&!empty($request->month)){
   $query.=" AND `best_month` LIKE '%$request->duration%' ";
   
@@ -49,7 +52,10 @@ $package_s=DB::select($query);
     $packages= $package_s;
 
   }else{
-    $query="SELECT * FROM  `packages` WHERE `status`=1 AND `destination_id`=$request->destination ";
+    $query="SELECT * FROM  `packages` WHERE `status`=1 ";
+    if(isset($request->destination)&&!empty($request->destination)){
+      $query.=" AND `destination_id`=$request->destination ";
+    }
     if(isset($request->category)&&!empty($request->category)){
         $query.=" AND `category_destination_id`=$request->category ";
     }
