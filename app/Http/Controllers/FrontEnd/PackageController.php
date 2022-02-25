@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Contact ;
 use App\Models\Destination;
 use DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
+
 class PackageController extends Controller
 {
  public function destination($id,$url) {
@@ -30,8 +32,8 @@ class PackageController extends Controller
  }
 
 public function show($url) {
-	$package = Package::where('url',$url)->first();
-      $reviews=DB::table('testimonials')->join('package_testimonial','package_testimonial.testimonial_id','testimonials.id')->where('testimonials.status',1)->where('package_testimonial.package_id',$package->id)->orderBy('testimonials.id','desc')->get();
+	$package = Package::where('url',$url)->orwhere('name',$url)->first();
+      $reviews=FacadesDB::table('testimonials')->join('package_testimonial','package_testimonial.testimonial_id','testimonials.id')->where('testimonials.status',1)->where('package_testimonial.package_id',$package->id)->orderBy('testimonials.id','desc')->get();
       $features=DB::table('packages')->join('package_featured','packages.id','package_featured.featured_id')->where('package_featured.package_id',$package->id)->where('status',1)->get();
       $before=Destination::find($package->destination_id);
       return view('frontend.package_detail',compact('package','reviews','features','before'));
