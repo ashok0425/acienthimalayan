@@ -25,7 +25,7 @@
                             Destination
                         </h3>
                         <select name="destination" id="destination" required>
-                            <option value="choose destination">Choose Destination</option>
+                            <option value="">Choose Destination</option>
                             @foreach ($destinations as $destination)
                             <option value="{{ $destination->id }}">{{ $destination->name }}</option>
                                 
@@ -52,7 +52,7 @@
                         <h3>
                             Month
                         </h3>
-                        <select name="month" id="month" required>
+                        <select name="month" id="month" >
                             <option value="select month">Select Month</option>
                             <option value="Jan" selected>January</option>
                             <option value="Feb">February</option>

@@ -65,6 +65,11 @@
         <link rel="shortcut  icon" href="@yield('fev')" type="image/icon type">
     
             <title>@yield('title')</title>
+            <style>
+                .card-style-2 img{
+  height: 250px!important;
+}
+            </style>
 @stack('style')
 
 </head>
