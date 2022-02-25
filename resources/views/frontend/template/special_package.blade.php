@@ -11,7 +11,7 @@
 
             <div class="mx-2">
                 <div class="card-style-2 ">
-                    <a href="{{ route('package.detail',['url'=>$package->url]) }}" class="text-decoration-none">
+                    <a href="{{ route('package.detail',['id'=>$package->id,'url'=>$package->url]) }}" class="text-decoration-none">
                     <div class="img-container">
                       
 

@@ -14,7 +14,7 @@
 
 	Route::get('package-destination/{id}/{url}','PackageController@destination')->name('package.destination');
 	Route::get('package-category/{id}/{url}','PackageController@category')->name('package.category');
-	Route::get('package-detail/{url}','PackageController@show')->name('package.detail');
+	Route::get('package-detail/{id?}/{url?}','PackageController@show')->name('package.detail');
 	Route::get('book-now/{package_id?}/{date?}','BuyController@index')->name('booknow');
 	Route::post('booking/step2','BuyController@step2')->name('booking.step2');
 	Route::post('booking/store','BuyController@store')->name('booking.step2.store');

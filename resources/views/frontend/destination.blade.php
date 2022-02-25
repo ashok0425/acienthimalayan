@@ -59,7 +59,7 @@
             <div class="row">
                     @foreach ($packages as $package)
                     <div class="col-lg-3 col-sm-6 ">
-                     <a href="{{ route('package.detail',['url'=>$package->url]) }}" class="text-decoration-none">
+                        <a href="{{ route('package.detail',['id'=>$package->id,'url'=>$package->url]) }}" class="text-decoration-none">
 
                             <div class="card-style-2 ">
                                 <div class="img-container">
