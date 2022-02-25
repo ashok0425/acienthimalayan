@@ -7,27 +7,7 @@
 
 <section class="events">
     <div class="container">
-        {{-- <div class="event-header">
-            <div class="row">
-                <div class="col-md-7 col-sm-6 d-flex" >
-                    <h3 class="align-self-center">Events</h3>
-                </div>
-                <div class="col-md-5 col-sm-6">
-                    <div class="row">
-                        <div class="col-4 d-flex">
-                            <h3 class="align-self-center">Search By</h3>
-                        </div>
-                        <div class="col-4">
-                            <div class="btn">Month</div>
-                        </div>
-                        <div class="col-4">
-                            <div class="btn">2021</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div> --}}
+    
         <div class="event-cards">
             <div class="row">
                 @foreach ($events as $event)

@@ -167,7 +167,7 @@ class TestimonialsController extends Controller
 
         try {
             $testimonial = Testimonial::findOrFail($id);
-            File($testimonial->image);
+            File::delete($testimonial->image);
             $testimonial->delete();
             $notification=array(
                 'alert-type'=>'success',
