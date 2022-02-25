@@ -2,7 +2,7 @@
 @section('content')
 <style>
  .blog-post img{
-height: 320px!important;
+height: 220px!important;
     }
 </style>
 <x-page-header title="Blog" :route="route('blog')"  />

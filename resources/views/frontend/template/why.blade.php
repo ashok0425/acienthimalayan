@@ -21,7 +21,7 @@
                             </p>
                             <div class="stats d-flex justify-content-between">
                                 <div class="stat">
-                                    <h3>300</h3>
+                                    <h3>3000</h3>
                                     <p>Sucessful Tour</p>
                                 </div>
                                 <div class="stat">

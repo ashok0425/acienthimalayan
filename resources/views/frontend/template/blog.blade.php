@@ -1,6 +1,6 @@
 <style>
     .recent-post img{
-height: 320px!important;
+height: 220px!important;
     }
 </style>
 <section class="recent-post ">
