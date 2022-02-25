@@ -74,7 +74,9 @@
   height: 300px!important;
 }
 .card-style-1 img{
-  height: 250px!important;
+  height: 28px!important;
+  width:100%!important;
+
 }
             </style>
 @stack('style')
