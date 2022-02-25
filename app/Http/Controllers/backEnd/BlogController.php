@@ -153,22 +153,20 @@ public function getslug($value){
 
     public function destroy($id)
     {
-        // try {
-            $destination = DB::table('blogs')->where('ID',$id)->delete();
-            // File::delete($destination->guid);
-            // $destination->delete();
+        try {
+        DB::table('blogs')->where('ID',$id)->delete();
             $notification=array(
                 'alert-type'=>'success',
                 'messege'=>'Successfully deleted .',
                
              );
-        // } catch (Throwable $e) {
-        //     $notification=array(
-        //         'alert-type'=>'error',
-        //         'messege'=>'Failed to delete , Try again.',
+        } catch (Throwable $e) {
+            $notification=array(
+                'alert-type'=>'error',
+                'messege'=>'Failed to delete , Try again.',
                
-        //      );
-        // }
+             );
+        }
 
         return redirect()->back()->with($notification);
     }
