@@ -154,7 +154,7 @@ public function getslug($value){
     public function destroy($id)
     {
         try {
-            $destination = Blog::where('ID',$id)->first();
+            $destination = DB::table('blogs')->where('ID',$id)->first();
             File::delete($destination->guid);
             $destination->delete();
             $notification=array(
