@@ -156,13 +156,13 @@ public function getslug($value){
         try {
             $destination = Blog::where('ID',$id)->first();
             File::delete($destination->guid);
+            dd($destination);
             $destination->delete();
             $notification=array(
                 'alert-type'=>'success',
                 'messege'=>'Successfully deleted .',
                
              );
-            $this->status_message = "Successfully deleted .";
         } catch (Throwable $e) {
             $notification=array(
                 'alert-type'=>'error',
