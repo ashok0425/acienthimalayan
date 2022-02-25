@@ -34,6 +34,8 @@ public function loadRegion($data) {
 }
 
 public function search(Request $request) {
+  $query="SELECT * FROM  `packages` WHERE `status`=1 ";
+
   if(isset($request->destination)&&!empty($request->destination)){
     $query.=" AND `destination_id`=$request->destination ";
   }
