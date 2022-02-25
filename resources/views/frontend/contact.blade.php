@@ -1,4 +1,7 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','contact')
+@endphp
 @section('content')
 <x-page-header title="Contact" :route="route('contactus')"  />
 <main>

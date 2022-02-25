@@ -1,4 +1,7 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','destination')
+@endphp
 @section('content')
 <x-page-header title="Book Now" route=""  />
 

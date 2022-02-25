@@ -1,4 +1,7 @@
 @extends('frontend.layout.master') 
+@php
+    define('PAGE','destination')
+@endphp
 @section('content')
 <section class="booking my-5">
     <div class="container">

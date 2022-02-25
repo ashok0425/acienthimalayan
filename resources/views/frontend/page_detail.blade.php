@@ -1,4 +1,7 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','about')
+@endphp
 <style>
     .articel2 .row{
         border-radius: 15px;

@@ -1,4 +1,7 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','home')
+@endphp
 @section('content')
     
 {{-- hero section  --}}

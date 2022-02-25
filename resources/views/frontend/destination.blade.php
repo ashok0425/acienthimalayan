@@ -1,4 +1,7 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','destination')
+@endphp
 @section('content')
 <main>
     <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  />

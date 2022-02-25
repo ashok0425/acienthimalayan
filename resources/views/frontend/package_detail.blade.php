@@ -1,6 +1,9 @@
 
  
 @extends('frontend.layout.master')
+@php
+    define('PAGE','destination')
+@endphp
 <style>
     .about-trip .head .nav-link{
 font-weight: 500;

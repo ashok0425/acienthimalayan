@@ -1,4 +1,7 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','event')
+@endphp
 @section('content')
 <x-page-header :title="$event->title" :route="route('event.detail',['id'=>$event->id])"  :beforeroute="route('events')" before="Event"/>
 <section class="event-view">

@@ -1,4 +1,7 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','event')
+@endphp
 @section('content')
 <x-page-header title="Event" :route="route('events')"  />
 

@@ -1,4 +1,7 @@
 @extends('frontend.layout.master') 
+@php
+    define('PAGE','destination')
+@endphp
 @section('styles')
     <style>
         .thanks-div{

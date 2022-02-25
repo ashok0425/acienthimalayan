@@ -1,5 +1,7 @@
 @extends('frontend.layout.master')
-
+@php
+    define('PAGE','about')
+@endphp
 @section('content')
 <x-page-header :title="$data->title" :route="route('cms.detail',['page'=>$data->url])"  />
     <section class="articel2">
