@@ -1,5 +1,9 @@
 @extends('frontend.layout.master')
+@php
+    define('PAGE','blog')
+@endphp
 @section('content')
+
 <style>
     .attachment{
         display: none;

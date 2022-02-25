@@ -45,10 +45,14 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('/') }}">Home</a>
+                                <a class="nav-link @if (PAGE=='home')
+                                active
+                                @endif" aria-current="page" href="{{ route('/') }}" >Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle @if (PAGE=='destination')
+                            active
+                            @endif" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Destination
                         </a>
 
@@ -62,16 +66,24 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('events') }}">Activity</a>
+                                <a class="nav-link @if (PAGE=='event')
+                                active
+                                @endif" href="{{ route('events') }}">Activity</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('cms.page',['page'=>'about-us']) }}">About</a>
+                                <a class="nav-link @if (PAGE=='about')
+                                active
+                                @endif" href="{{ route('cms.page',['page'=>'about-us']) }}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                                <a class="nav-link @if (PAGE=='blog')
+                                active
+                                @endif" href="{{ route('blog') }}">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contactus') }}">Contact</a>
+                                <a class="nav-link @if (PAGE=='contact')
+                                active
+                                @endif" href="{{ route('contactus') }}">Contact</a>
                             </li>
                         </ul>
                         <a class="btn btn-primary btn-sm" href="{{ route('booknow') }}">
