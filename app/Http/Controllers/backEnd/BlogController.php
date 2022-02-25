@@ -156,7 +156,6 @@ public function getslug($value){
         try {
             $destination = Blog::where('ID',$id)->first();
             File::delete($destination->guid);
-            dd($destination);
             $destination->delete();
             $notification=array(
                 'alert-type'=>'success',
