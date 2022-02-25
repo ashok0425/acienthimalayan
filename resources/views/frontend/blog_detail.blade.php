@@ -7,11 +7,11 @@
 </style>
 <section class="blog-img">
     <div class="container">
-        @if ($blog->image==null)
+        @if ($blog->guid==null)
         <img src="{{ asset('frontend/assets/blogread.png')}}" alt="IMG" class="img-fluid w-100">
 
         @else 
-        <img src="{{ asset($blog->image)}}" alt="{{$blog->name  }}" class="img-fluid w-100">
+        <img src="{{ asset($blog->guid)}}" alt="{{$blog->name  }}" class="img-fluid w-100">
         @endif
     </div>
 </section>
@@ -41,10 +41,10 @@
 
                                 <div class="row">
                                     <div class="col-5">
-                                        @if ($blog->image==null)
+                                        @if ($blog->guid==null)
                                         <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid" alt="{{$blog->name  }}" >
                                         @else 
-                                        <img src="{{ asset($blog->image)}}" alt="{{$blog->name  }}" class="img-fluid w-100">
+                                        <img src="{{ asset($blog->guid)}}" alt="{{$blog->name  }}" class="img-fluid w-100">
                                         @endif
                                     </div>
                                     <div class="col-7">

@@ -11,10 +11,10 @@
                 <div class="post-card-1 card">
                     <a href="{{ route('blog.detail',['id'=>$blog->ID]) }}">
                     <div class="img-container">
-                        @if ($blog->image==null)
+                        @if ($blog->guid==null)
                         <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid" alt="{{$blog->name  }}" >
                         @else 
-                        <img src="{{ asset($blog->image)}}" alt="{{$blog->name  }}" class="img-fluid w-100">
+                        <img src="{{ asset($blog->guid)}}" alt="{{$blog->name  }}" class="img-fluid w-100">
                         @endif
                         <div class="date">
                             <span>
