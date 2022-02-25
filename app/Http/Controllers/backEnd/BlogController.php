@@ -150,12 +150,12 @@ public function getslug($value){
         }
 
     }
-    
+
     public function destroy($id)
     {
         try {
-            $destination = Blog::find($id);
-            File::delete($destination->image);
+            $destination = Blog::where('ID',$id)->first();
+            File::delete($destination->guid);
             $destination->delete();
             $notification=array(
                 'alert-type'=>'success',
