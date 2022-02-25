@@ -1,5 +1,6 @@
 @extends('frontend.layout.master')
 @section('content')
+<x-page-header title="Contact" :route="route('contactus')"  />
 <main>
   
     <section class="contact-form">
@@ -78,34 +79,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6">
-                    <div class="info-title">
+                    <div class=" custom-text-primary custom-fs-25 custom-fw-700">
                         Head office (Nepal)
                     </div>
                     <ul>
-                        <li>{{ $detail->address }}</li>
-                        <li>{{ $detail->phone }}</li>
-                        <li>{{ $detail->email }}</li>
-                        <li>{{ $detail->email3 }}</li>
+                        <li class="custom-fs-18">{{ $detail->address }}</li>
+                        <li class="custom-fs-18">{{ $detail->phone }}</li>
+                        <li class="custom-fs-18">{{ $detail->email }}</li>
+                        <li class="custom-fs-18">{{ $detail->email3 }}</li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="info-title">
+                    <div class=" custom-text-primary custom-fs-25 custom-fw-700">
                         Branch Office(USA)
                     </div>
                     <ul>
-                        <li> {{ $detail->address2 }}</li>
+                        <li class="custom-fs-18"> {{ $detail->address2 }}</li>
                        
-                        <li>{{ $detail->phone2 }}</li>
-                        <li>{{ $detail->email2 }}</li>
+                        <li class="custom-fs-18">{{ $detail->phone2 }}</li>
+                        <li class="custom-fs-18">{{ $detail->email2 }}</li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="info-title">
+                    <div class=" custom-text-primary custom-fs-25 custom-fw-700">
                         Talk to an Expert
                     </div>
                     <ul>
-                        <li>{{ $detail->expert_phone1 }}</li>
-                        <li>{{ $detail->expert_phone2 }}</li>
+                        <li class="custom-fs-18">{{ $detail->expert_phone1 }}</li>
+                        <li class="custom-fs-18">{{ $detail->expert_phone2 }}</li>
 
                     </ul>
                 </div>

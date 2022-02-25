@@ -18,6 +18,13 @@
         margin-bottom: 1rem;
 
     }
+    .see_more{
+        cursor: pointer;
+    }
+    .modal{
+        border-radius: : 0px;
+
+    }
 </style>
 <section class="feedback ">
     <div class="container ">
@@ -39,10 +46,15 @@
                         
                         @endif
                     </div>
-                    <p>{!! strip_tags(Str::limit($testimonial->content,100))!!}</p>
+                    <p class="comment">{!! strip_tags(Str::limit($testimonial->content,100))!!}
+                        @if (Str::length($testimonial->content)>102)
+                         <span class='see_more custom-text-primary' data-bs-toggle="modal" data-bs-target="#seemore_modal" data-content="{!! strip_tags($testimonial->content)!!}">See more</span>
+                        @endif
+                   
+                    </p>
                     <div class="client-name custom-text-primary">
                     <i class="fas fa-quote-right text-dark"></i>
-                <p class="my-0 py-0 custom-fs-18 font-weight-800">
+                <p class="my-0 py-0 custom-fw-700 custom-fs-25 text-dark">
                     
                     {{ $testimonial->name }}
                 </p>
@@ -57,3 +69,48 @@
         </div>
     </div>
 </section>
+
+
+<!-- Modal -->
+<div class="modal fade " id="seemore_modal" tabindex="-1" aria-labelledby="seemore_modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body see_more_data">
+          
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+@push('scripts')
+<script type="text/javascript"
+src="https://www.viralpatel.net/demo/jquery/jquery.shorten.1.0.js"></script>
+
+<script>
+	$(document).ready(function() {
+	
+	
+
+
+        $('.see_more').click(function(){
+      $('.see_more_data').html('')
+
+      let content=   $(this).data('content');
+      $('.see_more_data').html(content)
+})
+	});
+
+ 
+</script>
+@endpush

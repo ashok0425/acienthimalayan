@@ -18,8 +18,25 @@
 .custom-fs-16{
   font-size: 16px!important;
 }
+.custom-fs-28{
+  font-size: 34px!important;
+}
+.custom-fs-25{
+  font-size: 25px!important;
+}
+
+.custom-fs-19{
+  font-size: 19px!important;
+}
 .custom-fw-600{
-  font-weight: 600;
+  font-weight: 600!important;
+}
+.custom-fw-700{
+  font-weight: 700!important;
+}
+
+.custom-fw-800{
+  font-weight: 800!important;
 }
 .btn-primary:hover {
   background: linear-gradient(103.86deg, rgb(42, 135, 183), #00c6ff);
@@ -759,7 +776,12 @@ header .bottom-header .navbar-nav .nav-item .dropdown-menu .dropdown-item {
 .navbar-nav .dropdown-menu{
   top: calc(100% + 14px);
 }
-
+.navbar-nav .dropdown::after{
+position: absolute;
+width: 100%;
+height: 14px;
+content: '';
+}
 header .bottom-header .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
   background-color: #fff;
 }
@@ -999,7 +1021,11 @@ main .feedback .feedback-box {
   background-color: #f9fafb;
   padding: 70px 55px 50px 55px;
   color: #33323C;
+  height:400px!important;
+
+
 }
+
 
 
 

@@ -48,10 +48,12 @@
                                 <a class="nav-link active" aria-current="page" href="{{ route('/') }}">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#">
-                                    Destination
-                                </a>
-                                <ul class="dropdown-menu main" aria-h3ledby="navbarDropdownMenuLink">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Destination
+                        </a>
+
+                   
+                                <ul class="dropdown-menu " aria-h3ledby="navbarDropdownMenuLink" >
                                     @foreach ($destinations as $destination)
                                         
                                     <li><a class="dropdown-item" href="{{ route('destination',['id'=>$destination->id,'url'=>$destination->url]) }}">{{ $destination->name}}</a></li>
@@ -72,24 +74,24 @@
                                 <a class="nav-link" href="{{ route('contactus') }}">Contact</a>
                             </li>
                         </ul>
-                        <div class="btn btn-primary btn-sm">
+                        <a class="btn btn-primary btn-sm" href="{{ route('booknow') }}">
                             Quick Trip
-                        </div>
+                        </a>
                     </div>
                 </div>
             </nav>
+
         </div>
     </div>
 </header>
+@push('scripts')
+    
+<script>
+    if ($(window).width()>900) {
+        $('.dropdown-menu').addClass('main')
+    }else{
+        $('.dropdown-menu').removeClass('main')
 
-{{-- <li class="dropdown">
-    <a class="dropdown-item dropdown-toggle" href="#"
-        id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">International</a>
-    <ul class="dropdown-menu sub" aria-h3ledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="bhutan.html">Bhutan</a></li>
-        <li><a class="dropdown-item" href="#">Tibet</a></li>
-        <li><a class="dropdown-item" href="#">India</a></li>
-        <li><a class="dropdown-item" href="#">Luxury Trips</a></li>
-    </ul>
-</li> --}}
+    }
+</script>
+@endpush

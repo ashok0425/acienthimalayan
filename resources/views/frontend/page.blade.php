@@ -3,7 +3,7 @@
 @section('content')
 <x-page-header :title="$data->title" :route="route('cms.detail',['page'=>$data->url])"  />
     <section class="articel2">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row my-5">
                 <div class="col-lg-6">
                     <img src="{{ asset($data->image)}}" class="img-fluid" alt="{{ $data->title }}" >
@@ -60,62 +60,40 @@
 
 
 
-    <section class="highly-rated">
+    <section class="highly-rated bg-white">
        <div class="container">
         <div class="heading my-5">
             <h2>Highly Rated on</h2>
            
         </div>
         <div class="row">
-            <div class="col-lg-2 col-md-6   px-lg-0 col-5 mt-sm-5 mb-sm-2 my-lg-0
+            <div class="col-lg-2 col-md-6   px-lg-0 col-6 mt-sm-5 text-center mb-sm-2 my-lg-0
 ">
-                <img src="./assets/logo-trip 1.png" alt="" class="img-fluid">
+                <img src="{{asset('frontend/assets/logo-trip 1.png')}}" alt="" class="img-fluid w-50">
             </div>
-            <div class="col-lg-3 col-md-6   px-lg-0 col-5 mt-sm-5 mb-sm-2 my-lg-0
+            <div class="col-lg-3 col-md-6   px-lg-0 col-6 mt-sm-5 text-center mb-sm-2 my-lg-0
 ">
-                <img src="./assets/logo-trustpilot 1.png" alt="" class="img-fluid">
+                <img src="{{asset('frontend/assets/logo-trustpilot 1.png')}}" alt="" class="img-fluid w-50">
 
             </div>
-            <div class="col-lg-3 col-md-6   px-lg-0 col-5 mt-sm-5 mb-sm-2 my-lg-0
+            <div class="col-lg-3 col-md-6   px-lg-0 col-6 mt-sm-5 text-center mb-sm-2 my-lg-0
 ">
-                <img src="./assets/logo-stride 1.png" alt="" class="img-fluid">
+                <img src="{{asset('frontend/assets/stride.png')}}" alt="" class="img-fluid w-50">
 
             </div>
-            <div class="col-lg-2 col-md-6   px-lg-0 col-5 mt-xs-5 mb-xs-2 my-lg-0
+            <div class="col-lg-2 col-md-6   px-lg-0 col-6 text-center mt-xs-5 mb-xs-2 my-lg-0
 ">
-                <img src="./assets/google-reviews 1.png" alt="" class="img-fluid">
+                <img src="{{asset('frontend/assets/google-reviews 1.png')}}" alt="" class="img-fluid w-75">
 
             </div>
-            <div class="col-lg-2 col-md-6   px-lg-0 col-5 mt-xs-5 mb-xs-2 my-lg-0
+            <div class="col-lg-2 col-md-6   px-lg-0 col-6 offset-3 offset-md-0 text-center mt-xs-5 mb-xs-2 my-lg-0
 ">
-                <img src="./assets/logo-yelp 1.png" alt="" class="img-fluid">
+                <img src="{{asset('frontend/assets/logoyep.png')}}" alt="" class="img-fluid w-75">
 
             </div>
         </div>
        </div>
     </section>
-    <section class="partners py-5">
-        <div class="container">
-            <div class="heading my-5">
-                <h2>We are affiliated to</h2>
-            </div>
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-3 col-md-4 col-5 my-3">
-                    <img src="./assets/partner-1.png" alt="" class="img-fluid">
-                </div>
-                <div class="col-lg-3 col-md-4 col-5 my-3">
-                    <img src="./assets/partner-2.png" alt="" class="img-fluid">
-
-                </div>
-                <div class="col-lg-3 col-md-4 col-5 my-3">
-                    <img src="./assets/partner-3.png" alt="" class="img-fluid">
-
-                </div>
-                <div class="col-lg-3 col-md-4 col-5 my-3">
-                    <img src="./assets/partner-4.png" alt="" class="img-fluid">
-
-                </div>
-            </div>
-        </div>
-    </section>
+   
+    @include('frontend.template.afflicate')
 @endsection

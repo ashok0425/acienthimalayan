@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title">{{ $event->title }}</h3>
+                                <h3 class="card-title text-dark">{{ $event->title }}</h3>
                             </div>
                         </div>
                     </a>

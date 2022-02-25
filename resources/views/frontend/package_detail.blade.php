@@ -212,7 +212,7 @@ color: #fff!important;
   
                     <div class="about-trip">
                         <div class="head  ">
-                                <ul class="nav nav-tabs d-flex justify-content-between" id="myTab" role="tablist">
+                                <ul class="nav nav-tabs d-flex justify-content-around" id="myTab" role="tablist">
                                     <li class="nav-item " role="presentation">
                                       <a class="nav-link active " id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fas fa-binoculars"></i> Overview</a>
                                     </li>
@@ -361,7 +361,7 @@ color: #fff!important;
                         </div>
                         </div>
                         <div class="title">
-                            {{ Str::limit($package->name,35,'...') }}
+                            {{ Str::limit($package->name,20,'...') }}
                         </div>
                         <div class="price ">
                                 $USD {{ $package->price }}

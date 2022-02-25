@@ -34,8 +34,30 @@ public function loadRegion($data) {
 }
 
 public function search(Request $request) {
-       
-      $packages=Package::where('destination_id',$request->destination)->where('category_destination_id',$request->category)->where('best_month','LIKE','%'.$request->month.'%')->get();
+
+  $query="SELECT * FROM  `packages` WHERE `status`=1 AND `destination_id`=$request->destination ";
+  if(isset($request->category)&&!empty($request->category)){
+    $query.=" AND `category_destination_id`=$request->category ";
+}
+if(isset($request->month)&&!empty($request->month)){
+  $query.=" AND `best_month` LIKE '%$request->duration%' ";
+  
+}
+$package_s=DB::select($query);
+
+  if(count($package_s)>0){
+    $packages= $package_s;
+
+  }else{
+    $query="SELECT * FROM  `packages` WHERE `status`=1 AND `destination_id`=$request->destination ";
+    if(isset($request->category)&&!empty($request->category)){
+        $query.=" AND `category_destination_id`=$request->category ";
+    }
+
+    $packages=DB::select($query);
+  }
+
+    
       $data=Destination::find($request->destination);
       $categories=CategoryDestination::where('destination_id',$request->destination)->get();
 
@@ -50,7 +72,7 @@ public function search(Request $request) {
 
 
     public function getAjaxpackage(Request $request) {
-       $query="SELECT * FROM  `packages` WHERE `status`=1 AND `destination_id`=8 ";
+       $query="SELECT * FROM  `packages` WHERE `status`=1 AND `destination_id`=$request->destination ";
       if(isset($request->category)&&!empty($request->category)){
           $query.=" AND `category_destination_id`=$request->category ";
       }

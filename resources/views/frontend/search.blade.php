@@ -82,6 +82,8 @@
             <div class="col-md-9">
              
                 <div class="row package_data">
+                    @if (count($packages)>0)
+                        
                     @foreach ($packages as $package)
                     <div class="col-md-4 col-sm-6 col-12">
                     <div class="card-style-2 ">
@@ -130,6 +132,12 @@
                     </div>
                 </div>
                 @endforeach
+                @else    
+                <div class="text-center custom-text-primary mt-5">
+                     <h2>No package found</h2>
+                </div>
+                @endif
+
                 </div>
                 
             </div>

@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="event-card-1">
                         <div class="card-body text-center">
-                            <h1 class="card-title custom-text-primary">{{ $event->title }}</h1>
+                            <h1 class="card-title text-dark">{{ $event->title }}</h1>
                         </div>
                         <div class="card">
 

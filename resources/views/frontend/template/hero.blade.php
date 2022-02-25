@@ -15,7 +15,7 @@
 <section class="hero">
     <div class="container">
         <div class="search-box">
-            <h1 class="title">
+            <h1 class="title custom-fs-28">
                 {{ $banner->title }}
             </h1>
             <form action="{{ route('search') }}" method="GET">
@@ -47,7 +47,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="row mt-3">
+                <div class="row mt-4">
                     <div class="col-md-6 col-sm-12 ">
                         <h3>
                             Month

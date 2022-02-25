@@ -23,7 +23,7 @@
                     <div class="px-2">
 
                     <div class="img-desc">
-                        <h2 class="custom-fs-18 custom-text-primary">{{ Str::limit($blog->post_title,40) }}</h2>
+                        <h2 class="custom-fs-18 text-dark custom-fw-700">{{ Str::limit($blog->post_title,35) }}</h2>
                     </div>
                 </div>
                     </a>

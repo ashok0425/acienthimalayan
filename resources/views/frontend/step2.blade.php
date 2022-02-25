@@ -234,7 +234,7 @@
                             <div class="form-group row my-2">
                                 <label for="dob" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Date of Birth: </label>
                                 <div class="col-md-8">
-                                    <input type="date" name="dob[]" class="form-control datepicker2" id="dob" required>
+                                    <input type="text" name="dob[]" class="form-control datepicker2" id="dob" required>
                                 </div>
                             </div>
                             <div class="form-group row my-2">
@@ -250,7 +250,7 @@
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="expiryDate" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label datepicker2">Expiry date: </label>
+                                <label for="expiryDate" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label datepicker3">Expiry date: </label>
                                 <div class="col-md-8">
                                     <input type="date" class="form-control" id="expiryDate" name="expiry_date[]">
                                 </div>
@@ -314,6 +314,8 @@
 $(function() {
 
     $(".datepicker2").datepicker();
+    $(".datepicker3").datepicker();
+
 
 });
 </script>

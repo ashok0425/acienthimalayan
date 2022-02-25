@@ -39,7 +39,7 @@
                                         
                                                 <input type="text" class="form-control" id="datepicker" name="departure_date" required placeholder="Enter date" @if (!empty($data))
                                                     value="{{ $date }}"
-                                                @endif>
+                                                @endif autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="form-group row my-3">
