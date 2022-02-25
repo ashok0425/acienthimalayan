@@ -10,9 +10,9 @@
         </div>
         <div class="owl-carousel destinations ">
             @foreach ($destinations as $destination)
-            <div class=" col-12">
+            <div class="mx-2">
                 <a href="{{ route('destination',['id'=>$destination->id,'url'=>$destination->url]) }}" class="text-decoration-none">
-                <div class="d-flex justify-content-center">
+                
                     <div class="card-style-1">
                         <div class="img">
                             @if ($destination->image==null)
@@ -31,7 +31,6 @@
                                 {{ $category_d }} Places
                             </div>
                         </div>
-                    </div>
                 </div>
                 </a>
             </div>

@@ -74,8 +74,7 @@
   height: 300px!important;
 }
 .card-style-1 img{
-  height: 28px!important;
-  width:100%!important;
+  height: 280px!important;
 
 }
             </style>
