@@ -1,3 +1,8 @@
+<style>
+    .recent-post img{
+height: 320px!important;
+    }
+</style>
 <section class="recent-post ">
     <div class="container">
         <div class="heading my-5">

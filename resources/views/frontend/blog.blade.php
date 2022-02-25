@@ -1,5 +1,10 @@
 @extends('frontend.layout.master')
 @section('content')
+<style>
+ .blog-post img{
+height: 320px!important;
+    }
+</style>
 <x-page-header title="Blog" :route="route('blog')"  />
 
 <section class="blog-post ">

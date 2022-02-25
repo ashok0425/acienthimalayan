@@ -4,8 +4,13 @@
     .attachment{
         display: none;
     }
-</style>
-<section class="blog-img">
+
+    .blog-img img{
+   height: 320px!important;
+
+       }
+   </style>
+<section class="blog-img my-5 py-3">
     <div class="container">
         @if ($blog->guid!=null && file_exists($blog->guid))
         <img src="{{ asset($blog->guid)}}"  class="img-fluid w-100">
