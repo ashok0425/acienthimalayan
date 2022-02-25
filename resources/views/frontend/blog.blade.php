@@ -11,7 +11,11 @@
                 <div class="post-card-1 card">
                     <a href="{{ route('blog.detail',['id'=>$blog->ID]) }}">
                     <div class="img-container">
-                        <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid">
+                        @if ($blog->image==null)
+                        <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid" alt="{{$blog->name  }}" >
+                        @else 
+                        <img src="{{ asset($blog->image)}}" alt="{{$blog->name  }}" class="img-fluid w-100">
+                        @endif
                         <div class="date">
                             <span>
                             {{ carbon\carbon::parse($blog->post_date)->format('d') }}
