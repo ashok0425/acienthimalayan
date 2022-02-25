@@ -36,7 +36,6 @@ public function show($id,$url) {
       $reviews=FacadesDB::table('testimonials')->join('package_testimonial','package_testimonial.testimonial_id','testimonials.id')->where('testimonials.status',1)->where('package_testimonial.package_id',$package->id)->orderBy('testimonials.id','desc')->get();
       $features=DB::table('packages')->join('package_featured','packages.id','package_featured.featured_id')->where('package_featured.package_id',$package->id)->where('status',1)->get();
       $before=Destination::find($package->destination_id);
-     dd([$package,$before]);
 
       return view('frontend.package_detail',compact('package','reviews','features','before'));
 }
