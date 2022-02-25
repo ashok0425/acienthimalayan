@@ -19,7 +19,7 @@ class BuyController extends Controller
       {
             $packages = Package::orderBy('id', 'desc')->get();
             $package = null;
-            $agents = json_decode(file_get_contents('http://nepalvisiontrecks.com/crm/agents'));
+            $agents = json_decode(file_get_contents('http://nepalvisiontreks.com/crm/agents'));
             if ($package_id != null) {
                   $package = Package::find($package_id);
             }
