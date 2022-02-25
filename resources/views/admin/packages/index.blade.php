@@ -41,7 +41,12 @@
                            <a href="{{ route('admin.categories-packages.delete',$package->id ) }}" class="btn btn-danger btn-sm delete_row" id="delete_row" ><i class="fa fa-trash"></i>
                            </a>
 
-                           {{-- <a href="{{ route('admin.categories-packages-gallery',$package->id ) }}" class="btn btn-danger btn-sm " id="delete_row" ><i class="fa fa-trash"></i> --}}
+                      
+                           @if ($package->status==1)
+                           <a href="{{route('admin.deactive',['id'=>$package->id,'table'=>'packages'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
+                           @else
+                           <a href="{{route('admin.active',['id'=>$package->id,'table'=>'packages'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                           @endif
                            </a>
                         </td>
                     </tr>

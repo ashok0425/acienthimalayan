@@ -40,6 +40,12 @@
 
                            <a href="{{ route('admin.testimonials.delete',$testimonial->id ) }}" class="btn btn-danger btn-sm delete_row" id="" ><i class="fa fa-trash"></i>
                            </a>
+                           
+                           @if ($testimonial->status==1)
+                           <a href="{{route('admin.deactive',['id'=>$testimonial->id,'table'=>'testimonials'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
+                           @else
+                           <a href="{{route('admin.active',['id'=>$testimonial->id,'table'=>'testimonials'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                           @endif
                         </td>
                     </tr>
                     @endforeach

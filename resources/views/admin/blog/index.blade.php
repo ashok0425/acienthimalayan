@@ -44,6 +44,12 @@
 
                            <a href="{{ route('admin.blogs.delete',$blog->ID ) }}" class="btn btn-danger btn-sm delete_row" id="" ><i class="fa fa-trash"></i>
                            </a>
+
+                           @if ($blog->status==1)
+                           <a href="{{route('admin.blog.deactive',['id'=>$blog->ID,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
+                           @else
+                           <a href="{{route('admin.blog.active',['id'=>$blog->ID,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                        
                         </td>
                     </tr>
                     @endforeach

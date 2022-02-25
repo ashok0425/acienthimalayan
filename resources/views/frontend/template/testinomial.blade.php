@@ -1,5 +1,5 @@
 @php
-    $testimonials=DB::table('testimonials')->where('display_home',1)->orderBy('id','desc')->get();
+    $testimonials=DB::table('testimonials')->where('display_home',1)->where('status',1)->orderBy('id','desc')->get();
 @endphp
 <style>
     .user_img{

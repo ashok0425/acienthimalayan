@@ -24,12 +24,12 @@ public function index($id,$url) {
 
 public function loadCategory($data) {
       // dd($request->all());
-  $categories = CategoryDestination::where('destination_id', $data)->orderBy('name')->get();
+  $categories = CategoryDestination::where('destination_id', $data)->where('status',1)->orderBy('name')->get();
   return $categories;
 }
 
 public function loadRegion($data) {
-  $categories = CategoryPlace::where('category_destination_id', $data)->orderBy('name')->get();
+  $categories = CategoryPlace::where('category_destination_id', $data)->where('status',1)->orderBy('name')->get();
   return $categories;
 }
 
@@ -67,10 +67,10 @@ $package_s=DB::select($query);
 
     
       $data=Destination::find($request->destination);
-      $categories=CategoryDestination::where('destination_id',$request->destination)->get();
+      $categories=CategoryDestination::where('destination_id',$request->destination)->where('status',1)->get();
 
-      $durations=Package::groupBy('duration')->select('duration')->where('destination_id',$request->destination)->where('duration','!=',null)->get();
-      $activities=Package::groupBy('activity')->select('activity')->where('destination_id',$request->destination)->where('activity','!=',null)->get();
+      $durations=Package::groupBy('duration')->select('duration')->where('destination_id',$request->destination)->where('duration','!=',null)->where('status',1)->get();
+      $activities=Package::groupBy('activity')->select('activity')->where('destination_id',$request->destination)->where('activity','!=',null)->where('status',1)->get();
 
       return view('frontend.search',compact('packages','data','categories','durations','activities'));
     }

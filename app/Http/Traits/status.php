@@ -41,20 +41,7 @@ trait status
     }
 
 
-    protected function destroy($id,$table){
-      $image=DB::table($table)->where('id',$id)->first();
-      if(isset($image->image)){
-          File::delete($image->image);
-      }
-      DB::table($table)->where('id',$id)->delete();
 
-        $notification=array(
-            'alert-type'=>'success',
-            'messege'=>'Sucessfull deleted',
-
-         );
-         return redirect()->back()->with($notification);
-    }
 
 
 }

@@ -4,26 +4,16 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
-use App\Http\Traits\status;
-use App\Models\Blogcategory;
-use App\Models\Category;
 
 use File;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use Throwable;
 
 class BlogController extends Controller
 {
 
-// Note :: active,deactive,destroy,method are place in Traits/status file
 
-public function getslug($value){
-    $slug = SlugService::createSlug(Blog::class, 'slug', $value);
-   return response()->json($slug);
-  }
 
-    use status;
     /**
      * Display a listing of the resource.
      *
@@ -169,6 +159,40 @@ public function getslug($value){
         }
 
         return redirect()->back()->with($notification);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    protected function active($id,$table){
+        DB::table($table)->where('ID',$id)->update([
+             'post_status'=>'publish',
+         ]);
+         $notification=array(
+             'alert-type'=>'success',
+             'messege'=>'Status: Activated.',
+
+          );
+          return redirect()->back()->with($notification);
+     }
+
+     protected function deactive($id,$table){
+        DB::table($table)->where('ID',$id)->update([
+            'post_status'=>'disable',
+        ]);
+        $notification=array(
+            'alert-type'=>'info',
+            'messege'=>'Status: Deactivated',
+
+         );
+         return redirect()->back()->with($notification);
     }
 
 }

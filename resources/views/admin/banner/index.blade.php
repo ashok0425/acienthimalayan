@@ -45,6 +45,12 @@
 
                            <a href="{{ route('admin.banners.delete',$banner->id ) }}" class="btn btn-danger btn-sm delete_row" id="" ><i class="fa fa-trash"></i>
                            </a>
+
+                           @if ($banner->status==1)
+                           <a href="{{route('admin.deactive',['id'=>$banner->id,'table'=>'main_slider'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
+                           @else
+                           <a href="{{route('admin.active',['id'=>$banner->id,'table'=>'main_slider'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                           @endif
                         </td>
                     </tr>
                     @endforeach

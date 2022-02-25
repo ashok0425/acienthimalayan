@@ -42,6 +42,12 @@
                     </a>
                            <a href="{{ route('admin.destination.delete',['id'=>$destination->id] ) }}" class="btn btn-danger btn-sm delete_row" id="delete_row" ><i class="fa fa-trash"></i>
                            </a>
+
+                           @if ($destination->status==1)
+                           <a href="{{route('admin.deactive',['id'=>$destination->id,'table'=>'destinations'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
+                           @else
+                           <a href="{{route('admin.active',['id'=>$destination->id,'table'=>'destinations'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                           @endif
                         </td>
                     </tr>
                     @endforeach

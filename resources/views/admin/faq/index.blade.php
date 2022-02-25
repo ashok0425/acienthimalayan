@@ -40,6 +40,12 @@
 
                            <a href="{{ route('admin.faqs.delete',$faq->id ) }}" class="btn btn-danger btn-sm delete_row" id="delete_row" ><i class="fa fa-trash"></i>
                            </a>
+                           
+                           @if ($faq->status==1)
+                           <a href="{{route('admin.deactive',['id'=>$faq->id,'table'=>'faqs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
+                           @else
+                           <a href="{{route('admin.active',['id'=>$faq->id,'table'=>'faqs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                           @endif
                         </td>
                     </tr>
                     @endforeach

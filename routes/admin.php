@@ -98,9 +98,12 @@ Route::get('role_permission/assign_role/edit/{id}','AssignroleController@edit')-
 Route::post('role_permission/assign_role/update','AssignroleController@update')->name('assignrole.update');
 Route::get('role_permission/assign_role/delete/{id}/{table}','AssignroleController@destroy')->name('assignrole.delete');
 
+Route::get('active/{id}/{table}','BannerController@active')->name('active');
+Route::get('deactive/{id}/{table}','BannerController@deactive')->name('deactive');
 
 
-
+Route::get('blog/active/{id}/{table}','BlogController@active')->name('blog.active');
+Route::get('blog/deactive/{id}/{table}','BlogrController@deactive')->name('blog.deactive');
 
 
 Route::resource('contact-details','Main\ContactDetailsController');
@@ -112,3 +115,5 @@ Route::resource('videos','Main\VideosController', array('only' => array('update'
 
 Route::get('booking','Main\MainController@getBooking');
 Route::get('booking/{id}','Main\MainController@BookingDetail')->name('bookingdetail');
+
+
