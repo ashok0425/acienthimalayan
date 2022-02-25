@@ -45,13 +45,13 @@ use Illuminate\Support\Facades\Route;
 
 		//blog 
 		Route::resource('/blogs', 'BlogController');
-		Route::get('/blogs/delete/{id}', 'Travel\BlogController@destroy')->name('blogs.delete');
+		Route::get('/blogs/delete/{id}', 'BlogController@destroy')->name('blogs.delete');
 
 
 
 	//Event 
 	Route::resource('/events', 'EventController');
-	Route::get('/events/delete/{id}', 'Travel\EventController@destroy')->name('events.delete');
+	Route::get('/events/delete/{id}', 'EventController@destroy')->name('events.delete');
 
 
 
