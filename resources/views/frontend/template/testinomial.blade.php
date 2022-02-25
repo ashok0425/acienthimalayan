@@ -53,8 +53,8 @@
                    
                     </p>
                     <div class="client-name custom-text-primary">
-                    <i class="fas fa-quote-right text-dark"></i>
-                <p class="my-0 py-0 custom-fw-700 custom-fs-25 text-dark">
+                    <i class="fas fa-quote-right custom-text-primary"></i>
+                <p class="my-0 py-0 custom-fw-700 custom-fs-25 custom-text-primary">
                     
                     {{ $testimonial->name }}
                 </p>

@@ -10,7 +10,7 @@
 
        }
    </style>
-<section class="blog-img my-5 py-3">
+{{-- <section class="blog-img my-5 py-3">
     <div class="container">
         @if ($blog->guid!=null && file_exists($blog->guid))
         <img src="{{ asset($blog->guid)}}"  class="img-fluid w-100">
@@ -19,8 +19,8 @@
         <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid"  >
         @endif
     </div>
-</section>
-<section class="blog-container">
+</section> --}}
+<section class="blog-container mt-5 pt-3">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
