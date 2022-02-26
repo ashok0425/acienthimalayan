@@ -99,7 +99,7 @@ $data='';
    foreach($packages as $package){
         $data.= "<div class='col-md-4 col-sm-6 col-12'>
        <div class='card-style-2 '>
-            <a href='". route('package.detail',['url'=>$package->url]) ."' class='text-decoration-none'>
+            <a href='". route('package.detail',['id'=>$package->id,'url'=>$package->url]) ."' class='text-decoration-none'>
            <div class='img-container'>
                <img src='".asset('frontend/assets/tour-1.png')."' alt='' class='img-fluid w-100 w-100'>
            </div>

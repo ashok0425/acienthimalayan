@@ -129,7 +129,7 @@
             <div class="col-md-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fab fa-youtube"></i></span>
+                      <span class="input-group-text"><i class="fas fa-plane"></i></span>
                     </div>
                     <input type="url" class="form-control" value="{{$website->youtube}}" name="youtube">
 

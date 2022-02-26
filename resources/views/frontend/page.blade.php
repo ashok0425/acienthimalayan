@@ -9,7 +9,7 @@
             <div class="row my-5">
                 <div class="col-lg-6">
                     <img src="{{ asset($data->image)}}" class="img-fluid" alt="{{ $data->title }}" >
-                </div>
+                 </div>
                 <div class="col-lg-6">
                     <div class="right-artile ps-lg-4">
 
