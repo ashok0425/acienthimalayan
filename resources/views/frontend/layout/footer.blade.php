@@ -20,17 +20,21 @@
                       @endforeach
                     </ul>
                 </div>
+
                 <div class="col-md-3 col-sm-6">
-                    <div class="footer-title custom-text-primary">Things to know</div>
+                    <div class="footer-title custom-text-primary">
+                        Things to know
+                    </div>
                     <ul>
-                        <li>Booking Terms & Condition</li>
-                        <li>Privacy & Disclaimer</li>
-                        <li>Volunteering Opportunities</li>
-                        <li>Travel Insurances</li>
-                        <li>Special Interest Tours</li>
-                        <li>How to Travel Free</li>
+                        @php
+                            $children=DB::table('cms')->where('parent_id',15)->limit(6)->where('status',1)->get();
+                        @endphp
+                      @foreach ($children as $child)
+                          <li><a href="{{ route('cms.detail',['page'=>15,'id'=>$child->url]) }}" class="text-decoration-none text-light">{{ $child->title }}</a></li>
+                      @endforeach
                     </ul>
                 </div>
+               
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-title custom-text-primary">Pay Safe With US</div>
                     <div class="payment-methods d-flex">
