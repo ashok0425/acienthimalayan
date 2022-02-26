@@ -7,7 +7,7 @@
  <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-3 col-6">
+        <div class="col-12">
           <!-- small box -->
           <div class="alert alert-success">Login Successful</div>
           {{-- <div class="small-box bg-info">
