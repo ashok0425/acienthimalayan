@@ -11,7 +11,7 @@
         <div class="event-cards">
             <div class="row">
                 @foreach ($events as $event)
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="event-card-1">
                         <a href="{{ route('event.detail',['id'=>$event->id]) }}" class="text-decoration-none custom-text-primary">
                         <div class="card">

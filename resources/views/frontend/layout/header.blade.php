@@ -8,10 +8,17 @@
         <div class="top-header d-md-flex d-none justify-content-between">
            <div class="d-md-flex ">
             <div class="contact">
-                <p>{{ $website->phone }}</p>
+                <p><a href="tel:{{ $website->phone }}" class="text-dark text-decoration-none">
+                    {{ $website->phone }}
+                </a></p>
             </div>
             <div class="company-email">
-                <p>{{ $website->email }}</p>
+                <p>
+                <p><a href="mailto:{{ $website->email }}" class="text-dark text-decoration-none">
+                    
+                    {{ $website->email }}
+                </a>
+                </p>
             </div> 
             <div class="location">
                 <p>{{ $website->address }}</p>

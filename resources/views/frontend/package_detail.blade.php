@@ -27,6 +27,9 @@ color: #fff!important;
   outline: none!important;
   border: none;
 }
+.btn_sm{
+    /* border-radius: 10px; */
+}
 </style>
 
 @section('content')
@@ -36,12 +39,25 @@ color: #fff!important;
     <div class="card">
         <div class="card-body py-1 my-0">
             <div class="row">
-                <div class="col-md-2 offset-md-8 text-right">
-                    <a href="{{ route('print',$package->id) }}" class="w-75 custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center"><i class="fa fa-print"></i>  
+                <div class="col-md-6 offset-md-6 text-right">
+                    <div class="d-flex justify-content-evenly flex-row">
+                    
+                        <div>
+                    <a href="#"class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#enquery"><i class="fa fa-envelope"></i>  
+                       &nbsp;
+                        Enquery us</a>
+                </div>
+                <div>
+                    <a href="#"class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#customize"><i class="fa fa-recycle"></i>  
+                       &nbsp;
+                        Customize</a>
+                </div>
+                <div class="">
+                    <a href="{{ route('print',$package->id) }}" class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center"><i class="fa fa-print"></i>  
                        &nbsp;
                         Print This</a>
                 </div>
-                <div class="col-md-2 text-left">
+                <div class="">
 
 
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -55,6 +71,8 @@ color: #fff!important;
         </div>
     </div>
 </div>   
+</div>   
+
     
 <main>
    
@@ -386,6 +404,575 @@ color: #fff!important;
 
 </main>
 
+
+
+
+
+
+
+{{-- Enquery Model  --}}
+<!-- Modal -->
+<div class="modal fade " id="enquery" tabindex="-1" aria-labelledby="enquery" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title">
+                <p class="custom-text-18 custom-fw-700 my-0 py-0">Enquiry Us</p>
+<small>
+    Required Field <span class="text-danger">*</span>
+</small>            
+            </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+            @php
+            $agents = DB::connection('mysql2')->table('users')->where('email_verified_at','!=',null)->get();
+        @endphp
+            <div class="card-body">
+                <form action="{{ route('enquery.post') }}" method="POST">
+                    @csrf
+                
+                  
+                               <input type="hidden" value="{{ $package->id }}" name="booking">
+                      
+
+                    <div class="form-group row my-3">
+                        <div for="tripName" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Full Name<span class="text-danger">*</span>: </div>
+                        <div class="col-md-8">
+                    <input type="text" name="name" class="form-control" placeholder="Enter you full name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row my-3">
+                        <div for="tripName" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Email<span class="text-danger">*</span>: </div>
+                        <div class="col-md-8">
+                    <input type="text" name="name" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row my-3">
+                        <div for="tripName" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Phone<span class="text-danger">*</span>: </div>
+                        <div class="col-md-8">
+                    <input type="number" name="name" class="form-control" placeholder="Mobile Number" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row my-3">
+                        <div for="tripdate" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Expected Date<span class="text-danger">*</span>:</div>
+                        <div class="col-md-8">
+                            
+                                    <input type="text" class="form-control" id="datepicker" name="expected_date" required placeholder="Enter date" @if (!empty($data))
+                                        value="{{ $date }}"
+                                    @endif autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="form-group row my-3">
+                        <div for="travellers" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">Number Of Travellers<span class="text-danger">*</span>:</div>
+                        <div class="col-md-8">
+                            
+                                <select name="no_participants" class="form-select form-control" required>
+                                    <?php for($i=1; $i<=20; $i++){ ?>
+                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                    <?php } ?>
+                                </select>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row my-3">
+                        <div for="travellers" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">How did you find us?<span class="text-danger">*</span>:</div>
+                        <div class="col-md-8">
+                            
+                            <select name="agent" class="form-select form-control" required>
+                                @foreach($agents as $agent)
+                                <option value="{{$agent->id}}">{{$agent->name}}</option>
+                                @endforeach
+                               
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group row my-3">
+                        <div for="travellers" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">Your Mesage<span class="text-danger">*</span>:</div>
+                        <div class="col-md-8">
+                            
+                            <textarea name="comment" class="form-control" placeholder="Enter your message" id="message" required></textarea>
+
+
+                        </div>
+                    </div>
+                    
+                    <div class="mt-2 text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Enquiry now</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+
+
+{{-- Customization  Model  --}}
+<!-- Modal -->
+<div class="modal fade " id="customize" tabindex="-1" aria-labelledby="customize" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title">         <p class="custom-text-18 custom-fw-700 my-0 py-0">Customize Package</p>
+                <small>
+                    Required Field <span class="text-danger">*</span>
+                </small> </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+            @php
+            $agents = DB::connection('mysql2')->table('users')->where('email_verified_at','!=',null)->get();
+        @endphp
+            <div class="card-body">
+                <form method="post" action="{{ route('enquery.post') }}" class="non-rounded-form">
+        
+                  {{ csrf_field() }}
+        
+                  <div class="row">
+        
+        
+                    
+        
+                  <div class="col-12 col-sm-6 col-md-12 col-lg-6 my-2">
+        
+                      <div class="form-group">
+        
+                        <label for="name">Full Name<span class="text-danger">*</span></label>
+        
+                        <input type="text" name="name" class="form-control" placeholder="Enter your full name" id="name" required>
+        
+                    </div>
+        
+                </div>
+        
+                <div class="col-12 col-sm-6 col-md-12 col-lg-6 my-2">
+        
+                  <div class="form-group">
+        
+                    <label for="email">Email<span class="text-danger">*</span></label>
+        
+                    <input type="text" name="email" class="form-control" placeholder="Enter your email address" id="email" required>
+        
+                </div>
+        
+            </div>
+        
+                  @if($package)
+                  <input type="hidden" name="subject" class="form-control" placeholder="Enter your subject" id="subject" value="Customize Trip">
+                  <input type="hidden" name="package_name" class="form-control" placeholder="Enter your subject" id="subject" value="{{ $package->name }}">
+                  <div class="col-12 col-sm-6 col-md-12 col-lg-6 my-2 {{-- swapped-element --}}">
+        
+                      <div class="form-group">
+        
+                        <label for="country">Select Country<span class="text-danger">*</span></label>
+        
+                        <select class="form-control" id="country" name="country" required>
+        
+                            <option disabled="disabled" selected="selected"> Select your country</option>
+        
+                            <option value="Afghanistan">Afghanistan</option>
+        
+                            <option value="Albania">Albania</option>
+        
+                            <option value="Algeria">Algeria</option>
+        
+                            <option value="Argentina">Argentina</option>
+        
+                            <option value="Australia">Australia</option>
+        
+                            <option value="Austria">Austria</option>
+        
+                            <option value="Azerbaijan">Azerbaijan</option>
+        
+                            <option value="Bahamas">Bahamas</option>
+        
+                            <option value="Bahrain">Bahrain</option>
+        
+                            <option value="Bangladesh">Bangladesh</option>
+        
+                            <option value="Belarus">Belarus</option>
+        
+                            <option value="Belgium">Belgium</option>
+        
+                            <option value="Belize">Belize</option>
+        
+                            <option value="Benin">Benin</option>
+        
+                            <option value="Bermuda">Bermuda</option>
+        
+                            <option value="Bhutan">Bhutan</option>
+        
+                            <option value="Bolivia">Bolivia</option>
+        
+                            <option value="Botswana">Botswana</option>
+        
+                            <option value="Brazil">Brazil</option>
+        
+                            <option value="Bulgaria">Bulgaria</option>
+        
+                            <option value="Burkina Faso">Burkina Faso</option>
+        
+                            <option value="Burundi">Burundi</option>
+        
+                            <option value="Cambodia">Cambodia</option>
+        
+                            <option value="Cameroon">Cameroon</option>
+        
+                            <option value="Canada">Canada</option>
+        
+                            <option value="Chad">Chad</option>
+        
+                            <option value="Chile">Chile</option>
+        
+                            <option value="China">China</option>
+        
+                            <option value="Colombia">Colombia</option>
+        
+                            <option value="Comoros">Comoros</option>
+        
+                            <option value="Costa Rica">Costa Rica</option>
+        
+                            <option value="Cote D'Ivoire">Cote D'Ivoire</option>
+        
+                            <option value="Cyprus">Cyprus</option>
+        
+                            <option value="Czech Republic">Czech Republic</option>
+        
+                            <option value="Denmark">Denmark</option>
+        
+                            <option value="Djibouti">Djibouti</option>
+        
+                            <option value="Dominican Republic">Dominican Republic</option>
+        
+                            <option value="Ecuador">Ecuador</option>
+        
+                            <option value="Egypt">Egypt</option>
+        
+                            <option value="El Salvador">El Salvador</option>
+        
+                            <option value="Estonia">Estonia</option>
+        
+                            <option value="Fiji">Fiji</option>
+        
+                            <option value="Finland">Finland</option>
+        
+                            <option value="France">France</option>
+        
+                            <option value="Gabon">Gabon</option>
+        
+                            <option value="Gambia">Gambia</option>
+        
+                            <option value="Georgia">Georgia</option>
+        
+                            <option value="Germany">Germany</option>
+        
+                            <option value="Ghana">Ghana</option>
+        
+                            <option value="Gibraltar">Gibraltar</option>
+        
+                            <option value="Greece">Greece</option>
+        
+                            <option value="Greenland">Greenland</option>
+        
+                            <option value="Grenada">Grenada</option>
+        
+                            <option value="Guatemala">Guatemala</option>
+        
+                            <option value="Guinea">Guinea</option>
+        
+                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+        
+                            <option value="Guyana">Guyana</option>
+        
+                            <option value="Haiti">Haiti</option>
+        
+                            <option value="Honduras">Honduras</option>
+        
+                            <option value="Hong Kong">Hong Kong</option>
+        
+                            <option value="Hungary">Hungary</option>
+        
+                            <option value="Iceland">Iceland</option>
+        
+                            <option value="India">India</option>
+        
+                            <option value="Indonesia">Indonesia</option>
+        
+                            <option value="Iran (Islamic Republi">Iran (Islamic Republi</option>
+        
+                            <option value="Iraq">Iraq</option>
+        
+                            <option value="Ireland">Ireland</option>
+        
+                            <option value="Israel">Israel</option>
+        
+                            <option value="Italy">Italy</option>
+        
+                            <option value="Jamaica">Jamaica</option>
+        
+                            <option value="Japan">Japan</option>
+        
+                            <option value="Jordan">Jordan</option>
+        
+                            <option value="Kazakhstan">Kazakhstan</option>
+        
+                            <option value="Kenya">Kenya</option>
+        
+                            <option value="Korea (South)">Korea (South)</option>
+        
+                            <option value="Kuwait">Kuwait</option>
+        
+                            <option value="Latvia">Latvia</option>
+        
+                            <option value="Lebanon">Lebanon</option>
+        
+                            <option value="Lesotho">Lesotho</option>
+        
+                            <option value="Liberia">Liberia</option>
+        
+                            <option value="Libyan Arab Jamahiriy">Libyan Arab Jamahiriy</option>
+        
+                            <option value="Lithuania">Lithuania</option>
+        
+                            <option value="Luxembourg">Luxembourg</option>
+        
+                            <option value="Madagascar">Madagascar</option>
+        
+                            <option value="Malawi">Malawi</option>
+        
+                            <option value="Malaysia">Malaysia</option>
+        
+                            <option value="Mali">Mali</option>
+        
+                            <option value="Mauritania">Mauritania</option>
+        
+                            <option value="Mauritius">Mauritius</option>
+        
+                            <option value="Mexico">Mexico</option>
+        
+                            <option value="Mongolia">Mongolia</option>
+        
+                            <option value="Morocco">Morocco</option>
+        
+                            <option value="Mozambique">Mozambique</option>
+        
+                            <option value="Myanmar">Myanmar</option>
+        
+                            <option value="Namibia">Namibia</option>
+        
+                            <option value="Nauru">Nauru</option>
+        
+                            <option value="Nepal">Nepal</option>
+        
+                            <option value="Netherlands">Netherlands</option>
+        
+                            <option value="New Zealand">New Zealand</option>
+        
+                            <option value="Nicaragua">Nicaragua</option>
+        
+                            <option value="Niger">Niger</option>
+        
+                            <option value="Nigeria">Nigeria</option>
+        
+                            <option value="Norway">Norway</option>
+        
+                            <option value="Oman">Oman</option>
+        
+                            <option value="Pakistan">Pakistan</option>
+        
+                            <option value="Panama">Panama</option>
+        
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+        
+                            <option value="Paraguay">Paraguay</option>
+        
+                            <option value="Peru">Peru</option>
+        
+                            <option value="Philippines">Philippines</option>
+        
+                            <option value="Poland">Poland</option>
+        
+                            <option value="Portugal">Portugal</option>
+        
+                            <option value="Qatar">Qatar</option>
+        
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+        
+                            <option value="Senegal">Senegal</option>
+        
+                            <option value="Sierra Leone">Sierra Leone</option>
+        
+                            <option value="Singapore">Singapore</option>
+        
+                            <option value="Somalia">Somalia</option>
+        
+                            <option value="South Africa">South Africa</option>
+        
+                            <option value="Spain">Spain</option>
+        
+                            <option value="Sri Lanka">Sri Lanka</option>
+        
+                            <option value="Sudan">Sudan</option>
+        
+                            <option value="Suriname">Suriname</option>
+        
+                            <option value="Swaziland">Swaziland</option>
+        
+                            <option value="Sweden">Sweden</option>
+        
+                            <option value="Switzerland">Switzerland</option>
+        
+                            <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+        
+                            <option value="Taiwan">Taiwan</option>
+        
+                            <option value="Tajikistan">Tajikistan</option>
+        
+                            <option value="Thailand">Thailand</option>
+        
+                            <option value="Togo">Togo</option>
+        
+                            <option value="Trinidad And Tobago">Trinidad And Tobago</option>
+        
+                            <option value="Tunisia">Tunisia</option>
+        
+                            <option value="Turkey">Turkey</option>
+        
+                            <option value="Turkmenistan">Turkmenistan</option>
+        
+                            <option value="Uganda">Uganda</option>
+        
+                            <option value="Ukraine">Ukraine</option>
+        
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+        
+                            <option value="United Kingdom">United Kingdom</option>
+        
+                            <option value="United States">United States</option>
+        
+                            <option value="Uruguay">Uruguay</option>
+        
+                            <option value="Uzbekistan">Uzbekistan</option>
+        
+                            <option value="Venezuela">Venezuela</option>
+        
+                            <option value="VietNam">VietNam</option>
+        
+                            <option value="Yemen">Yemen</option>
+        
+                            <option value="Yugoslavia">Yugoslavia</option>
+        
+                            <option value="Zambia">Zambia</option>
+        
+                            <option value="Zimbabwe">Zimbabwe</option>
+        
+                        </select>
+        
+                    </div>
+        
+                </div>
+        
+                <div class="col-12 col-sm-6 col-md-12 col-lg-6 my-2 {{-- swapped-element --}}">
+        
+                  <div class="form-group">
+        
+                    <label for="participants">No Of Participants</label>
+        
+                    <input type="number" name="no_participants" class="form-control" placeholder="Enter number of participants" id="participants">
+        
+                </div>
+        
+            </div>
+            <div class="col-12 col-sm-6 col-md-12 col-lg-6 my-2 {{-- swapped-element --}}">
+        
+              <div class="form-group">
+        
+                <label for="travelDate">Expected Travel Date<span class="text-danger">*</span></label>
+        
+                <input type="text" name="expected_date" class="form-control date-picker" placeholder="Enter your expected travel date" id="travelDate" required>
+        
+            </div>
+        
+        </div>
+        <div class="col-12 col-sm-6 col-md-12 col-lg-6 my-2 {{-- swapped-element --}}">
+        
+          <div class="form-group">
+        
+            <label for="contactNumber">Contact Number<span class="text-danger">*</span></label>
+        
+            <input type="text" name="phone" class="form-control" placeholder="Enter your contact address" id="contactNumber" required>
+        
+        </div>
+        
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-2 {{-- swapped-element --}}">
+        
+        
+        <div class="form-group">
+            <label for="How did you find us?">How did you find us?<span class="text-danger">*</span></label>
+           <select name="agent" class="form-control" required>
+               {{--  <option value="Past Traveller">Past Traveller</option>
+                <option value="Search Engine">Search Engine</option> --}}
+                {{-- <option value="Agent">Agent</option> --}}
+                 @foreach($agents as $agent)
+                <option value="{{$agent->id}}">{{$agent->name}}</option>
+                @endforeach
+                {{-- <option value="Anjan Shrestha">Anjan Shrestha</option> --}}
+            </select>
+                                            
+        </div>
+        
+        </div>
+        @endif
+        
+        
+        
+        <div class="col-12">
+        
+          <div class="form-group">
+        
+            <label for="message">Your Message<span class="text-danger">*</span></label>
+        
+            <textarea name="comment" class="form-control" placeholder="Enter your message" id="message" required></textarea>
+        
+        </div>
+        
+        </div>
+        <input type="hidden" name="booking" value="{{$package->id}}">
+        <div class="col-12">
+        
+          <div class="form-group">
+        
+            <button type="submit" class="btn btn-primary mt-2">Submit <i class="fa fa-paper-plane"></i></button>
+        
+        </div>
+        
+        </div>
+        
+        </div>
+        
+        </form>
+              </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 @endsection
 
 @push('scripts')
@@ -405,4 +992,20 @@ src="https://www.viralpatel.net/demo/jquery/jquery.shorten.1.0.js"></script>
 	
 	});
 </script>
+@endpush
+
+@push('scripts')
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+$(function() {
+
+    $("#datepicker").datepicker();
+    $("#travelDate").datepicker();
+
+
+});
+</script>
+@endpush 
+@push('style')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
 @endpush

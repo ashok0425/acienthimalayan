@@ -13,6 +13,11 @@
    height: 320px!important;
 
        }
+       .blog_content_image img{
+           min-width: 100%!important;
+           max-width: 100%!important;
+
+       }
    </style>
 {{-- <section class="blog-img my-5 py-3">
     <div class="container">
@@ -35,7 +40,9 @@
                 <br>
                 <br>
 
+               <div class="blog_content_image">
                 {!! $blog->post_content !!}
+               </div>
             </div>
             <div class="col-md-4">
                 <aside>

@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Contact;
 use App\Models\Website;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -57,4 +59,69 @@ try {
           
            
       }
+
+
+      
+	public function Enquery(Request $request) {
+                  $request->validate([
+                        'name'=>'required',
+                        'email'=>'required|email',
+                        'phone'=>'required',
+
+                  ]);
+            $url = $request->server('HTTP_REFERER');
+            $userIP = $request->ip();
+            $user_agent = $request->server('HTTP_USER_AGENT');
+
+                              $booking = Booking::create([
+                                    'package'=>$request->booking,
+                                    'date'	 =>$request->expected_date,
+                                    'source'=>$request->source,
+                                    'name'=>$request->name,
+                                    'agent'=>$request->agent,
+                                    'email' =>$request->email,
+                                    'phone'=>$request->phone,
+                                    'comment'=>$request->comment,
+                                    'type'=>'enquiry',
+                                 'no_traveller'=>$request->no_participants,	
+                                 'country'=>$request->country,	
+                                  'expected_date'=>$request->expected_date,	
+                                    
+                              ]);
+                     
+                        $agent=DB::connection('mysql2')->table('users')->where('id',$request->agent)->first()->name;
+                        $data = [
+                              'name' => $request->name,
+                              'myemail' => $request->email,
+                              'subject' =>($request->subject)?$request->subject:'Inquiry',
+                              'mycontact'=>$request->phone,
+                              'mycomment'=>$request->comment,	
+                              'country'=>$request->country,	
+                              'no_participants'=>$request->no_participants,	
+                              'expected_date'=>$request->expected_date,
+                              'package_name'=>$request->package_name,	
+                              'user_info'=> "Url: {$url} <br> | IP:<a href='https://www.ip-tracker.org/locator/ip-lookup.php?ip={$userIP}'>Click here to view more info :{$userIP}</a>" ,
+                              'source'=>$agent
+                        ];
+                        
+            // return view('emails.contactus',$data);
+                        $result = Mail::send('email.enquiry', $data, function ($message) use ($data){
+                              $message->from('noreply@nepalvisiontreks.com','Nepal Vision');
+                              $message->subject($data['subject']);
+                              $message->to('sales@nepalvisiontreks.com');	
+                              
+                              $message->bcc('yubraj.misfit@gmail.com');			
+                        });
+                    
+            
+                        $notification=array(
+                              'alert-type'=>'success',
+                              'messege'=>'Thank you for contacting us.',
+                             
+                           );
+            
+                           return redirect()->route('pay.thanku')->with($notification);
+                  }
+
+      
 }

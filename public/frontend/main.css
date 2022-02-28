@@ -61,13 +61,11 @@
   line-height: 73.25px;
 }
 
-.card-style-1 {
-  margin: 1em 0;
-}
 
 .card-style-1 .img {
   position: relative;
-  width: 90%;
+  width: 100%;
+  text-align: center;
 }
 
 .card-style-1 .place-name {
@@ -1123,15 +1121,15 @@ main .trip-desc .book-now {
 main .trip-desc .book-now h2 {
   color:  rgb(42, 135, 183)!important;
   font-weight: 500;
-  font-size: 25px;
-  line-height: 37px;
+  font-size: 22px;
+  line-height: 22px;
 }
 
 main .trip-desc .book-now p {
   color: #33323C;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 main .trip-desc .book-now .difficuilty,
@@ -1458,9 +1456,7 @@ footer .bottom-footer {
   .post-card-1 p {
     font-size: 12px !important;
   }
-  .card-style-1 {
-    width: 390px;
-  }
+  
  
   .j-center {
     display: inline-block;
@@ -1630,5 +1626,10 @@ height: 20vh;
     max-width: 90%!important;
     top: 50px!important;
   }
+}
+
+.card-style-1 a.card{
+  border-radius:10px!important;
+
 }
 /*# sourceMappingURL=style.css.map */

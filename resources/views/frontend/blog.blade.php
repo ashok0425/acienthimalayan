@@ -6,6 +6,8 @@
 <style>
  .blog-post img{
 height: 220px!important;
+width: 100%!important;
+
     }
 </style>
 <x-page-header title="Blog" :route="route('blog')"  />

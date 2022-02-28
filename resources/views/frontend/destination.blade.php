@@ -23,20 +23,19 @@
             <div class="row ">
                 @foreach ($categories as $destination)
                    
-                <div class="col-lg-3 col-sm-6 ">
-                    <div class="card-style-1">
-                <a href="{{ route('package.category',['id'=>$destination->id,'url'=>$destination->url]) }}" class="text-decoration-none">
+                <div class="col-lg-3 col-sm-6 my-2">
+                    <a href="{{ route('package.category',['id'=>$destination->id,'url'=>$destination->url]) }}" class="text-decoration-none  ">
+                    <div class="card-style-1 ">
+              
 
-                        <div class="img">
+                        <div class="img ">
                         
                             @if ($destination->image==null)
                             <img src="{{ asset('frontend/assets/tour-1.png')}}" alt="" class="img-fluid w-100 w-100">
                             @else 
                             <img src="{{ asset($destination->image)}}" alt="{{$destination->name  }}" class="img-fluid w-100">
                             @endif
-                            <div class="place-name">
-                                {{ $destination->name }}
-                            </div>
+                           
                             <div class="places">
                                 @php
                                     $place=DB::table('packages')->where('category_destination_id',$destination->id)->get()->count();
@@ -45,8 +44,15 @@
                                 {{ $place }} Places
                             </div>
                         </div>
-                </a>
+                        
                     </div>
+            <div class="card">
+                <div class="place-name custom-fs-25 text-dark custom-fw-700 text-center card-body">
+                    {{Str::limit($destination->name,18) }}
+                </div>
+            </div>
+                </a>
+
                 </div>
                 @endforeach
             

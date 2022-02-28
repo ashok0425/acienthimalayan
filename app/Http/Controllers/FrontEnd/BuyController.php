@@ -19,7 +19,7 @@ class BuyController extends Controller
       {
             $packages = Package::orderBy('id', 'desc')->get();
             $package = null;
-            $agents = json_decode(file_get_contents('https://nepalvisiontreks.com/crm/agents'));
+            $agents = DB::connection('mysql2')->table('users')->where('email_verified_at','!=',null)->get();
             if ($package_id != null) {
                   $package = Package::find($package_id);
             }
