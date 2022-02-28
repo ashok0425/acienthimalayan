@@ -87,9 +87,11 @@
                     </div>
                     <ul>
                         <li class="custom-fs-18">{{ $detail->address }}</li>
-                        <li class="custom-fs-18">{{ $detail->phone }}</li>
-                        <li class="custom-fs-18">{{ $detail->email }}</li>
-                        <li class="custom-fs-18">{{ $detail->email3 }}</li>
+                        <li class="custom-fs-18"><a href="tel:{{ $detail->phone }}" class="text-decoration-none text-dark">{{ $detail->phone }}</a></li>
+                        <li class="custom-fs-18"><a href="mailto:{{ $detail->email}}" class="text-decoration-none text-dark">{{ $detail->email }}</a></li>
+
+                        <li class="custom-fs-18"><a href="mailto:{{ $detail->email3}}" class="text-decoration-none text-dark">{{ $detail->email3 }}</a></li>
+
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
@@ -98,9 +100,10 @@
                     </div>
                     <ul>
                         <li class="custom-fs-18"> {{ $detail->address2 }}</li>
-                       
-                        <li class="custom-fs-18">{{ $detail->phone2 }}</li>
-                        <li class="custom-fs-18">{{ $detail->email2 }}</li>
+                        <li class="custom-fs-18"><a href="tel:{{ $detail->phone2}}" class="text-decoration-none text-dark">{{ $detail->phone2 }}</a></li>
+
+                        <li class="custom-fs-18"><a href="mailto:{{ $detail->email2}}" class="text-decoration-none text-dark">{{ $detail->email2 }}</a></li>
+
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
@@ -108,8 +111,9 @@
                         Talk to an Expert
                     </div>
                     <ul>
-                        <li class="custom-fs-18">{{ $detail->expert_phone1 }}</li>
-                        <li class="custom-fs-18">{{ $detail->expert_phone2 }}</li>
+                        <li class="custom-fs-18"><a href="tel:{{ $detail->expert_phone1 }}" class="text-decoration-none text-dark">{{ $detail->expert_phone1 }}</a></li>
+                        <li class="custom-fs-18"><a href="tel:{{ $detail->expert_phone2}}" class="text-decoration-none text-dark">{{ $detail->expert_phone2 }}</a></li>
+
 
                     </ul>
                 </div>

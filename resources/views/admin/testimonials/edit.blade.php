@@ -32,13 +32,17 @@
 
             <div class="form-group col-md-6">
                 <label >Select Package</label>
-                <select name="package" id=""  class="form-control">
+                <select name="package[]" id=""  class="form-control packages" multiple>
                     <option value="">--Select Package--</option>
+                    @foreach ($edit_packages as $package)
+                    <option value="{{ $package->id }}"
+                       selected>{{ $package->name }}</option>
+                        
+                    @endforeach
+
                     @foreach ($packages as $package)
                     <option value="{{ $package->id }}"
-                        @if ($package->id==$testimonial->package_id)
-                            selected
-                        @endif>{{ $package->name }}</option>
+                       >{{ $package->name }}</option>
                         
                     @endforeach
                 </select>
@@ -87,4 +91,13 @@
 @endsection
 
 
+
+@push('scripts')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+    $('.packages').select2({ placeholder: "Select package" }); 
+    
+    </script>
+@endpush
 

@@ -11,7 +11,10 @@
             <div class="card my-2">
                 
                <div class="card-header">
-                <h2 class="card-title custom-text-primary">Please Submit Travellers Details</h2>
+                <h2 class="card-title custom-text-primary py-0 my-0">Please Submit Travellers Details</h2>
+                <small>
+                   Required field<span class="text-danger">*</span>
+                </small>
                 <hr>
                 <small class="custom-text-primary">All your personal detail will keep at our office here in Kathmandu with confidence and other then official use we do not share the information for anyone else. Please complete the following information for each individuals; participating in your team.</small></div>
 
@@ -27,9 +30,9 @@
                      
                         {{-- <form action="#"> --}}
                             <div class="form-group row my-2">
-                                <label for="title" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Title: </label>
+                                <label for="title" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Title<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
-                                    <select class="form-control" id="title" name="title[]">
+                                    <select class="form-control" id="title" name="title[]" required>
                                         <option value="Mr">Mr.</option>
                                         <option value="Miss">Miss.</option>
                                         <option value="Mrs">Mrs.</option>
@@ -37,9 +40,9 @@
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="fname" name="f_name[]" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">First Name: </label>
+                                <label for="fname" name="f_name[]" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">First Name<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="fname[]" placeholder="John" required name="fname">
+                                    <input type="text" class="form-control" id="fname[]" placeholder="John" required name="fname" required>
                                 </div>
                             </div>
                             <div class="form-group row my-2">
@@ -49,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="country" name="country[]" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Country: </label>
+                                <label for="country" name="country[]" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Country<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
                                     <select name="country[]" class="form-control" id="country" required>
                                         <option value="0" selected="selected">--Select Country--</option>
@@ -205,13 +208,13 @@
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="mail" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Detail Mailing Address: </label>
+                                <label for="mail" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Detail Mailing Address<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
-                                    <textarea class="form-control" id="mail" rows="3" name="mailing_address[]"></textarea>
+                                    <textarea class="form-control" id="mail" rows="3" name="mailing_address[]" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="email" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Email: </label>
+                                <label for="email" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Email<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
                                     <input type="email" name="email[]" class="form-control" id="email" placeholder="youremail@email.com" required>
                                 </div>
@@ -223,9 +226,9 @@
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="phoned" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Phone (Day): </label>
+                                <label for="phoned" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Phone (Day)<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
-                                    <input type="text" name="phone_day[]" class="form-control" id="phoned">
+                                    <input type="text" name="phone_day[]" class="form-control" id="phoned" required>
                                 </div>
                             </div>
                             <div class="form-group row my-2">
@@ -235,7 +238,7 @@
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="dob" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Date of Birth: </label>
+                                <label for="dob" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Date of Birth<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
                                     <input type="text" name="dob[]" class="form-control datepicker2" id="dob" required>
                                 </div>
@@ -259,9 +262,9 @@
                                 </div>
                             </div>
                             <div class="form-group row my-2">
-                                <label for="econtact" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Emergency Contact: </label>
+                                <label for="econtact" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Emergency Contact<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
-                                    <textarea class="form-control" id="econtact" rows="3"  name="emergency_contact[]"></textarea>
+                                    <textarea class="form-control" id="econtact" rows="3"  name="emergency_contact[]" readonly></textarea>
                                 </div>
                             </div>
                         {{-- </form> --}}

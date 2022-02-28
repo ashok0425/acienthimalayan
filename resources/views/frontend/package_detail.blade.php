@@ -33,7 +33,9 @@ color: #fff!important;
 </style>
 
 @section('content')
-
+@php
+    $packages_id=$package->id;
+@endphp
 <x-page-header :title="$package->name" :route="route('package.detail',['url'=>$package->url])"  :beforeroute="route('destination',['id'=>$before->id,'url'=>$before->url])" :before="$before->name"/>
  <div class="container-fluid px-0 mx-0">
     <div class="card">
@@ -94,7 +96,7 @@ color: #fff!important;
                                <p class='my-0 py-0'>
                                $USD
                                 @if (!empty($package->discounted_price))
-                                {{ $package->offer }} 
+                                {{ $package->discounted_price }} 
 
                                 <s>{{ $package->price }}  </s>
 
@@ -241,11 +243,17 @@ color: #fff!important;
                                       <a class="nav-link  font-weight-700 " id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-map-marker"></i> Itinerary</a>
                                     </li>
 
+                                    <li class="nav-item " role="presentation">
+                                        <a class="nav-link  font-weight-700 " id="profile-tab" data-bs-toggle="tab" href="#dateprice" role="tab" aria-controls="dateprice" aria-selected="false"><i class="fas fa-calendar"></i> Departure Date</a>
+                                      </li>
+
                                      @if (!empty($package->faq))
                                     <li class="nav-item " role="presentation">
                                       <a class="nav-link  font-weight-700 " id="faq-tab" data-bs-toggle="tab" href="#faq" role="tab" aria-controls="faq" aria-selected="false"><i class="fas fa-question"></i> Faq</a>
                                     </li>
                                     @endif
+
+
 
                                     @if (!empty($package->useful_info))
                                     <li class="nav-item " role="presentation">
@@ -265,6 +273,17 @@ color: #fff!important;
                                         <a class="nav-link  font-weight-700 " id="review-tab" data-bs-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false"> <i class="fas fa-comment"></i> Review</a>
                                       </li>
                                       @endif
+
+
+
+
+
+
+
+
+
+
+
                                   </ul>
                         </div>
                     </div>
@@ -296,6 +315,197 @@ color: #fff!important;
                         <div class="tab-pane card-body fade" id="equiment" role="tabpanel" aria-labelledby="equiment-tab">
                             {!! $package->equiment !!}
                         </div>
+
+
+
+
+
+                        <div class="tab-pane fade card-body" id="datePrice" role="tabpanel" aria-labelledby="datePrice-tab">
+
+                            <h2 class="mt-2">Departure dates for {{ $package->name }}</h2>
+
+                            <p>We provide a series of fixed departure trek, tour and expeditions in Nepal, Bhutan, Tibet and India. If you are single and wishing to be with a group, you can join our fixed departure schedule. If the schedule dates are not convenient for you, contact us & let us know; we are more than happy to customize our trips to suit your needs. If any individuals or group doesn’t want to join with our other group, we can operate as per your wish and requirement. We are ground operator of these Himalayan destination and able to arrange your trip as per your interested date and choice.</p>
+
+                            <form>
+
+                                <div class="row">
+
+                                    <div class="col-12">
+
+                                        <p>Check out all the available dates</p>
+
+                                    </div>
+
+                                    <div class="col-12">
+
+                                        <div class="row">
+
+                                            <div class="col-6 col-lg-4">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">
+                                                    <i class="fa mx-1 fa-calendar  custom-text-primary"></i>
+
+                                                    </span>
+                                                 
+
+                                                    <select class="form-control select-year" aria-describedby="basic-addon1">
+
+                                                     {{--    <option disabled selected>Select Year</option> --}}
+                                                      <option value="{{ date('Y') }}">Select Dates</option>
+                                                       <option value="{{ date('Y') }}">{{ date('Y') }}</option>
+                                                       <option value="{{ date('Y')+1 }}">{{ date('Y')+1 }}</option>
+                                                       <option value="{{ date('Y')+2 }}">{{ date('Y')+2 }}</option>
+                                                     {{--   <option value="{{ date('Y')+2 }}">{{ date('Y')+2 }}</option>
+                                                       <option value="{{ date('Y')+3 }}">{{ date('Y')+3 }}</option> --}}
+
+                                                    </select>
+
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-6 col-lg-4">
+
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon2">
+                                                        <i class="fa mx-1 fa-calendar  custom-text-primary"></i>
+    
+                                                        </span>
+                                                     
+                                                    <select class="form-control" id="select-month" aria-describedby="basic-addon2">
+                                                        {{-- <option disabled selected>Select Month</option> --}}
+                                                        <option value="1">Jan</option>
+                                                        <option value="2">Feb</option>
+                                                        <option value="3">Mar</option>
+                                                        <option value="4">Apr</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">Aug</option>
+                                                        <option value="9">Sep</option>
+                                                        <option value="10">Oct</option>
+                                                        <option value="11">Nov</option>
+                                                        <option value="12">Dec</option>
+                                                    </select>
+
+
+
+                                                </div>
+
+                                            </div>
+
+                                       
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </form> 
+
+                            <table class="table table-bordered text-center">
+
+                              <thead>
+
+                                <tr>
+
+                                  <th scope="col">Start Date</th>
+
+                                  <th scope="col">Finish Date</th>
+
+                                  <th scope="col">Availability</th>
+
+                                  <th scope="col">Price</th>
+
+                                  <th scope="col">Action</th>
+
+                              </tr>
+
+                          </thead>
+
+                          <tbody class="ajaxloadmoredeparture">{{-- 
+
+                            <tr>
+
+                              <td data-th="Start Date">2018-02-21</td>
+
+                              <td data-th="Finish Date">2018-03-01</td>
+
+                              <td data-th="Availability">Guaranteed (Limited)</td>
+
+                              <td data-th="Price">$1340</td>
+
+                              <td data-th="Action">
+
+                                <a class="btn btn-sample1 btn-sm" href="#">Book Now</a> 
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                          <td data-th="Start Date">2018-02-21</td>
+
+                          <td data-th="Finish Date">2018-03-01</td>
+
+                          <td data-th="Availability">Guaranteed (Limited)</td>
+
+                          <td data-th="Price">$1340</td>
+
+                          <td data-th="Action">
+
+                            <a class="btn btn-sample2 btn-sm" href="#">Contact Us</a>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td data-th="Start Date">2018-02-21</td>
+
+                      <td data-th="Finish Date">2018-03-01</td>
+
+                      <td data-th="Availability">Guaranteed (Limited)</td>
+
+                      <td data-th="Price">$1340</td>
+
+                      <td data-th="Action">
+
+                        <a class="btn btn-sample1 btn-sm" href="#">Book Now</a> 
+
+                    </td>
+
+                </tr>
+
+             --}}</tbody>
+
+        </table>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <div class="tab-pane card-body fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                          
@@ -1005,7 +1215,93 @@ $(function() {
 
 });
 </script>
+
+   <script>
+    function adjustMonths() {
+     var thisYear = new Date().getFullYear() + "";
+     var thisMonth = new Date().getMonth()+1 + "";
+     var selectedYear = $(".select-year").val();
+     if (thisMonth.length == 1) {
+      thisMonth = "0" + thisMonth;
+    }
+
+    var yearAndMonth = parseInt(thisYear+thisMonth);
+
+    $('#select-month option').each(function() {
+
+      var selectMonth = $(this).prop('value');
+      
+      if (selectMonth.length == 1) {
+       selectMonth = "0" + selectMonth;
+     }
+
+     if (parseInt(selectedYear + selectMonth) < yearAndMonth) {
+       $(this).hide();
+     } else {
+       $(this).show();
+     }
+
+   });
+
+    $("#select-month option").prop(':selected', false);
+
+    $('#select-month option').each(function () {
+      if ($(this).css('display') != 'none') {
+        $(this).prop("selected", true);
+        return false;
+      }
+    });
+
+  }
+
+  $(document).ready(function() {
+    adjustMonths();
+    
+    $('.select-year').change(function() {
+      adjustMonths();
+    })
+
+ });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+   ajaxdate();
+   $("#select-month, .select-year").change(function(e) {
+        e.preventDefault();    
+        $('#ajaxloader').show();
+        // console.log('changed');
+        ajaxdate();
+    });
+    function ajaxdate(){
+        $.ajax({
+          type: 'GET',
+          url: '{{ route('departure') }}',
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          
+          data: {
+            packageid : {{ $packages_id }},
+            year: $(".select-year").val(),
+            month: $("#select-month").val()
+          },
+          success: function(data) {
+            $(".ajaxloadmoredeparture").empty();
+            $(".ajaxloadmoredeparture").append(data);
+            $('#ajaxloader').hide();
+
+          }
+        });
+      }
+    });
+</script>
+
+
+
+
 @endpush 
 @push('style')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+
+
 @endpush

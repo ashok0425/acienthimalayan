@@ -7,9 +7,10 @@ use App\Models\CategoryDestination;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Models\Contact ;
+use App\Models\Departure;
 use App\Models\Destination;
-use DB;
-use Illuminate\Support\Facades\DB as FacadesDB;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB ;
 
 class PackageController extends Controller
 {
@@ -33,7 +34,7 @@ class PackageController extends Controller
 
 public function show($id,$url) {
 	$package = Package::where('id',$id)->first();
-      $reviews=FacadesDB::table('testimonials')->join('package_testimonial','package_testimonial.testimonial_id','testimonials.id')->where('testimonials.status',1)->where('package_testimonial.package_id',$package->id)->orderBy('testimonials.id','desc')->get();
+      $reviews=DB::table('testimonials')->join('package_testimonial','package_testimonial.testimonial_id','testimonials.id')->where('testimonials.status',1)->where('package_testimonial.package_id',$package->id)->orderBy('testimonials.id','desc')->get();
       $features=DB::table('packages')->join('package_featured','packages.id','package_featured.featured_id')->where('package_featured.package_id',$package->id)->where('status',1)->get();
       $before=Destination::find($package->destination_id);
 
@@ -47,6 +48,14 @@ public function printpackage($id){
 }
 
 
+
+public function Departure(Request $request){
+     $package=Package::find($request->packageid);
+      $departures=Departure::where('status',1)->orderBy('start_date')->where('package_id',$request->packageid)->whereYear('start_date', '=', $request->year)->whereMonth('start_date', '=', $request->month)->where('start_date', '>=', Carbon::today())->get();
+     
+     return view('frontend.departure',compact('departures','package'));
+
+}
 
 
 

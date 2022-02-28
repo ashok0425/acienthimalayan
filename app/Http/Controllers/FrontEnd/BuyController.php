@@ -121,7 +121,7 @@ class BuyController extends Controller
                   $message->from('noreply@nepalvisiontreks.com');
                   $message->to('sales@nepalvisiontreks.com');
                   $message->to('inquiry@nepalvisiontreks.com');
-                  $message->to($data['email']);
+                  // $message->to($data['email']);
 
                   $message->subject('booking a package');
             });

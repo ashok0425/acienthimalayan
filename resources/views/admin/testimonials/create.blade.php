@@ -31,7 +31,7 @@
 
             <div class="form-group col-md-6">
                 <label >Select Package</label>
-                <select name="package" id=""  class="form-control custom-select" multiple>
+                <select name="package[]" id=""  class="form-control custom-select packages" multiple>
                     <option value="">--Select Package--</option>
                     @foreach ($packages as $package)
                     <option value="{{ $package->id }}">{{ $package->name }}</option>
@@ -79,3 +79,11 @@
 
 
 
+@push('scripts')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+    $('.packages').select2({ placeholder: "Select package" }); 
+    
+    </script>
+@endpush

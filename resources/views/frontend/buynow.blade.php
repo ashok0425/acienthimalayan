@@ -11,14 +11,15 @@
             <div class="col-lg-8">
                     <div class="card">
 <div class="card-header">
-                    <h2 class="custom-text-primary card-title">Make A Booking</h2>
+                    <h2 class="custom-text-primary card-title my-0 py-0">Make A Booking</h2>
+                    <small>Required field <span class="text-danger">*</span></small>
                 </div>
                         <div class="card-body">
                             <form action="{{ route('booking.step2') }}" method="POST">
                                 @csrf
                                     @csrf
                                 <div class="form-group row my-3">
-                                    <div for="tripName" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">Trip Name: </div>
+                                    <div for="tripName" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">Trip Name<span class="text-danger">*</span>: </div>
                                     <div class="col-md-8">
                                         
                                         @if(isset($package))
@@ -37,16 +38,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group row my-3">
-                                    <div for="tripdate" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Departure Date:</div>
+                                    <div for="tripdate" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Departure Date<span class="text-danger">*</span>:</div>
                                     <div class="col-md-8">
                                         
-                                                <input type="text" class="form-control" id="datepicker" name="departure_date" required placeholder="Enter date" @if (!empty($data))
-                                                    value="{{ $date }}"
+                                                <input type="text" class="form-control" id="datepicker" name="departure_date" required placeholder="Enter date" @if (isset($date))
+                                                    value="{{ carbon\carbon::parse($date)->format('d/m/Y') }}"
                                                 @endif autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="form-group row my-3">
-                                    <div for="travellers" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">Number Of Travellers:</div>
+                                    <div for="travellers" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">Number Of Travellers<span class="text-danger">*</span>:</div>
                                     <div class="col-md-8">
                                         
                                             <select name="no_traveller" class="form-select form-control">
@@ -60,7 +61,7 @@
 
 
                                 <div class="form-group row my-3">
-                                    <div for="travellers" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">How did you find us?:</div>
+                                    <div for="travellers" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500">How did you find us?<span class="text-danger">*</span>:</div>
                                     <div class="col-md-8">
                                         
                                         <select name="agent" class="form-select form-control">
