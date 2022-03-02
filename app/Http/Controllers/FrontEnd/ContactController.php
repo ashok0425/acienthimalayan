@@ -66,7 +66,6 @@ try {
             $userIP = $request->ip();
 
             $ipdata=$this->IPtoLocation($userIP);
-            dd($ipdata['country_name']);
                   $request->validate([
                         'name'=>'required',
                         'email'=>'required|email',
