@@ -695,14 +695,14 @@ color: #fff!important;
                     <div class="form-group row my-3">
                         <div for="tripName" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Email<span class="text-danger">*</span>: </div>
                         <div class="col-md-8">
-                    <input type="text" name="name" class="form-control" placeholder="Enter your email address" required>
+                    <input type="text" name="email" class="form-control" placeholder="Enter your email address" required>
                         </div>
                     </div>
 
                     <div class="form-group row my-3">
                         <div for="tripName" class="col-md-4  custom-text-primary custom-fs-18 custom-fw-500"> Phone<span class="text-danger">*</span>: </div>
                         <div class="col-md-8">
-                    <input type="number" name="name" class="form-control" placeholder="Mobile Number" required>
+                    <input type="number" name="phone" class="form-control" placeholder="Mobile Number" required>
                         </div>
                     </div>
 
