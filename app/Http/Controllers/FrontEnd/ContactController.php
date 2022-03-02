@@ -63,6 +63,10 @@ try {
 
       
 	public function Enquery(Request $request) {
+            $userIP = $request->ip();
+
+            $ipdata=$this->IPtoLocation($userIP);
+            dd($ipdata);
                   $request->validate([
                         'name'=>'required',
                         'email'=>'required|email',
@@ -70,10 +74,8 @@ try {
 
                   ]);
             $url = $request->server('HTTP_REFERER');
-            $userIP = $request->ip();
             $user_agent = $request->server('HTTP_USER_AGENT');
-            $ipdata=$this->IPtoLocation($userIP);
-dd($ipdata);
+          
                               $booking = Booking::create([
                                     'package'=>$request->booking,
                                     'date'	 =>$request->expected_date,
