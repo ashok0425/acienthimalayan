@@ -65,7 +65,6 @@ try {
 	public function Enquery(Request $request) {
             $userIP = $request->ip();
             $ipdata=$this->IPtoLocation($userIP);
-dd($ipdata);
 
                   $request->validate([
                         'name'=>'required',
