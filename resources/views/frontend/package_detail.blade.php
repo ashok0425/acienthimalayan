@@ -634,7 +634,7 @@ color: #fff!important;
 
 
 
-{{-- Enquery Model  --}}
+{{-- video Model  --}}
 <!-- Modal -->
 <div class="modal fade " id="video" tabindex="-1" aria-labelledby="videoy" aria-hidden="true">
     <div class="modal-dialog modal-lg">

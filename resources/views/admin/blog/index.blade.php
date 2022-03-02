@@ -49,7 +49,7 @@
                            <a href="{{route('admin.blog.deactive',['id'=>$blog->ID,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
                            @else
                            <a href="{{route('admin.blog.active',['id'=>$blog->ID,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
-                        
+                        @endif
                         </td>
                     </tr>
                     @endforeach
