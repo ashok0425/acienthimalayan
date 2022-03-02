@@ -73,7 +73,7 @@ try {
             $userIP = $request->ip();
             $user_agent = $request->server('HTTP_USER_AGENT');
             $ipdata=$this->IPtoLocation($userIP);
-
+dd($ipdata);
                               $booking = Booking::create([
                                     'package'=>$request->booking,
                                     'date'	 =>$request->expected_date,
