@@ -236,7 +236,7 @@ color: #fff!important;
     
                                 <div class="col-md-6 py-2">
     
-                                <a href="#"class=" btn btn-primary  text-decoration-none " data-bs-toggle="modal" data-bs-target="#enquery">  
+                                <a href="#"class=" btn btn-primary w-100 text-decoration-none " data-bs-toggle="modal" data-bs-target="#enquery">  
                                    
                                     Enquery us</a>
                             </div>
