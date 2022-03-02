@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             
-            <div class="col-8">
+            <div class="col-md-8">
             <div class="card my-2">
                 
                <div class="card-header">
@@ -264,7 +264,7 @@
                             <div class="form-group row my-2">
                                 <label for="econtact" class="col-md-4 custom-text-primary custom-fw-600 custom-fs-16 col-form-label">Emergency Contact<span class="text-danger">*</span>: </label>
                                 <div class="col-md-8">
-                                    <textarea class="form-control" id="econtact" rows="3"  name="emergency_contact[]" readonly></textarea>
+                                    <textarea class="form-control" id="econtact" rows="3"  name="emergency_contact[]" required></textarea>
                                 </div>
                             </div>
                         {{-- </form> --}}
@@ -293,11 +293,11 @@
                     <input type="hidden" name="no_traveller" value="{{ $no_traveller }}">
                     <div class="card-body border-top">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 my-1">
                                 <input type="submit" class="btn btn-success" name="booknow" value="Book Now, Pay Later">
 
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 my-1">
                                 <input type="submit" class="btn btn-primary" name="bookandpay" value="Book Now, Pay Now">
 
                             </div>

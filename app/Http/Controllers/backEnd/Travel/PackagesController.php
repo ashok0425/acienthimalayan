@@ -105,6 +105,8 @@ class PackagesController extends Controller
             $package->meta_keywords = $request->meta_keywords;
             $package->meta_author = $request->meta_author;
             $package->meta_description = $request->meta_description;
+            $package->video = $request->video;
+
             $banner=$request->file('banner');
             if($banner){
                 $fname=rand().$request->name.$banner->getClientOriginalExtension();
@@ -118,6 +120,15 @@ class PackagesController extends Controller
                 $package->thumbnail='upload/package/thumbnail/'.$fname;
                 $roadmap->move(public_path().'/upload/package/thumbnail/',$fname);
             }
+
+            
+            // $video=$request->file('video');
+            // if($video){
+            //     $fname=rand().$request->name.$video->getClientOriginalExtension();
+            //     $package->video='upload/package/video/'.$fname;
+            //     $video->move(public_path().'/upload/package/video/',$fname);
+            // }
+
             $package->save();
            
             
@@ -242,6 +253,8 @@ class PackagesController extends Controller
             $package->meta_keywords = $request->meta_keywords;
             $package->meta_author = $request->meta_author;
             $package->meta_description = $request->meta_description;
+            $package->video = $request->video;
+
 
            
             $banner=$request->file('banner');
@@ -259,6 +272,17 @@ class PackagesController extends Controller
                 $package->thumbnail='upload/package/thumbnail/'.$fname;
                 $roadmap->move(public_path().'/upload/package/thumbnail/',$fname);
             }
+
+
+            // $video=$request->file('video');
+            // if($video){
+            //     File::delete($package->video);
+            //     $fname=rand().$request->name.$video->getClientOriginalExtension();
+            //     $package->video='upload/package/video/'.$fname;
+            //     $video->move(public_path().'/upload/package/video/',$fname);
+            // }
+
+
             $package->save();
 
             if (isset($request->featured_package)){

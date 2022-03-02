@@ -49,8 +49,9 @@ class BuyController extends Controller
       public function Store(Request $request)
       {
             $agent = DB::connection('mysql2')->table('users')->where('id', $request->agent)->first()->name;
-
-
+            $user_agent = $request->server('HTTP_USER_AGENT');
+            $userIP = $request->ip();
+   $ipdata=$this->IPtoLocation($userIP);
             // dd($data);
             // $no_traveller=count($request->f_name);
             $booking = Package::find($request->booking);
@@ -61,6 +62,11 @@ class BuyController extends Controller
                   'source' => $request->source,
                   'agent' => $request->agent,
                   'type' => 'booking',
+                  'longitude' => $ipdata['longitude'],
+                  'latitude' => $ipdata['latitude'],
+
+                  'actual_country' =>$ipdata['country_name'],
+                  'actual_place' => $ipdata['region_name'],
 
 
             ]);
@@ -81,12 +87,8 @@ class BuyController extends Controller
                   $customer_detail->booking_id = $booking1->id;
                   $customer_detail->save();
             }
-            // dd($booking);
-            // $book=Booking::create($request->all());
-            $user_agent = $request->server('HTTP_USER_AGENT');
-            $userIP = $request->ip();
-
-            // 'title','f_name','l_name','mailing_address','email','country','occupation','phone_day','phone_evening','passport_no','passport_place_issue','expiry_date','emergency_contact','booking','departure_date','no_traveller','insurance'
+          
+           
             $data = [
                   'userIP' => $userIP,
                   'email' => $request['email'][0],
@@ -236,6 +238,41 @@ class BuyController extends Controller
 public function thanku(){
       return view('frontend.thankyou');
 }
+
+
+
+
+
+
+
+function IPtoLocation($ip){ 
+      $apiURL = 'https://freegeoip.app/json/'.$ip; 
+       
+      // Make HTTP GET request using cURL 
+      $ch = curl_init($apiURL); 
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+      $apiResponse = curl_exec($ch); 
+      if($apiResponse === FALSE) { 
+          $msg = curl_error($ch); 
+          curl_close($ch); 
+          return false; 
+      } 
+      curl_close($ch); 
+       
+      // Retrieve IP data from API response 
+      $ipData = json_decode($apiResponse, true); 
+       
+      // Return geolocation data 
+      return !empty($ipData)?$ipData:false; 
+  }
+
+
+
+
+
+
+
+
 
 
 }

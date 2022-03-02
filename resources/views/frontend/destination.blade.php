@@ -23,8 +23,8 @@
             <div class="row ">
                 @foreach ($categories as $destination)
                    
-                <div class="col-lg-3 col-sm-6 my-2">
-                    <a href="{{ route('package.category',['id'=>$destination->id,'url'=>$destination->url]) }}" class="text-decoration-none  ">
+                <div class="col-lg-3 col-sm-6 my-2 ">
+                    <a href="{{ route('package.category',['id'=>$destination->id,'url'=>$destination->url]) }}" class="text-decoration-none card ">
                     <div class="card-style-1 ">
               
 
@@ -46,8 +46,8 @@
                         </div>
                         
                     </div>
-            <div class="card">
-                <div class="place-name custom-fs-25 text-dark custom-fw-700 text-center card-body">
+            <div class="card-body">
+                <div class="place-name custom-fs-25 text-dark custom-fw-700 text-center ">
                     {{Str::limit($destination->name,18) }}
                 </div>
             </div>

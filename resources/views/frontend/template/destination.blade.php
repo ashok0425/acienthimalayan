@@ -13,7 +13,7 @@
      
 
 
-            <div class="mx-2">
+            <div class="mx-2 card">
                 <a href="{{ route('destination',['id'=>$destination->id,'url'=>$destination->url]) }}" class="text-decoration-none">
                 
                     <div class="card-style-1 ">
@@ -37,8 +37,8 @@
                         </div>
                         
                     </div>
-            <div class="card">
-                <div class="place-name custom-fs-25 text-dark custom-fw-700 text-center card-body">
+            <div class="card-body">
+                <div class="place-name custom-fs-25 text-dark custom-fw-700 text-center">
                     {{Str::limit($destination->name,18) }}
                 </div>
             </div>

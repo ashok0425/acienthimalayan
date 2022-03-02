@@ -229,14 +229,15 @@
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  bottom: 95px;
+          transform: translate(-50%,-50%);
+
+  top: 50%;
   text-align: center;
 }
 
 .hero2 .hero-text p, .hero2 .hero-text a {
   font-weight: 500;
   font-size: 20px;
-  line-height: 30px;
   text-decoration: none;
   color: #fff;
 }
@@ -1476,6 +1477,10 @@ footer .bottom-footer {
 }
 
 @media screen and (max-width: 767px) {
+  footer{
+    padding: 40px 0;
+
+  }
   main .right-artile h2{
     font-size: 30.83px!important;
     line-height: 36px;
@@ -1527,7 +1532,7 @@ footer .bottom-footer {
     font-size: 21px;
   }
   .hero-text h1 {
-    font-size: 30px !important;
+    font-size: 18px !important;
   }
   .hero-text p,
   .hero-text a {

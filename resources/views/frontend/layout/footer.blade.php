@@ -3,7 +3,7 @@
     <div class="container">
         <div class="main-footer">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 d-none d-md-block">
                    
                     <img src="{{ asset('frontend/assets/footer-img.png')}}" alt="logo">
                 </div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
          <div class="row mt-1 mt-md-5">
-             <div class="col-md-3 offset-md-2 text-center">
+             <div class="col-md-3 offset-md-2 text-md-center text-left">
                 <div class="footer-title custom-text-primary">
                     Head office (Nepal)
                 </div>
@@ -86,7 +86,7 @@
 
              </div>
 
-             <div class="col-md-3  text-center">
+             <div class="col-md-3  text-md-center text-left">
                 <div class="footer-title custom-text-primary">
                     USA Contact Office
                 </div>
@@ -127,7 +127,7 @@
 
 
 
-             <div class="col-md-3  text-center">
+             <div class="col-md-3  text-md-center text-left">
                 <div class="footer-title custom-text-primary">
                     USA Branch Office
                 </div>
@@ -170,7 +170,7 @@
 @php
     $website=DB::table('websites')->first();
 @endphp
-        <div class="bottom-footer d-flex justify-content-between">
+        <div class="bottom-footer d-flex justify-content-between flex-column flex-md-row">
             <p>Copyright  © {{ date('Y') }} NepalVisionTreks. All right Reserved</p>
             <p>Follow Us : <a href="{{ $website->facebook }}" class="text-white text-decoration-none">FB</a> | <a href="{{ $website->instagram }}" class="text-white text-decoration-none"> Insta </a> | <a href="{{ $website->youtube }}" class="text-white text-decoration-none"> Trip Visor </a></p>
         </div>

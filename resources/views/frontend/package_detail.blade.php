@@ -35,31 +35,36 @@ color: #fff!important;
 @section('content')
 @php
     $packages_id=$package->id;
+    $arr = explode(' ', trim($package->name));
+        // return isset() ? $arr[0] : $string;
 @endphp
-<x-page-header :title="$package->name" :route="route('package.detail',['url'=>$package->url])"  :beforeroute="route('destination',['id'=>$before->id,'url'=>$before->url])" :before="$before->name"/>
+<x-page-header :title="$arr[0].' ' .$arr[1]" :route="route('package.detail',['url'=>$package->url])"  :beforeroute="route('destination',['id'=>$before->id,'url'=>$before->url])" :before="$before->name"/>
  <div class="container-fluid px-0 mx-0">
     <div class="card">
         <div class="card-body py-1 my-0">
             <div class="row">
-                <div class="col-md-6 offset-md-6 text-right">
-                    <div class="d-flex justify-content-evenly flex-row">
-                    
-                        <div>
-                    <a href="#"class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#enquery"><i class="fa fa-envelope"></i>  
-                       &nbsp;
-                        Enquery us</a>
-                </div>
-                <div>
+                <div class="col-md-5 offset-md-7 text-right">
+                    <div class="d-flex justify-content-center justify-content-md-evenly flex-md-row flex-column">
+
+@if ($package->video)
+<div class="my-1">
+    <a href="#"class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#video"><i class="fa fa-play-circle"></i>  
+       &nbsp;
+        Video</a>
+</div>
+@endif
+                       
+                <div class="my-1">
                     <a href="#"class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#customize"><i class="fa fa-recycle"></i>  
                        &nbsp;
                         Customize</a>
                 </div>
-                <div class="">
+                <div class="my-1">
                     <a href="{{ route('print',$package->id) }}" class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center"><i class="fa fa-print"></i>  
                        &nbsp;
                         Print This</a>
                 </div>
-                <div class="">
+                <div class="my-1">
 
 
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -224,9 +229,19 @@ color: #fff!important;
                                 </div>
                                 </p>
                             </div>
-                            <div class="col-12 py-2">
-                                <a class="btn btn-primary w-100" href="{{ route('booknow',['package_id'=>$package->id]) }}">Book Now</a>
+                            <div class="row">
+                                <div class="col-md-6 py-2">
+                                    <a class="btn btn-primary w-100" href="{{ route('booknow',['package_id'=>$package->id]) }}">Book Now</a>
+                                </div>
+    
+                                <div class="col-md-6 py-2">
+    
+                                <a href="#"class=" btn btn-primary  text-decoration-none " data-bs-toggle="modal" data-bs-target="#enquery">  
+                                   
+                                    Enquery us</a>
                             </div>
+                            </div>
+                            
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -551,28 +566,28 @@ color: #fff!important;
                 <h2 class='my-0 py-0'>Feautre Packages</h2>
             </div>
             <div class="row">
-                @foreach ($features as $package)
+                @foreach ($features as $packaged)
                 <div class="col-md-3 col-sm-4">
            
                 <div class="card-style-2 ">
-                    <a href="{{ route('package.detail',['id'=>$package->id,'url'=>$package->url]) }}" class="text-decoration-none">
+                    <a href="{{ route('package.detail',['id'=>$packaged->id,'url'=>$packaged->url]) }}" class="text-decoration-none">
                     <div class="img-container">
                        
-                        @if ($package->banner==null)
+                        @if ($packaged->banner==null)
                         <img src="{{ asset('frontend/assets/tour-1.png')}}" alt="" class="img-fluid w-100 w-100">
                         @else 
-                        <img src="{{ asset($package->banner)}}" alt="{{$package->name  }}" class="img-fluid w-100">
+                        <img src="{{ asset($packaged->banner)}}" alt="{{$packaged->name  }}" class="img-fluid w-100">
                         @endif
                     </div>
                     <div class="img-desc">
                         <div class="about-img row">
                             <div class="col-6">
                                <p class="px-0 mx-0">
-                                @if (!empty($package->duration))
-                                   {{ $package->duration }} |
+                                @if (!empty($packaged->duration))
+                                   {{ $packaged->duration }} |
                                    @endif
-                                   @if (!empty($package->activity))
-                                 {{ Str::limit($package->activity,20) }}
+                                   @if (!empty($packaged->activity))
+                                 {{ Str::limit($packaged->activity,20) }}
                                        
                                    @endif
                                    </p> 
@@ -581,10 +596,10 @@ color: #fff!important;
                         <div class="col-6 ">
 
                             <div class="rating">
-                                @for ($i=1;$i<=$package->rating;$i++)
+                                @for ($i=1;$i<=$packaged->rating;$i++)
                                 <i class="fas fa-star"></i>
                                 @endfor
-                                @for ($i=1;$i<=5-$package->rating;$i++)
+                                @for ($i=1;$i<=5-$packaged->rating;$i++)
                                 <i class="far fa-star"></i>
                                 @endfor
                              
@@ -592,10 +607,10 @@ color: #fff!important;
                         </div>
                         </div>
                         <div class="title">
-                            {{ Str::limit($package->name,20,'...') }}
+                            {{ Str::limit($packaged->name,20,'...') }}
                         </div>
                         <div class="price ">
-                                $USD {{ $package->price }}
+                                $USD {{ $packaged->price }}
 
                             
                         </div>
@@ -613,6 +628,31 @@ color: #fff!important;
 @endif
 
 </main>
+
+
+
+
+
+
+{{-- Enquery Model  --}}
+<!-- Modal -->
+<div class="modal fade " id="video" tabindex="-1" aria-labelledby="videoy" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+       
+<div style="width:200px!important;">
+    {!! $package->video!!}
+</div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
 
 
 

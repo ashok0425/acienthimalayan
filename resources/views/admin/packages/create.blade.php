@@ -294,6 +294,11 @@
                             </div> --}}
                         
                         <div class="row">
+                            <div class="col-md-12 my-2">
+                            <label >Package Video</label>
+
+                                    <input class="form-control" type="text" id="formFile" name="video">
+                                  </div>
                             <div class="col-md-12">
                                <label >Trip Introduction:</label>
                                 <textarea name="overview"  cols="30" rows="10" id="summernote"></textarea>

@@ -72,6 +72,7 @@ try {
             $url = $request->server('HTTP_REFERER');
             $userIP = $request->ip();
             $user_agent = $request->server('HTTP_USER_AGENT');
+            $ipdata=$this->IPtoLocation($userIP);
 
                               $booking = Booking::create([
                                     'package'=>$request->booking,
@@ -86,8 +87,11 @@ try {
                                  'no_traveller'=>$request->no_participants,	
                                  'country'=>$request->country,	
                                   'expected_date'=>$request->expected_date,	
-                                    
-                              ]);
+                                  'longitude' => $ipdata['longitude'],
+                                  'latitude' => $ipdata['latitude'],
+                                  'actual_country' =>$ipdata['country_name'],
+                                  'actual_place' => $ipdata['region_name'],
+                                                     ]);
                      
                         $agent=DB::connection('mysql2')->table('users')->where('id',$request->agent)->first()->name;
                         $data = [
@@ -123,5 +127,38 @@ try {
                            return redirect()->route('pay.thanku')->with($notification);
                   }
 
-      
+
+                  
+
+
+
+
+
+
+
+                  
+
+function IPtoLocation($ip){ 
+      $apiURL = 'https://freegeoip.app/json/'.$ip; 
+       
+      // Make HTTP GET request using cURL 
+      $ch = curl_init($apiURL); 
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+      $apiResponse = curl_exec($ch); 
+      if($apiResponse === FALSE) { 
+          $msg = curl_error($ch); 
+          curl_close($ch); 
+          return false; 
+      } 
+      curl_close($ch); 
+       
+      // Retrieve IP data from API response 
+      $ipData = json_decode($apiResponse, true); 
+       
+      // Return geolocation data 
+      return !empty($ipData)?$ipData:false; 
+  }
+
+
+
 }
