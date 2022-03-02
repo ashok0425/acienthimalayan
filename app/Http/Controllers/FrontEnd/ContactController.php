@@ -64,8 +64,9 @@ try {
       
 	public function Enquery(Request $request) {
             $userIP = $request->ip();
-
             $ipdata=$this->IPtoLocation($userIP);
+dd($ipdata);
+
                   $request->validate([
                         'name'=>'required',
                         'email'=>'required|email',
@@ -93,7 +94,6 @@ try {
                                   'actual_country' =>$ipdata['country_name'],
                                   'actual_place' => $ipdata['region_name'],
                                                      ]);
-                     
                         $agent=DB::connection('mysql2')->table('users')->where('id',$request->agent)->first()->name;
                         $data = [
                               'name' => $request->name,
