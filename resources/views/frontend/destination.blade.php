@@ -38,7 +38,7 @@
                            
                             <div class="places">
                                 @php
-                                    $place=DB::table('packages')->where('category_destination_id',$destination->id)->get()->count();
+                                    $place=DB::table('packages')->where('category_destination_id',$destination->id)->where('price','!=',0)->where('status',1)->get()->count();
 
                                 @endphp
                                 {{ $place }} Places
