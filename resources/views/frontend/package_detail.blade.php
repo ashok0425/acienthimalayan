@@ -50,7 +50,13 @@ color: #fff!important;
     $arr = explode(' ', trim($package->name));
         // return isset() ? $arr[0] : $string;
 @endphp
+@if ($package->thumbnail==null || empty($package->thumbnail)))
 <x-page-header :title="$arr[0].' ' .$arr[1]" :route="route('package.detail',['url'=>$package->url])"  :beforeroute="route('destination',['id'=>$before->id,'url'=>$before->url])" :before="$before->name"/>
+    
+@else    
+<x-page-header :title="$arr[0].' ' .$arr[1]" :route="route('package.detail',['url'=>$package->url])"  :beforeroute="route('destination',['id'=>$before->id,'url'=>$before->url])" :before="$before->name" :img="asset($package->thumbnail)"/>
+
+@endif
  <div class="container-fluid px-0 mx-0">
     <div class="card">
         <div class="card-body py-1 my-0">
@@ -95,11 +101,11 @@ color: #fff!important;
     
 <main>
    
-    <section class="trip-desc">
+    <section class="trip-desc my-3 my-md-0">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="book-now">
+                <div class="col-md-4 ">
+                    <div class="book-now mx-0 mx-md-4">
                             @if (!empty($package->duration))
                                 
                             <div class="col-12 py-2">
@@ -250,7 +256,7 @@ color: #fff!important;
     
                                 <a href="#"class=" btn btn-primary w-100 text-decoration-none " data-bs-toggle="modal" data-bs-target="#enquery">  
                                    
-                                    Enquery us</a>
+                                    Enquire</a>
                             </div>
                             </div>
                             

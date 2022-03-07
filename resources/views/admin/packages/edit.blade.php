@@ -282,9 +282,9 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label >Cover Image</label>
+                                <label >Thumbnail Image</label>
                                 <div class="image-input">
-                                    <input type="file" accept="image/*" id="imageInput1" name="banner" >
+                                    <input type="file" accept="image/*" id="imageInput1" name="thumbnail" >
                                     <label for="imageInput1" class="image-button"><i class="far fa-image"></i> Choose image</label>
                                     <img src="" class="image-preview1">
     
@@ -293,9 +293,9 @@
 
                             </div>
                             <div class="col-md-6">
-                                <label >Thumbnail Image</label>
+                                <label >Cover Image</label>
                                 <div class="image-input">
-                                    <input type="file" accept="image/*" id="imageInput2" name="thumbnail" >
+                                    <input type="file" accept="image/*" id="imageInput2" name="cover" >
                                     <label for="imageInput2" class="image-button"><i class="far fa-image"></i> Choose image</label>
                                     <img src="" class="image-preview2">
     

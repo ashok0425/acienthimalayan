@@ -107,14 +107,14 @@ class PackagesController extends Controller
             $package->meta_description = $request->meta_description;
             $package->video = $request->video;
 
-            $banner=$request->file('banner');
+            $banner=$request->file('thumbnail');
             if($banner){
                 $fname=rand().$request->name.$banner->getClientOriginalExtension();
                 $package->banner='upload/package/banner/'.$fname;
                 $banner->move(public_path().'/upload/package/banner/',$fname);
             }
 
-            $roadmap=$request->file('thumbnail');
+            $roadmap=$request->file('cover');
             if($roadmap){
                 $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
                 $package->thumbnail='upload/package/thumbnail/'.$fname;
@@ -257,7 +257,7 @@ class PackagesController extends Controller
 
 
            
-            $banner=$request->file('banner');
+            $banner=$request->file('thumbnail');
             if($banner){
                 File::delete($package->banner);
                 $fname=rand().$request->name.$banner->getClientOriginalExtension();
@@ -265,7 +265,7 @@ class PackagesController extends Controller
                 $banner->move(public_path().'/upload/package/banner/',$fname);
             }
 
-            $roadmap=$request->file('thumbnail');
+            $roadmap=$request->file('cover');
             if($roadmap){
                 File::delete($package->thumbnail);
                 $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
