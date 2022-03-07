@@ -64,7 +64,7 @@
       <a href="{{ route('/') }}" class="btn btn-primary">Back</a>
   </div>
   @php
-  $ip=    file_get_contents('https://www.ip-adress.com/ip-address/ipv4/36.252.83.235');
-  dd($ip);
+  // $ip=    file_get_contents('https://www.ip-adress.com/ip-address/ipv4/36.252.83.235');
+  // dd($ip);
   @endphp
 @endsection
