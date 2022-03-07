@@ -1,6 +1,6 @@
 <div>
     <section class="hero2">
-        @if ($img=null)
+        @if ($img==null)
             
         <img src="{{ asset('frontend/assets/hero4.png')}}" alt="cover image">
             @else  
