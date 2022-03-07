@@ -12,7 +12,7 @@
     <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  :img="asset('Destination_India.jpg')"/>
         @endif
 
-    @if ($data->name=='Luxury Trip')
+    @if ($data->name=='Luxury Trips')
     <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  :img="asset('Destination_LuxuryTrip.jpg')"/>
     @endif
 
