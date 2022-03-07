@@ -3,7 +3,7 @@
     define('PAGE','contact')
 @endphp
 @section('content')
-<x-page-header title="Contact" :route="route('contactus')"  />
+<x-page-header title="Contact" :route="route('contactus')"  :img="asset('Contactus.jpg')"/>
 <main>
   
     <section class="contact-form">

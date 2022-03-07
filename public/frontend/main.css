@@ -927,15 +927,15 @@ main .article .left p {
   line-height: 24px;
 }
 
-main .right-artile {
+/* main .right-artile {
   margin-top: 100px;
-}
+} */
 
 main .right-artile h2 {
   font-weight: 700;
   font-size: 48.83px;
   line-height: 73.25px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 
 main .right-artile p {
@@ -1315,10 +1315,7 @@ footer .bottom-footer {
   .why-choose-us .right-artile {
     padding-left: 1em;
   }
-  .card-style-1 {
-    margin: 1em 0;
-    width: 240px;
-  }
+  
   .card-style-1 .place-name {
     font-size: 20px;
   }

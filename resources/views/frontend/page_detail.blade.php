@@ -12,7 +12,7 @@
      }
 </style>
 @section('content')
-<x-page-header :title="$data->title" :route="route('cms.detail',['page'=>$page])"  />
+<x-page-header :title="$data->title" :route="route('cms.detail',['page'=>$page])"  :img="asset('Aboutus.jpg')"/>
 
     <section class="articel2 ">
         <div class="container">

@@ -20,8 +20,8 @@
             </h1>
             <form action="{{ route('search') }}" method="GET">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <h3>
+                    <div class="col-md-6 col-sm-12 mt-4 mt-md-0">
+                        <h3 class='my-1 py-0 '>
                             Destination
                         </h3>
                         <select name="destination" id="destination" required>
@@ -32,8 +32,8 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-6 col-sm-12">
-                        <h3>
+                    <div class="col-md-6 col-sm-12 mt-4 mt-md-0">
+                        <h3 class='my-1 py-0 '>
                             Trip Type
                         </h3>
                         <select name="category" id="category" required>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-6 col-sm-12 ">
-                        <h3>
+                        <h3 class='my-1 py-0 '>
                             Month
                         </h3>
                         <select name="month" id="month" >

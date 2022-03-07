@@ -4,7 +4,26 @@
 @endphp
 @section('content')
 <main>
+    @if ($data->name=='Bhutan')
+    <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  :img="asset('Destination_Bhutan.jpg')"/>
+    @endif
+    
+    @if ($data->name=='India')
+    <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  :img="asset('Destination_India.jpg')"/>
+        @endif
+
+    @if ($data->name=='Luxury Trip')
+    <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  :img="asset('Destination_LuxuryTrip.jpg')"/>
+    @endif
+
+    @if ($data->name=='Tibet')
+    <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  :img="asset('Destination_Tibet.jpg')"/>
+      @endif
+
+      @if ($data->name=='Nepal')
     <x-page-header :title="$data->name" :route="route('destination',['id'=>$data->id,'url'=>$data->url])"  />
+      @endif
+
 
 
 
@@ -62,7 +81,7 @@
   
     <section class="tour-packages ">
         <div class="container">
-            <div class="heading ">
+            <div class="heading mt-md-5 mt-2">
                 <h2>Tour Packages</h2>
             </div>
             <div class="row">

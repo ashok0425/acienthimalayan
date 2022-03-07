@@ -1,7 +1,7 @@
 <section class="partners py-5">
     <div class="container">
         <div class="heading mt-2 mb-5">
-            <h2>We are affiliated to</h2>
+            <h2>Our Affiliations</h2>
         </div>
         <div class="owl-carousel afflicated">
             <div >
@@ -22,6 +22,28 @@
 
             <div >
                 <img src="{{asset('frontend/assets/stride.png')}}" alt="affiliated" class="img-fluid w-50">
+
+            </div>
+
+            <div >
+                <img src="{{asset('sunstinable.png')}}" alt="affiliated" class="img-fluid w-50">
+
+            </div>
+
+
+            <div >
+                <img src="{{ asset('taan.jpg') }}" alt="affiliated" class="img-fluid w-50">
+
+            </div>
+
+
+            <div >
+                <img src="{{asset('nma.jpeg')}}" alt="affiliated" class="img-fluid w-50">
+
+            </div>
+
+            <div >
+                <img src="{{asset('keep.jpg')}}" alt="affiliated" class="img-fluid w-50">
 
             </div>
         </div>

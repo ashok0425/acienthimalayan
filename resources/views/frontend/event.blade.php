@@ -3,7 +3,7 @@
     define('PAGE','event')
 @endphp
 @section('content')
-<x-page-header title="Event" :route="route('events')"  />
+<x-page-header title="Event" :route="route('events')"  :img="asset('Activity.jpg')"/>
 
 <section class="events">
     <div class="container">

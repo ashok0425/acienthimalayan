@@ -9,7 +9,7 @@
                         <img src="{{ asset('frontend/assets/whychooseus.png')}}" alt="Destination PICTURE" class="img-fluid">
                     </div>
                     <div class="col-lg-6 col-md-12">
-                        <div class="right-artile">
+                        <div class="right-artile mt-5">
                             <h2>
                                 Why Choose us ?
                             </h2>

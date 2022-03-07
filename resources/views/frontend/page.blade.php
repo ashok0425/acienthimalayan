@@ -3,7 +3,7 @@
     define('PAGE','about')
 @endphp
 @section('content')
-<x-page-header :title="$data->title" :route="route('cms.detail',['page'=>$data->url])"  />
+<x-page-header :title="$data->title" :route="route('cms.detail',['page'=>$data->url])"  :img="asset('Aboutus.jpg') "/>
     <section class="articel2">
         <div class="container">
             <div class="row my-5">

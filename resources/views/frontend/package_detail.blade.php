@@ -30,6 +30,18 @@ color: #fff!important;
 .btn_sm{
     /* border-radius: 10px; */
 }
+.at-icon-wrapper{
+    width: 38px!important;
+    height:  38px!important;
+    line-height: 38px!important;
+
+}
+
+.at-icon-wrapper svg{
+    width: 38px!important;
+    height:  38px!important;
+
+}
 </style>
 
 @section('content')
@@ -44,27 +56,27 @@ color: #fff!important;
         <div class="card-body py-1 my-0">
             <div class="row">
                 <div class="col-md-5 offset-md-7 text-right">
-                    <div class="d-flex justify-content-center justify-content-md-evenly flex-md-row flex-column">
+                    <div class="d-flex justify-content-center justify-content-md-center flex-md-row flex-column">
 
 @if ($package->video)
-<div class="my-1">
+<div class="my-1 mx-1">
     <a href="#"class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#video"><i class="fa fa-play-circle"></i>  
        &nbsp;
         Video</a>
 </div>
 @endif
                        
-                <div class="my-1">
+                <div class="my-1 mx-1 ">
                     <a href="#"class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#customize"><i class="fa fa-recycle"></i>  
                        &nbsp;
                         Customize</a>
                 </div>
-                <div class="my-1">
+                <div class="my-1 mx-1">
                     <a href="{{ route('print',$package->id) }}" class=" custom-bg-primary  text-decoration-none text-light btn_sm d-flex align-items-center justify-content-center"><i class="fa fa-print"></i>  
                        &nbsp;
                         Print This</a>
                 </div>
-                <div class="my-1">
+                <div class="my-1 mx-1">
 
 
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -667,7 +679,7 @@ color: #fff!important;
       <div class="modal-content">
         <div class="modal-header">
             <div class="modal-title">
-                <p class="custom-text-18 custom-fw-700 my-0 py-0">Enquiry Us</p>
+                <p class="custom-text-18 custom-fw-700 my-0 py-0">Enquire Us</p>
 <small>
     Required Field <span class="text-danger">*</span>
 </small>            
@@ -754,7 +766,7 @@ color: #fff!important;
                     </div>
                     
                     <div class="mt-2 text-center">
-                        <button type="submit" class="btn btn-primary btn-block">Enquiry now</button> 
+                        <button type="submit" class="btn btn-primary btn-block">Enquire now</button> 
                     </div>
                 </form>
             </div>

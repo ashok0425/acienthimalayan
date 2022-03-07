@@ -15,15 +15,19 @@ class pageHeader extends Component
     public $route;
     public $before;
     public $beforeroute;
+    public $img;
 
 
 
-    public function __construct($title,$route,$before=null,$beforeroute=null)
+
+    public function __construct($title,$route,$before=null,$beforeroute=null,$img=null)
     {
         $this->title=$title;
         $this->route=$route;
         $this->before=$before;
         $this->beforeroute=$beforeroute;
+        $this->img=$img;
+
     }
 
     /**

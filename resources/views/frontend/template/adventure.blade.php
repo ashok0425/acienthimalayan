@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
-                <div class="right-artile">
+                <div class="right-artile mt-md-5 mt-4">
                     <h2>
                         Start your adventure with Us
                     </h2>
