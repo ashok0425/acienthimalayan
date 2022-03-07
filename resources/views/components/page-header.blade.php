@@ -1,6 +1,6 @@
 <div>
     <section class="hero2">
-        @if ($img==null||empty($img)|| !file_exists($img))
+        @if (isset($img)&&$img==null||empty($img)|| !file_exists($img))
             
         <img src="{{ asset('frontend/assets/hero4.png')}}" alt="">
             @else  
