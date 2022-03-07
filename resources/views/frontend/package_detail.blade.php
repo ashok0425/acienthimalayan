@@ -50,7 +50,7 @@ color: #fff!important;
     $arr = explode(' ', trim($package->name));
         // return isset() ? $arr[0] : $string;
 @endphp
-@if ($package->thumbnail==null || empty($package->thumbnail)))
+@if ($package->thumbnail==null || empty($package->thumbnail))
 <x-page-header :title="$arr[0].' ' .$arr[1]" :route="route('package.detail',['url'=>$package->url])"  :beforeroute="route('destination',['id'=>$before->id,'url'=>$before->url])" :before="$before->name"/>
     
 @else    
