@@ -21,13 +21,13 @@
                     </div>
                     <div class="img-desc">
                         <div class="about-img row">
-                            <div class="col-6">
+                            <div class="col-12">
                                <p class="px-0 mx-0">
                                 @if (!empty($package->duration))
                                 {{ $package->duration }} |
                                 @endif
                                 @if (!empty($package->activity))
-                              {{ Str::limit($package->activity,16) }}
+                              {{ Str::limit($package->activity,38) }}
                                     
                                 @endif
                                    </p> 
@@ -37,23 +37,25 @@
 
                             <div class="rating">
                                 @for ($i=1;$i<=$package->rating;$i++)
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star text-warning"></i>
                                 @endfor
                                 @for ($i=1;$i<=5-$package->rating;$i++)
-                                <i class="far fa-star"></i>
+                                <i class="far fa-star text-gray"></i>
                                 @endfor
                              
                             </div>
                         </div>
-                        </div>
-                        <div class="title">
-                            {{ Str::limit($package->name,18,'...') }}
-                        </div>
-                        <div class="price ">
-                                $USD {{ $package->price }}
+                        <div class="col-6">
+<span class="custom-fs-18 custom-fw-600 text-dark">
+    $USD {{ $package->price }}
 
-                            
+</span>
                         </div>
+                        </div>
+                        <div class="title mt-1 custom-fs-20">
+                            {{ Str::limit($package->name,30,'...') }}
+                        </div>
+                        
                     </div>
             </a>
 

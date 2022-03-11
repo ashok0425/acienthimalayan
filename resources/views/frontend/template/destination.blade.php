@@ -1,3 +1,7 @@
+
+
+
+
 @php
     $destinations=DB::table('destinations')->orderBy('id','desc')->where('status',1)->get();
 @endphp

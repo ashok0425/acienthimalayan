@@ -44,3 +44,9 @@
 	Route::post('enquery-post','ContactController@Enquery')->name('enquery.post');
 	Route::get('event-detail/{id}','EventController@show')->name('event.detail');
 	Route::get('departure-date','PackageController@Departure')->name('departure');
+
+
+	Route::get('testimonials/{package?}','PackageController@Testimonial')->name('testimonials');
+	Route::post('testimonials/store','PackageController@testimonialStore')->name('testimonials.store');
+
+

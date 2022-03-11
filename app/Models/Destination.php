@@ -22,6 +22,7 @@ class Destination extends Model
 	public function categories_destinations() {
 		return $this->hasMany('App\Models\CategoryDestination', 'destination_id');
 	}
+	
 	public function packages() {
 		return $this->hasMany('App\Models\Package', 'destination_id');
 	}

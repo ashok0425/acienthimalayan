@@ -25,9 +25,9 @@
             </div>
            </div>
                <div class="d-flex justify-content-center social">
-                   <p><a href="{{ $website->facebook  }}"><i class="fab fa-facebook text-dark"></i></a></p>
-                   <p><a href="{{ $website->instagram }}"><i class="fab fa-instagram text-dark"></i></a></p>
-                   <p><a href="{{ $website->twitter }}"><i class="fab fa-twitter text-dark"></i></a></p>
+                   <p><a href="{{ $website->facebook  }}"><i class="fab fa-facebook text-dark  "></i></a></p>
+                   <p><a href="{{ $website->instagram }}"><i class="fab fa-instagram text-dark "></i></a></p>
+                   <p><a href="{{ $website->twitter }}"><i class="fab fa-twitter text-dark "></i></a></p>
 
                </div>
         </div>
@@ -93,7 +93,7 @@
                                 @endif" href="{{ route('contactus') }}">Contact</a>
                             </li>
                         </ul>
-                        <a class="btn btn-primary btn-sm" href="{{ route('booknow') }}">
+                        <a class="btn btn-primary btn-sm" href="#" data-bs-toggle="modal" data-bs-target="#quickTrip">
                             Quick Trip
                         </a>
                     </div>
@@ -103,6 +103,116 @@
         </div>
     </div>
 </header>
+
+@php
+use App\Models\CategoryDestination;
+use App\Models\Destination;
+ 
+      $quick_trips = CategoryDestination::where('quick_trips',1)->where('status',1)->orderBy('order')->get();
+      $destination_not_nepal = Destination::whereIn('id',[10,11])->where('status',1)->get();
+
+@endphp
+
+
+<div class="modal fade quick-trip-modal" id="quickTrip" tabindex="-1" role="dialog" aria-labelledby="quickTripLabel" aria-hidden="true">
+	<div class="modal-dialog modal-xl" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="quickTripLabel">Quick Trip</h5>
+				<a  class="close text-dark text-decoration-none" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true"><i class="fa fa-times fa-2x"></i></span>
+				</a>
+			</div>
+			<div class="modal-body">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					@foreach($quick_trips as $key=>$quick_trip)
+					<li class="nav-item">
+						<a class="nav-link {{ $key==0?'active':'' }}" id="cat-{{ $quick_trip->id }}-tab" data-bs-toggle="tab" href="#cat-{{ $quick_trip->id }}" role="tab" aria-controls="cat-{{ $quick_trip->id }}" aria-selected="true">{{ $quick_trip->name }}</a>
+					</li>
+					@endforeach
+					@foreach($destination_not_nepal as $key=>$destination_not_nepa)
+					<li class="nav-item">
+						<a class="nav-link" id="dest-{{ $destination_not_nepa->id }}-tab" data-bs-toggle="tab" href="#dest-{{ $destination_not_nepa->id }}" role="tab" aria-controls="dest-{{ $destination_not_nepa->id }}" aria-selected="true">{{ $destination_not_nepa->name }}</a>
+					</li>
+					@endforeach
+					
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					@foreach($quick_trips as $key=>$quick_trip)
+					<div class="tab-pane fade {{ $key==0?'show active':'' }}" id="cat-{{ $quick_trip->id }}" role="tabpanel" aria-labelledby="cat-{{ $quick_trip->id }}-tab">
+						<table class="table table-bordered text-center">
+							<thead>
+								<tr>
+									<th scope="col">Trip Id</th>
+									<th scope="col">Trip Name</th>
+									<th scope="col">Trip Length</th>
+									<th scope="col">Trip Cost</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach($quick_trip->packages()->where('status',1)->orderBy('name')->get() as $quickpackage)
+								<tr>
+									<td>{{ $quickpackage->trip_id }}</td>
+									<td><a href="{{ route('package.detail',['id'=>$quickpackage->id,'url'=>$quickpackage->url]) }}">{{ $quickpackage->name }}</a></td>
+									<td>{{ $quickpackage->duration }} days</td>
+									<td>US ${{ $quickpackage->price }} </td>
+									<td><a href="{{ route('booknow',['package_id'=>$quickpackage->id]) }}" class="btn  btn-primary btn-sm">Book now</a>
+										{{-- <a class="btn btn-sample2 btn-sm" href="#">Join Group</a> --}}
+									</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+					@endforeach
+					@foreach($destination_not_nepal as $key=>$destination_not_nepa)
+					<div class="tab-pane fade" id="dest-{{ $destination_not_nepa->id }}" role="tabpanel" aria-labelledby="dest-{{ $destination_not_nepa->id }}-tab">
+						<table class="table table-bordered text-center">
+							<thead>
+								<tr>
+									<th scope="col">Trip Id</th>
+									<th scope="col">Trip Name</th>
+									<th scope="col">Trip Length</th>
+									<th scope="col">Trip Cost</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach($destination_not_nepa->packages()->where('status',1)->orderBy('name')->get() as $quickpackage1)
+								<tr>
+									<td>{{ $quickpackage1->trip_id }}</td>
+									<td><a href="">{{ $quickpackage1->name }}</a></td>
+									<td>{{ $quickpackage1->duration }} days</td>
+									<td>US ${{ $quickpackage1->price }} </td>
+									<td><a href="{{ route('booknow',['package_id'=>$quickpackage1->id]) }}" class="btn btn-primary btn-sm">Book now</a>
+									</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+					@endforeach
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @push('scripts')
     
 <script>

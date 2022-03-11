@@ -131,7 +131,7 @@ DB::rollBack();
     public function update(Request $request, $id)
     {
 
-        // try {
+        try {
             DB::beginTransaction();
             $testimonials = Testimonial::findOrFail($id);
             $testimonials->name = $request->name;
@@ -166,14 +166,14 @@ DB::commit();
                 'messege' => 'Successfully Updated Testimonial.',
 
             );
-        // } catch (QueryException $qE) {
-        //     DB::rollBack();
-        //     $notification = array(
-        //         'alert-type' => 'error',
-        //         'messege' => 'Failed to updated Testimonial.',
+        } catch (QueryException $qE) {
+            DB::rollBack();
+            $notification = array(
+                'alert-type' => 'error',
+                'messege' => 'Failed to updated Testimonial.',
 
-        //     );
-        // }
+            );
+        }
 
         return redirect()->route('admin.testimonials.index')->with($notification);
     }

@@ -82,7 +82,7 @@ color: #fff!important;
                        &nbsp;
                         Print This</a>
                 </div>
-                <div class="my-1 mx-1">
+                <div class="my-1 text-center mx-1">
 
 
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -104,7 +104,7 @@ color: #fff!important;
     <section class="trip-desc my-3 my-md-0">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 ">
+                <div class="col-md-4 my-1">
                     <div class="book-now mx-0 mx-md-4">
                             @if (!empty($package->duration))
                                 
@@ -237,12 +237,12 @@ color: #fff!important;
                                <p class='my-0 py-0'>
                                 <div class="rating">
                                     @for ($i=1;$i<=$package->rating;$i++)
-                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star text-warning"></i>
                                     @endfor
                                     @for ($i=1;$i<=5-$package->rating;$i++)
                                 
-                                        <span><i
-                                            class="fas fa-star"></i></span>
+                                        <i
+                                            class="fas fa-star text-gray"></i>
                                             @endfor
                                 </div>
                                 </p>
@@ -262,7 +262,7 @@ color: #fff!important;
                             
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 my-1">
                     <!-- RH: this is bootstrap 5 tabbed panel -->
 
   
@@ -301,11 +301,9 @@ color: #fff!important;
                                     </li>
                                     @endif
                                    
-                                    @if (count($reviews)>0)
                                     <li class="nav-item " role="presentation">
                                         <a class="nav-link  font-weight-700 " id="review-tab" data-bs-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false"> <i class="fas fa-comment"></i> Review</a>
                                       </li>
-                                      @endif
 
 
 
@@ -458,63 +456,8 @@ color: #fff!important;
 
                           </thead>
 
-                          <tbody class="ajaxloadmoredeparture">{{-- 
-
-                            <tr>
-
-                              <td data-th="Start Date">2018-02-21</td>
-
-                              <td data-th="Finish Date">2018-03-01</td>
-
-                              <td data-th="Availability">Guaranteed (Limited)</td>
-
-                              <td data-th="Price">$1340</td>
-
-                              <td data-th="Action">
-
-                                <a class="btn btn-sample1 btn-sm" href="#">Book Now</a> 
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td data-th="Start Date">2018-02-21</td>
-
-                          <td data-th="Finish Date">2018-03-01</td>
-
-                          <td data-th="Availability">Guaranteed (Limited)</td>
-
-                          <td data-th="Price">$1340</td>
-
-                          <td data-th="Action">
-
-                            <a class="btn btn-sample2 btn-sm" href="#">Contact Us</a>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                      <td data-th="Start Date">2018-02-21</td>
-
-                      <td data-th="Finish Date">2018-03-01</td>
-
-                      <td data-th="Availability">Guaranteed (Limited)</td>
-
-                      <td data-th="Price">$1340</td>
-
-                      <td data-th="Action">
-
-                        <a class="btn btn-sample1 btn-sm" href="#">Book Now</a> 
-
-                    </td>
-
-                </tr>
-
-             --}}</tbody>
+                          <tbody class="ajaxloadmoredeparture"> 
+</tbody>
 
         </table>
 
@@ -541,20 +484,53 @@ color: #fff!important;
 
 
                         <div class="tab-pane card-body fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                         
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <h2 class="custom-text-primary custom-fs-20">Traveller's Reviews
+                                </h2>
+                            </div>
+                                <div class="col-md-3 offset-md-3 text-right">
+
+                                  <a class="btn btn-primary" href="{{ route('testimonials') }}">Write Review</a>
+                                </div>
+                
+                              </div>
                         @foreach ($reviews as $review)
                         <div class="card">
 
                         <div class="row">
                             <div class="col-md-4">
-                               <div class="img card-body border">
+                               <div class="img card-body ">
                                    @if (!empty($review->image))
-                                   <img src="{{ asset($review->image) }}" alt="" class="w-75">
+                                   <img src="{{ asset($review->image) }}" alt="" class="w-md-75 w-100 text-md-center img-fluid img-thumbnail">
                                        @else   
-                                   <img src="{{ asset('frontend/assets/footer-img.png') }}" alt="">
+                                   <img src="{{ asset('frontend/assets/footer-img.png') }}" alt="" class="w-100 w-md-75 text-md-center img-thumbnail img-fluid">
 
                                    @endif
+                                   <p class="mt-1 text-center py-0  mb-1">
+                                    <strong class="custom-text-primary">
+                                        {{ $review->name }}
+                                    </strong>    
+                                        </p>
+                                   <div class="d-flex justify-content-between flex-row align-items-center">
+                                   <div class="rating mt-2">
+                                    @for ($i=1;$i<=$review->rating;$i++)
+                                    <i class="fas fa-star text-warning"></i>
+                                    @endfor
+                                    @for ($i=1;$i<=5-$review->rating;$i++)
+                                
+                                        <i
+                                            class="fas fa-star text-gray"></i>
+                                            @endfor
+
+
+                                </div>
+                                <div class="mt-2">
+                                     <strong class="custom-text-primary">{{ carbon\carbon::parse($review->date)->format('d M Y') }}</strong>
+                                </div>
                                </div>
+                            </div>
+
                             </div>
                             <div class="col-md-8 ">
                                 <div class="card-body">
@@ -1252,7 +1228,7 @@ src="https://www.viralpatel.net/demo/jquery/jquery.shorten.1.0.js"></script>
 	
 		$(".comment").shorten(
             {
-                "showChars" : 300,
+                "showChars" : 450,
 	"moreText"	: "See More",
 	"lessText"	: "See Less",
             }

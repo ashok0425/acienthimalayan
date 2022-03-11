@@ -30,7 +30,7 @@
     <div class="container ">
         <div class="heading mt-5">
             <h2>
-                Tourist Feedback
+                Travellers  Feedback
             </h2>
         </div>
         <div class="owl-carousel testimonials">

@@ -1,20 +1,67 @@
+
+@push('style')
+{{-- owl carousel  --}}
+<style>
+.hero_carousel  .owl-nav button{
+position: absolute;
+cursor: pointer;
+top: 80% !important;
+}
+
+
+.hero_carousel >.owl-nav>.owl-prev{
+    color:  rgb(42, 135, 183)!important;
+left: 33px!important;
+border: 2px solid  rgb(42, 135, 183)!important;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+transition: all .3s ease-in-out;
+}
+.hero_carousel >.owl-nav>.owl-next{
+right: 33px!important;
+color:  rgb(42, 135, 183)!important;
+border: 2px solid  rgb(42, 135, 183)!important;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+transition: all .3s ease-in-out;
+
+}
+
+.hero_carousel .owl-nav button:hover{
+background-color:  rgb(42, 135, 183);
+color: #fff!important;
+}
+
+</style>
+@endpush
+
+
+
+
+
+
+
+
+
+
 @php
       // main hero image 
-      $banner=DB::table('main_slider')->where('status',1)->orderBy('id','desc')->where('type',1)->first();
+      $banners=DB::table('main_slider')->where('status',1)->orderBy('id','desc')->where('type',1)->get();
       $destinations=DB::table('destinations')->where('status',1)->orderBy('id','desc')->get();
       $categories=DB::table('categories_destinations')->where('status',1)->orderBy('id','desc')->get();
     
 
 
 @endphp
-<style>
-    .hero{
-        background: url({{ $banner->image }});
-    }
-</style>
-<section class="hero">
+<div class="owl-carousel hero_carousel">
+
+@foreach ($banners as $banner)
+<div class="hero" style="background-image: url({{ $banner->image }});">
     <div class="container">
-        <div class="search-box">
+
+        <div class="search-box ">
             <h1 class="title custom-fs-28 mt-3 mt-md-5 pt-3 pt-md-3">
                 {{ $banner->title }}
             </h1>
@@ -79,10 +126,18 @@
                 </div>
             </form>
         </div>
-    </div>
+
 
     </div>
-</section>
+
+
+</div>
+
+@endforeach
+
+</div>
+
+
 
 @push('scripts')
 <script>
@@ -106,5 +161,24 @@
         });
 
 
+        $('.hero_carousel').owlCarousel({
+        center: true,
+        items:1,
+        loop:true,
+        dots:false,
+        nav:false,
+        navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+        responsive:{
+            600:{
+                items:1,
+                nav:true,
+
+            }
+        }
+    });
+
     </script>
 @endpush
+
+
+

@@ -115,7 +115,7 @@ class EventController extends Controller
             $file=$request->file('image');
 
             if($file){
-                $event=Blog::where('id',$id)->first();
+                $event=Event::where('id',$id)->first();
                 File::delete(public_path($event->image));
                 $fname=rand().'event.'.$file->getClientOriginalExtension();
                 $blog['guid']='upload/event/'.$fname;

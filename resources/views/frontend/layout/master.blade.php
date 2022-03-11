@@ -44,7 +44,7 @@
         >
          <!-- Owl Stylesheets -->
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"  />
+        
     <!--Jquery Ui Css-->
     <link rel="stylesheet" href="{{ asset('frontend/main.css') }}">
     <meta property="fb:app_id" content="160443599540603" />
@@ -80,6 +80,19 @@
             </style>
 @stack('style')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
 <body>
@@ -103,6 +116,29 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
 <!--owl carousel-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" ></script>
+
+
+
+
+ <!--tab collapse-->
+ <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/590ec8d04ac4446b24a6d9a6/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+
+
+
+
+
+
+
 
 <script>
     $('.destinations').owlCarousel({

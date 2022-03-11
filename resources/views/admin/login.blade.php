@@ -67,7 +67,7 @@ $logo=DB::table('websites')->first();
 	.bg {
 		width: 400px;
 		height: 550px;
-		background: #277043;
+		background:  rgb(42, 135, 183);
 		position: absolute;
 		top: -5em;
 		left: 0;
@@ -130,7 +130,7 @@ $logo=DB::table('websites')->first();
 	    padding: 13px 15px;
 	    border-radius: 100px;
 	    border: none;
-	    background: #f4ba39;
+	    background: #f31924;
 	    font-family: 'Poppins', sans-serif;
 	    outline: none;
 	    color: #fff;

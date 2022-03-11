@@ -20,7 +20,7 @@
                         @else 
                         <img src="{{ asset($package->banner)}}" alt="{{$package->name  }}" class="img-fluid w-100">
                         @endif
-                        <div class="discount">
+                        <div class="discount bg-success">
                             @php
                                 $damount=($package->discounted_price*100)/$package->price
                             @endphp

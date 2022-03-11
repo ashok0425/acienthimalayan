@@ -172,7 +172,7 @@
                                             <div class="col-md-12" id="addSelect">
                                                 <div class="form-group">
                                                     <label class="ckbox ckbox-success">
-                                                        <input type="checkbox" name="deal_package" value="1" id="deal"  @if ($package->deal==1)
+                                                        <input type="checkbox" name="deal_package" value="1" id="deal"  @if ($package->discounted_price)
                                                             checked
                                                         @endif>
                                                         <span>Deal/discount Package</span>
@@ -186,7 +186,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group" id="show" style="display: none;">
+                                        <div class="form-group" id="show"@if ($package->discounted_price==null)
+                                            style="display: none;"
+                                        @endif >
                                             <input type="number" name="discounted_price" class="form-control"  value="{{ $package->discounted_price }}">
                                         </div>
                                         

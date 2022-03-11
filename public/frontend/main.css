@@ -142,7 +142,7 @@
   color: #fff;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  background: linear-gradient(103.86deg, #0183E7, #00C6FF);
+  /* background: linear-gradient(103.86deg, #0183E7, #00C6FF); */
   position: absolute;
   top: 0;
   right: 0;
@@ -725,7 +725,7 @@ header .top-header p {
   margin: 0.5em 1.8em;
 }
  .fab{
-     font-size: 1.5rem;
+     font-size: 2rem;
 }
 header .bottom-header {
   padding: 7px 0;
@@ -1062,7 +1062,7 @@ main .event-view h1 {
 main .event-view .card-text {
   padding: 57px 0 57px 200px;
 }
-
+/* 
 main .owl-carousel {
   position: relative;
 }
@@ -1109,7 +1109,7 @@ main .owl-carousel .owl-nav .owl-next:before {
 
 main .owl-carousel .owl-nav .owl-next:before:hover {
   color: #9999;
-}
+} */
 
 main .trip-desc .book-now {
   padding: 40px 45px;

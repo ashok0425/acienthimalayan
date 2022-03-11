@@ -47,7 +47,7 @@
                 </div>
             </div>
          <div class="row mt-1 mt-md-5">
-             <div class="col-md-3 offset-md-2 text-md-center text-left">
+             <div class="col-md-3 offset-md-3  text-left">
                 <div class="footer-title custom-text-primary">
                     Head office (Nepal)
                 </div>
@@ -86,7 +86,7 @@
 
              </div>
 
-             <div class="col-md-3  text-md-center text-left">
+             <div class="col-md-3   text-left">
                 <div class="footer-title custom-text-primary">
                     USA Contact Office
                 </div>
@@ -127,7 +127,7 @@
 
 
 
-             <div class="col-md-3  text-md-center text-left">
+             <div class="col-md-3  text-left">
                 <div class="footer-title custom-text-primary">
                     USA Branch Office
                 </div>

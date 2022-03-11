@@ -240,7 +240,7 @@ class PackagesController extends Controller
             $package->faq = $request->faq;
             if($request->price)$package->price = $request->price;
             $package->rating = $request->rating;
-            // if($request->discounted_price)$package->discounted_price = $request->discounted_price;
+            if($request->discounted_price)$package->discounted_price = $request->discounted_price;
             $package->overview = $request->overview;
             $package->important_notes = $request->important_notes;
             $package->physical_condition = $request->physical_condition;
