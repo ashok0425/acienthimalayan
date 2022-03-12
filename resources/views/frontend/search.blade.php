@@ -14,9 +14,7 @@
           z-index: 999999999!important;
 
           }
-          .side-collapse-container.out{
-              left:10%;
-          }
+          
           .side-collapse {
               top:0px;
               bottom:0;
@@ -25,6 +23,9 @@
               position: absolute;
               overflow:hidden;
               transition:width .4s;z-index:999999;
+          }
+          .side-collapse .navbar-collapse{
+              left: 0!important;
           }
           .side-collapse.in {
               width:0;
