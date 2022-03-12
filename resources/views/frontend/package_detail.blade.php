@@ -113,21 +113,38 @@ color: #fff!important;
                                <p class='my-0 py-0'>{{ $package->duration }} </p>
                             </div>
                             @endif
-
-                            <div class="col-12 py-2">
-                                <h2 class='my-0 py-0'>Price</h2>
-                               <p class='my-0 py-0'>
-                               $USD
+                            
                                 @if (!empty($package->discounted_price))
-                                {{ $package->discounted_price }} 
+                                
 
-                                <s>{{ $package->price }}  </s>
+                                <div class="col-12 py-2">
 
+                                    <h2 class='my-0 py-0'>Previous Price</h2>
+                                   <p class='my-0 py-0'>
+                                {{ $package->price }} 
+                                   </p></div>
+
+                                   <div class="col-12 py-2">
+
+                                    <h2 class='my-0 py-0'>Current Price</h2>
+                                   <p class='my-0 py-0'>
+                                   $USD  {{ $package->discounted_price }} 
+                                   </p>
+                                </div>
                                 @else   
-                                {{ $package->price }}  
-                                @endif <span class="custom-text-primary">Per Person</span></p>
+                            <div class="col-12 py-2">
+
+                                <h2 class='my-0 py-0'>Price</h2>
+
+                                 <span class="custom-text-primary">
+<strong class="text-dark custom-fs-25 custom-fw-700">
+    
+    {{ $package->price }}
+</strong>                                     
+                                    Per Person</span></p>
 
                             </div>
+                            @endif
                             @if (!empty($package->activity))
 
                             <div class="col-12 py-2">
@@ -462,24 +479,6 @@ color: #fff!important;
         </table>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

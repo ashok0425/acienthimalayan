@@ -203,7 +203,7 @@
 		color:white;
 		position:absolute;
 		display: block;
-		top:-8px;
+		top:-2px;
 		left:1px;
 		height:100%;
 		width:100%;
