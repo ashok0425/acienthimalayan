@@ -15,7 +15,7 @@
 
           }
           .side-collapse-container.out{
-              left:0%;
+              left:10%;
           }
           .side-collapse {
               top:0px;
