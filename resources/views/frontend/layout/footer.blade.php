@@ -203,8 +203,8 @@
 		color:white;
 		position:absolute;
 		display: block;
-		top:-2px;
-		left:1px;
+		top:-10px;
+		left:3px;
 		height:100%;
 		width:100%;
 	}
