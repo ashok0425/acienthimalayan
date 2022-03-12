@@ -74,11 +74,11 @@
 <!-- Modal -->
 <div class="modal fade " id="seemore_modal" tabindex="-1" aria-labelledby="seemore_modal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
+      <div class="modal-content bg-gray">
+        <div class="modal-header" style="background:#f9fafb;">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body see_more_data">
+        <div class="modal-body see_more_data custom-text-primary" style="background:#f9fafb;">
           
         </div>
       

@@ -105,7 +105,7 @@ $data='';
            </div>
            <div class='img-desc'>
                <div class='about-img row'>
-                   <div class='col-6'>
+                   <div class='col-12'>
                       <p class='px-0 mx-0'>";
 
                        if (!empty($package->duration))
@@ -141,16 +141,18 @@ $data='';
                     
                       $data.=   "</div>
                </div>
+
+               <div class='col-6 custom-fw-600 custom-text-primary'>
+               \$USD  $package->price .
+
+           
+       </div>
                </div>
                <div class='title'>";
-               $data.=Str::limit($package->name,35,'...');
+               $data.=$package->name;
                
                $data.=" </div>
-               <div class='price'>
-                       \$USD  $package->price .
-
-                   
-               </div>
+              
            </div>
    </a>
 

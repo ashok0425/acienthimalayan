@@ -108,6 +108,8 @@
           box-shadow: 0px 5px 50px rgba(51, 50, 60, 0.1);
   border-radius: 10px;
   padding: 16px 20px 36px 20px;
+  height: 200px!important;
+
 }
 
 .card-style-2 .img-desc .about-img p {
@@ -805,13 +807,26 @@ header .sub {
   top: 0;
   left: 100%;
 }
-
+.hero img{
+  height: 84vh;
+}
+.search-box{
+  top: 40%;
+  left: 40%;
+  z-index: 99;
+}
+.hero-title{
+position: absolute;
+z-index: 99;
+top: 10%;
+left: 40.3%;
+}
 .search-box, .search-box-2 {
   width: 723px;
   color: #fff;
 }
 
-.search-box .title, .search-box-2 .title {
+.hero-title, .search-box-2 .title {
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
   line-height: 90px;
@@ -849,19 +864,7 @@ main {
   background-color: #f9fafb;
 }
 
-main .hero {
-  
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 80vh;
-  color: #fff;
-}
 
-
-main .hero .container {
-  position: relative;
-}
 
 main .hero .search-box, main .hero .search-box-2 {
   width: 60%;
@@ -1489,9 +1492,7 @@ footer .bottom-footer {
   main .right-artile .stats .stat p{
     line-height: 20px!important;
   }
-  .hero {
-    height: 618px !important;
-  }
+  
   .hero .search-box, .hero .search-box-2 {
     top: 0 !important;
     left: 3%;
@@ -1628,6 +1629,23 @@ height: 20vh;
     max-width: 90%!important;
     top: 50px!important;
   }
+  .hero img{
+    height: 64vh;
+  }
+
+  .search-box{
+    top: 20%;
+    left: 1%;
+  }
+
+  
+.search-box, .search-box-2 {
+  width: 320px;
+  color: #fff;
+}
+.search-box form, .search-box-2 form{
+  padding: 5px;
+}
 }
 
 .card-style-1 a.card{

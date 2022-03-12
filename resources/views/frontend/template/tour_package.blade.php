@@ -46,14 +46,14 @@
                             </div>
                         </div>
                         <div class="col-6">
-<span class="custom-fs-18 custom-fw-600 text-dark">
-    $USD {{ $package->price }}
+                        <span class="custom-fs-18 custom-fw-600 custom-text-primary">
+                            $USD {{ $package->price }}
 
-</span>
+                        </span>
                         </div>
                         </div>
-                        <div class="title mt-1 custom-fs-20">
-                            {{ Str::limit($package->name,30,'...') }}
+                        <div class="title mt-1 custom-fs-18">
+                            {{ $package->name }}
                         </div>
                         
                     </div>

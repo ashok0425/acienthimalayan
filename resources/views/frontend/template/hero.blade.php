@@ -38,34 +38,36 @@ color: #fff!important;
 @endpush
 
 
-
-
-
-
-
-
-
-
 @php
       // main hero image 
       $banners=DB::table('main_slider')->where('status',1)->orderBy('id','desc')->where('type',1)->get();
-      $destinations=DB::table('destinations')->where('status',1)->orderBy('id','desc')->get();
+      $destinations=DB::table('destinations')->where('status',1)->get();
       $categories=DB::table('categories_destinations')->where('status',1)->orderBy('id','desc')->get();
     
 
 
 @endphp
-<div class="owl-carousel hero_carousel">
+<div class="owl-carousel hero_carousel position-relative">
 
 @foreach ($banners as $banner)
-<div class="hero" style="background-image: url({{ $banner->image }});">
+<div class="hero">
+    <img src="{{ $banner->image }}" alt="banner">
+    <h1 class="title hero-title custom-fs-28 text-white">
+        {{ $banner->title }}
+    </h1>
+    
+</div>
+
+@endforeach
+</div>
+
+
+        <div class="search-box position-absolute">
+            <form action="{{ route('search') }}" method="GET">
+
     <div class="container">
 
-        <div class="search-box ">
-            <h1 class="title custom-fs-28 mt-3 mt-md-5 pt-3 pt-md-3">
-                {{ $banner->title }}
-            </h1>
-            <form action="{{ route('search') }}" method="GET">
+           
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mt-4 mt-md-0">
                         <h3 class='my-1 py-0 '>
@@ -74,7 +76,9 @@ color: #fff!important;
                         <select name="destination" id="destination" required>
                             <option value="">Choose Destination</option>
                             @foreach ($destinations as $destination)
-                            <option value="{{ $destination->id }}">{{ $destination->name }}</option>
+                            <option value="{{ $destination->id }}" @if (Str::lower($destination->name)=='nepal')
+                                selected
+                            @endif>{{ $destination->name }}</option>
                                 
                             @endforeach
                         </select>
@@ -87,14 +91,14 @@ color: #fff!important;
                             <option value="trip type">Trip Type</option>
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}" @if ($loop->first)
-                                selected
+selected
                             @endif>{{ $category->name }}</option>
                                 
                             @endforeach
                         </select>
                     </div>
                 </div>
-                <div class="row mt-4">
+                <div class="row my-2">
                     <div class="col-md-6 col-sm-12 ">
                         <h3 class='my-1 py-0 '>
                             Month
@@ -124,33 +128,26 @@ color: #fff!important;
                         </button>
                     </div>
                 </div>
-            </form>
         </div>
 
+    </form>
 
     </div>
 
 
-</div>
 
-@endforeach
-
-</div>
 
 
 
 @push('scripts')
 <script>
-        $('#destination').change(function() {
-            // var myCategory = $(this).val();
+        $(document).on('change','#destination',function() {
             let data= $(this).val()
             $.ajax({
                 type: "GET",
                 url: '{{ url('load-category') }}/'+data,
                 dataType: "json",
-
                 success: function(data) {
-
                     $('#category').empty();
                     $.each(data,function(index,item){
                         $('#category').append('<option value ="'+item.id+'">'+item.name+'</option>');

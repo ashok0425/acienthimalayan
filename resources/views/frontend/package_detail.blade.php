@@ -573,17 +573,18 @@ color: #fff!important;
                         <img src="{{ asset($packaged->banner)}}" alt="{{$packaged->name  }}" class="img-fluid w-100">
                         @endif
                     </div>
+                    
                     <div class="img-desc">
                         <div class="about-img row">
-                            <div class="col-6">
+                            <div class="col-12">
                                <p class="px-0 mx-0">
                                 @if (!empty($packaged->duration))
-                                   {{ $packaged->duration }} |
-                                   @endif
-                                   @if (!empty($packaged->activity))
-                                 {{ Str::limit($packaged->activity,20) }}
-                                       
-                                   @endif
+                                {{ $packaged->duration }} |
+                                @endif
+                                @if (!empty($packaged->activity))
+                              {{ Str::limit($packaged->activity,38) }}
+                                    
+                                @endif
                                    </p> 
 
                         </div>
@@ -591,25 +592,27 @@ color: #fff!important;
 
                             <div class="rating">
                                 @for ($i=1;$i<=$packaged->rating;$i++)
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star text-warning"></i>
                                 @endfor
                                 @for ($i=1;$i<=5-$packaged->rating;$i++)
-                                <i class="far fa-star"></i>
+                                <i class="far fa-star text-gray"></i>
                                 @endfor
                              
                             </div>
                         </div>
-                        </div>
-                        <div class="title">
-                            {{ Str::limit($packaged->name,20,'...') }}
-                        </div>
-                        <div class="price ">
-                                $USD {{ $packaged->price }}
+                        <div class="col-6">
+                        <span class="custom-fs-18 custom-fw-600 custom-text-primary">
+                            $USD {{ $packaged->price }}
 
-                            
+                        </span>
                         </div>
+                        </div>
+                        <div class="title mt-1 custom-fs-18">
+                            {{ $packaged->name }}
+                        </div>
+                        
                     </div>
-            </a>
+                </a>
 
                 </div>
             </div>

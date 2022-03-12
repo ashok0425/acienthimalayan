@@ -176,3 +176,36 @@
         </div>
     </div>
 </footer>
+
+
+<div class="whatsapp-link d-md-none">
+	<span>
+		<a href="https://api.whatsapp.com/send?phone=9779851189771"><i class="fa fa-whatsapp"></i></a>
+	</span>
+</div>
+<style>
+	.whatsapp-link{
+		position:fixed;
+		bottom:1rem;
+		left:1rem;
+	}
+	.whatsapp-link span{
+		width:36px;
+		height:36px;
+		font-size:38px;
+		background:green;
+		border-radius:100%;
+		display: block;
+		color:white;
+		position: relative;
+	}
+	.whatsapp-link a{
+		color:white;
+		position:absolute;
+		display: block;
+		top:-8px;
+		left:1px;
+		height:100%;
+		width:100%;
+	}
+</style>

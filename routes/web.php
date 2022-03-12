@@ -36,6 +36,8 @@
 
 	Route::get('blogs','BlogController@index')->name('blog');
 	Route::get('blog-detail/{id}','BlogController@show')->name('blog.detail');
+	Route::post('filterBlog}','BlogController@filterBlog')->name('filterBlog');
+
 
 	Route::get('events','EventController@index')->name('events');
 	Route::get('event-detail/{id}','EventController@show')->name('event.detail');

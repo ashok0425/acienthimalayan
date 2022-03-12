@@ -57,8 +57,8 @@
 
                                 <div class="row">
                                     <div class="col-5">
-                                        @if ($blog->guid!=null && file_exists($blog->guid))
-                        <img src="{{ asset($blog->guid)}}"  class="img-fluid w-100">
+                                        @if ($more->guid!=null && file_exists($more->guid))
+                        <img src="{{ asset($more->guid)}}"  class="img-fluid w-100">
                        
                         @else 
                         <img src="{{ asset('frontend/assets/recent-post.png')}}" alt="IMG" class="img-fluid"  >
