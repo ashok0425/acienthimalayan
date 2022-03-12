@@ -52,7 +52,7 @@ color: #fff!important;
 @foreach ($banners as $banner)
 <div class="hero">
     <img src="{{ $banner->image }}" alt="banner">
-    <h1 class="title hero-title custom-fs-28 text-white">
+    <h1 class="title hero-title custom-fs-28 text-white d-none d-md-block">
         {{ $banner->title }}
     </h1>
     
