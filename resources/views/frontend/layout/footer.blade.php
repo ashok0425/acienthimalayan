@@ -180,7 +180,7 @@
 
 <div class="whatsapp-link d-md-none">
 	<span>
-		<a href="https://api.whatsapp.com/send?phone=9779851189771"><i class="fa fa-whatsapp"></i></a>
+		<a href="https://api.whatsapp.com/send?phone=9779851189771"><i class="fab fa-whatsapp"></i></a>
 	</span>
 </div>
 <style>
