@@ -172,7 +172,7 @@
 @endphp
         <div class="bottom-footer d-flex justify-content-between flex-column flex-md-row">
             <p>Copyright  © {{ date('Y') }} NepalVisionTreks. All right Reserved</p>
-            <p>Follow Us : <a href="{{ $website->facebook }}" class="text-white text-decoration-none">FB</a> | <a href="{{ $website->instagram }}" class="text-white text-decoration-none"> Insta </a> | <a href="{{ $website->youtube }}" class="text-white text-decoration-none"> Trip Visor </a></p>
+            <p>Follow Us : <a href="{{ $website->facebook }}" class="text-white text-decoration-none">FB</a> | <a href="{{ $website->instagram }}" class="text-white text-decoration-none"> Insta </a> | <a href="{{ $website->youtube }}" class="text-white text-decoration-none"> Trip advisor </a></p>
         </div>
     </div>
 </footer>

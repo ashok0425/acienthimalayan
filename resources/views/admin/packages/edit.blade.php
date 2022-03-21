@@ -160,7 +160,7 @@
                                         </div>
                                         <div class="form-group">
                                              <label >Duration</label>
-                                            <input type="text" name="duration" class="form-control" required value="{{ $package->duration }}">
+                                            <input type="text" name="duration" class="form-control"  value="{{ $package->duration }}">
                                         </div>
                                         
                                         <div class="form-group">

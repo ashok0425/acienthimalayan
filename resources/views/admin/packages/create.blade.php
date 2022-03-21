@@ -151,7 +151,7 @@
                                         </div>
                                         <div class="form-group">
                                              <label >Duration</label>
-                                            <input type="text" name="duration" class="form-control" required placeholder="Enter Duration">
+                                            <input type="text" name="duration" class="form-control"  placeholder="Enter Duration">
                                         </div>
                                         
                                         <div class="form-group">
