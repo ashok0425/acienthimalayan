@@ -22,9 +22,10 @@
                         @endif
                         <div class="discount bg-success">
                             @php
-                                $damount=($package->discounted_price*100)/$package->price
+                                $damount=$package->price-$package->discounted_price
+                               $dpercent=($damount*100)/$package->price
                             @endphp
-                            <h3>{{ ceil($damount)}}%</h3>
+                            <h3>{{ ceil($dpercent)}}%</h3>
                             <p>Discount</p>
                         </div>
                     </div>
@@ -56,7 +57,13 @@
                         </div>
                         <div class="col-6">
                         <span class="custom-fs-18 custom-fw-600 custom-text-primary">
+                            @if ($package->discounted_price!=null && !empty($package->discounted_price))
+                                
+                            $USD {{ $package->discounted_price }}
+
+                            @else     
                             $USD {{ $package->price }}
+                            @endif
 
                         </span>
                         </div>

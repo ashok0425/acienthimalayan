@@ -118,7 +118,7 @@ color: #fff!important;
 background-color: #fff!important;
 }
 
-</>
+</style>
 @stack('style')
 
 
