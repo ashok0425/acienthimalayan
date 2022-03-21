@@ -1631,7 +1631,7 @@ height: 20vh;
     top: 50px!important;
   }
   .hero img{
-    height: 90vh;
+    height: 90vh!important;
   }
 
   .search-box{
