@@ -121,7 +121,7 @@ color: #fff!important;
 
                                     <h2 class='my-0 py-0'>Previous Price</h2>
                                    <p class='my-0 py-0'>
-                                {{ $package->price }} 
+                               $USD {{ $package->price }} 
                                    </p></div>
 
                                    <div class="col-12 py-2">
@@ -139,7 +139,7 @@ color: #fff!important;
                                  <span class="custom-text-primary">
 <strong class="text-dark custom-fs-25 custom-fw-700">
     
-    {{ $package->price }}
+   $USD {{ $package->price }}
 </strong>                                     
                                     Per Person</span></p>
 
