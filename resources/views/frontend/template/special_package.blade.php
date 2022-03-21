@@ -22,8 +22,8 @@
                         @endif
                         <div class="discount bg-success">
                             @php
-                                $damount=$package->price-$package->discounted_price
-                               $dpercent=($damount*100)/$package->price
+                                $damount=$package->price-$package->discounted_price;
+                               $dpercent=($damount*100)/$package->price;
                             @endphp
                             <h3>{{ ceil($dpercent)}}%</h3>
                             <p>Discount</p>
