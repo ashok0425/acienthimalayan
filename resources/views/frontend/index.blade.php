@@ -29,6 +29,10 @@
 {{-- Blog section  --}}
 @include('frontend.template.blog')
 
+
 {{-- Afflicate section  --}}
 @include('frontend.template.afflicate')
+
+@include('frontend.template.subscribe')
+
 @endsection

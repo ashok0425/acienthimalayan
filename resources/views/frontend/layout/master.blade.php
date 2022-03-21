@@ -44,6 +44,9 @@
         >
          <!-- Owl Stylesheets -->
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+         {{-- toastr --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         
     <!--Jquery Ui Css-->
     <link rel="stylesheet" href="{{ asset('frontend/main.css') }}">
@@ -159,6 +162,29 @@ background-color: #fff!important;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" ></script>
 
 
+{{-- toastr  --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  {{-- toastr  --}}
+  <script>
+	@if(Session::has('messege'))//toatser
+	  var type="{{Session::get('alert-type','info')}}"
+	  switch(type){
+		  case 'info':
+			   toastr.info("{{ Session::get('messege') }}");
+			   break;
+		  case 'success':
+			  toastr.success("{{ Session::get('messege') }}");
+			  break;
+		  case 'warning':
+			 toastr.warning("{{ Session::get('messege') }}");
+			  break;
+		  case 'error':
+			  toastr.error("{{ Session::get('messege') }}");
+			  break;
+	  }
+	@endif
+	</script>
 
 
  <!--tab collapse-->

@@ -11,6 +11,7 @@ use App\Models\SectionControl;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Contact;
+use App\Models\Newsletter;
 use App\Models\Website;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -128,16 +129,6 @@ try {
                   }
 
 
-                  
-
-
-
-
-
-
-
-                  
-
 function IPtoLocation($ip){ 
       $apiURL = 'https://freegeoip.app/json/'.$ip; 
        
@@ -160,5 +151,31 @@ function IPtoLocation($ip){
   }
 
 
+
+
+  public function subscribeStore(Request $request){
+       
+
+      try {
+            //code...
+                  $newsletter = new Newsletter;
+                  $newsletter->email = $request->email;
+                  $newsletter->save();
+                  $notification=array(
+                        'alert-type'=>'success',
+                        'messege'=>'Newsletter subscribed sucessfully.',
+                       
+                     );
+            } catch (\Throwable $th) {
+                  $notification=array(
+                        'alert-type'=>'error',
+                        'messege'=>'Failed to subscribed. Try again.',
+                       
+                     );
+      
+            }
+            return redirect()->back()->with($notification);
+
+  }
 
 }

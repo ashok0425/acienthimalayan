@@ -52,3 +52,4 @@
 	Route::post('testimonials/store','PackageController@testimonialStore')->name('testimonials.store');
 
 
+	Route::post('subscribe/store','ContactController@subscribeStore')->name('subscribe.store');
