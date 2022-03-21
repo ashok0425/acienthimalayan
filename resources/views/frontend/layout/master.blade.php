@@ -77,7 +77,48 @@
   height: 280px!important;
 
 }
-            </style>
+
+
+
+
+.owl-nav .owl-prev{
+    color:  rgb(42, 135, 183)!important;
+left: 0%!important;
+border: 2px solid  rgb(42, 135, 183)!important;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+transition: all .3s ease-in-out;
+position: absolute;
+cursor: pointer;
+top: 50% !important;
+background-color:  rgb(42, 135, 183)!important;
+color: #fff!important;
+
+}
+.owl-nav .owl-next{
+right: 0%!important;
+color:  rgb(42, 135, 183)!important;
+border: 2px solid  rgb(42, 135, 183)!important;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+transition: all .3s ease-in-out;
+position: absolute;
+cursor: pointer;
+top: 50% !important;
+background-color:  rgb(42, 135, 183)!important;
+color: #fff!important;
+
+
+}
+
+ .owl-nav button:hover{
+    color:  rgb(42, 135, 183)!important;
+background-color: #fff!important;
+}
+
+</>
 @stack('style')
 
 
@@ -150,7 +191,7 @@
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         margin: 0,
-        // nav: true,
+        nav: true,
         responsive: {
             0: {
                 items: 1
@@ -174,7 +215,7 @@
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         margin: 0,
-        // nav: true,
+        nav: true,
         responsive: {
             0: {
                 items: 1
@@ -198,7 +239,7 @@
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         margin: 0,
-        // nav: true,
+        nav: true,
         responsive: {
             0: {
                 items: 1
@@ -221,7 +262,7 @@ $('.testimonials').owlCarousel({
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
     margin: 0,
-    // nav: true,
+    nav: true,
     responsive: {
         0: {
             items: 1
@@ -247,7 +288,6 @@ $('.afflicated').owlCarousel({
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
     margin: 0,
-    // nav: true,
     responsive: {
         0: {
             items: 2
