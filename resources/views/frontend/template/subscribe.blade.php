@@ -62,11 +62,11 @@
         @csrf
 	<div class="form">
 		<div class="row">
-			<div class="col-md-5 offset-md-3">
+			<div class="col-md-5 offset-md-3 my-1">
 				
 		<input type="email" class="form__email w-100" placeholder="Enter your email address" required name="email"/>
 	</div>
-	<div class="col-md-2">
+	<div class="col-md-2 my-1">
 		<button class="form__button w-100" type="submit">Send</button>
 	</div>
 

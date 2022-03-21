@@ -807,6 +807,7 @@ header .sub {
   top: 0;
   left: 100%;
 }
+
 .hero img{
   height: 84vh;
 }
@@ -1630,7 +1631,7 @@ height: 20vh;
     top: 50px!important;
   }
   .hero img{
-    height: 40vh;
+    height: 60vh;
   }
 
   .search-box{
