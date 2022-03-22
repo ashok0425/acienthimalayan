@@ -7,7 +7,7 @@ width: 100%!important;
 <section class="recent-post ">
     <div class="container">
         <div class="heading my-5">
-            <h2>Recent Post</h2>
+            <h2>Recent Posts</h2>
         </div>
         @php
             $blogs=DB::table('blogs')->orderBy('id','desc')->where('post_status','publish')->limit(3)->get();

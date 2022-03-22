@@ -78,7 +78,8 @@
                                 </svg>
 
                             </div>
-                            <h2>
+                            <h2 class="">
+                                <div class="pt-2"></div>
                                 Private Guides
                             </h2>
                             <p>{{$private_guide->details}}</p>
@@ -96,7 +97,7 @@
                                 </svg>
 
                             </div>
-                            <h2>
+                            <h2 class="">
                                 Activities
                             </h2>
                                                        <p>{{$activity->details}}</p>

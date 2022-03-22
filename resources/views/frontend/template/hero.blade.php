@@ -10,17 +10,19 @@ top: 80% !important;
 
 
 .hero_carousel >.owl-nav>.owl-prev{
-    color:  rgb(42, 135, 183)!important;
+    color:  rgb(2, 9, 12)ortant;
 left: 33px!important;
 border: 2px solid  rgb(42, 135, 183)!important;
 width: 40px;
 height: 40px;
 border-radius: 50%;
 transition: all .3s ease-in-out;
+color:  #fff!important;
+
 }
 .hero_carousel >.owl-nav>.owl-next{
 right: 33px!important;
-color:  rgb(42, 135, 183)!important;
+color:  #fff!important;
 border: 2px solid  rgb(42, 135, 183)!important;
 width: 40px;
 height: 40px;
@@ -30,7 +32,7 @@ transition: all .3s ease-in-out;
 }
 
 .hero_carousel .owl-nav button:hover{
-background-color:  rgb(42, 135, 183);
+background-color:  rgb(42, 135, 183)!important;
 color: #fff!important;
 }
 

@@ -15,7 +15,7 @@
 
 
 {{-- Destination section  --}}
-@include('frontend.template.destination')
+@include('frontend.template.test')
 
 {{-- Tour package section  --}}
 @include('frontend.template.tour_package')

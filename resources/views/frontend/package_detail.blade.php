@@ -61,7 +61,7 @@ color: #fff!important;
     <div class="card">
         <div class="card-body py-1 my-0">
             <div class="row">
-                <div class="col-md-5 offset-md-7 text-right">
+                <div class="@if ($package->video)col-md-6 offset-md-6 @else col-md-5 offset-md-7 @endif text-right">
                     <div class="d-flex justify-content-center justify-content-md-center flex-md-row flex-column">
 
 @if ($package->video)
@@ -633,7 +633,7 @@ color: #fff!important;
 {{-- video Model  --}}
 <!-- Modal -->
 <div class="modal fade " id="video" tabindex="-1" aria-labelledby="videoy" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           
