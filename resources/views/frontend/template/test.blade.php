@@ -4,12 +4,12 @@
 @push('style')
 <style>
     .bg_img{
-        background:linear-gradient(to left,rgb(126, 125, 125),rgba(145, 143, 143, 0.1)),url("{{asset('alpine.jpg')}}");
+        background:url("{{asset('alp.jpg')}}");
         background-size:cover;
         background-repeat:no-repeat;
         padding: 4rem 1.2rem;
         background-attachment: fixed;
-background-blend-mode: multiply;
+/* background-blend-mode: multiply; */
     }
     </style>
 {{-- owl carousel  --}}
@@ -23,7 +23,7 @@ top: 71%!important;
 
 .destinations>.owl-nav>.owl-prev{
 color:  rgb(2, 9, 12)!important;
-left: 114%!important;
+left: 131%!important;
 border: 2px solid  rgb(42, 135, 183)!important;
 width: 40px;
 height: 40px;
@@ -33,7 +33,7 @@ color:  #fff!important;
 
 }
 .destinations>.owl-nav>.owl-next{
-right: -24%!important;
+right: -46%!important;
 color:  #fff!important;
 border: 2px solid  rgb(42, 135, 183)!important;
 width: 40px;
@@ -76,7 +76,7 @@ $destinations=DB::table('destinations')->orderBy('id','desc')->where('status',1)
 <div class="container-fluid">
 
 <div class="row">
-        <div class="col-md-8 order-2 order-md-1">
+        <div class="col-md-7 order-2 order-md-1">
             <div class="owl-carousel destinations ">
                 @foreach ($destinations as $destination)
          
@@ -118,9 +118,9 @@ $destinations=DB::table('destinations')->orderBy('id','desc')->where('status',1)
                
             </div>
         </div>
-        <div class="col-md-3 order-1 order-md-2" >
+        <div class="col-md-3 order-1 order-md-2 offset-md-1" >
           <div class="py-md-5 my-md-5 py-3 text-center ">
-            <h2 class="text-lg text-uppercase text-white">Top Destinaions</h2>
+            <h2 class="text-lg text-uppercase text-white">Top Destinations</h2>
               <p class="text-white">We have various amazing destinations handpicked for you.Our guide are ready for your adventures in multiple countries.</p>
            
         </div>

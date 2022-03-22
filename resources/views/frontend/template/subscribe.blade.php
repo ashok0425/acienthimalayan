@@ -75,7 +75,7 @@
 <div class="row">
 	<div class="notice col-md-4 text-center offset-md-4 ">
 		<input type="checkbox">
-		<span class="notice__copy ">I agree to my email address being stored and uses to recieve  newsletter.</span>
+		<span class="notice__copy ">I agree to my email address being stored and used to recieve  newsletter.</span>
 	</div>
 </div>
 </form>
