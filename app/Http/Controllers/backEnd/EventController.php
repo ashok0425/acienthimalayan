@@ -118,7 +118,7 @@ class EventController extends Controller
                 $event=Event::where('id',$id)->first();
                 File::delete(public_path($event->image));
                 $fname=rand().'event.'.$file->getClientOriginalExtension();
-                $blog['guid']='upload/event/'.$fname;
+                $blog['image']='upload/event/'.$fname;
                 // $path=Image::make($file)->resize(200,300);
                 $file->move(public_path().'/upload/event/',$fname);
             }

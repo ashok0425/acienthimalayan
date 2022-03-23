@@ -412,7 +412,7 @@ Event List      <i class="fas fa-angle-left right"></i>
     </li>
 
    <li class="nav-item ">
-      <a href="{{route('admin.cms.create')}}" class="nav-link <?php  echo Request::segment(3)=='create'?'active':'' ?>">
+      <a href="{{route('admin.cms.index')}}" class="nav-link <?php  echo Request::segment(3)=='create'?'active':'' ?>">
         <i class="far fa-circle nav-icon"></i>
         <p>CMS </p>
       </a>

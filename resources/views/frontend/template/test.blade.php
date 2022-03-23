@@ -121,7 +121,7 @@ $destinations=DB::table('destinations')->orderBy('id','desc')->where('status',1)
         <div class="col-md-3 order-1 order-md-2 offset-md-1" >
           <div class="py-md-5 my-md-5 py-3 text-center ">
             <h2 class="text-lg text-uppercase text-white">Top Destinations</h2>
-              <p class="text-white">We have various amazing destinations handpicked for you.Our guide are ready for your adventures in multiple countries.</p>
+              <p class="text-white">We have various amazing destinations handpicked for you. Our guide are ready for your adventures in multiple countries.</p>
            
         </div>
     </div>

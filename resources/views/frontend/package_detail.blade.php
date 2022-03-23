@@ -556,7 +556,7 @@ color: #fff!important;
     <section class="packages">
         <div class="container-fluid">
             <div class="heading my-5">
-                <h2 class='my-0 py-0'>Feautre Packages</h2>
+                <h2 class='my-0 py-0'>Featured Packages</h2>
             </div>
             <div class="row">
                 @foreach ($features as $packaged)
@@ -633,7 +633,7 @@ color: #fff!important;
 {{-- video Model  --}}
 <!-- Modal -->
 <div class="modal fade " id="video" tabindex="-1" aria-labelledby="videoy" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
           
