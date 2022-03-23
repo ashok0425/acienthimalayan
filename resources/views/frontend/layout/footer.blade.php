@@ -1,8 +1,4 @@
-<style>
-    .bottom-footer .fab{
-  font-size: 20px!important;
-    }
-</style>
+
 
 <footer>
     {{-- https://www.figma.com/file/AooxbPw11smLpkqBr6iaYi/Nepal-Vision-T%26E?node-id=0%3A1 --}}
@@ -178,7 +174,7 @@
 @endphp
         <div class="bottom-footer d-flex justify-content-between flex-column flex-md-row">
             <p>Copyright  © {{ date('Y') }} NepalVisionTreks. All right Reserved</p>
-            <p>Follow Us : <a href="{{ $website->facebook }}" class="text-white text-decoration-none"><i class="fab fa-facebook"></i></a> | <a href="{{ $website->instagram }}" class="text-white text-decoration-none"> <i class="fab fa-instagram"></i> </a> | <a href="{{ $website->youtube }}" class="text-white text-decoration-none"> Tripadvisor </a></p>
+            <p>Follow Us : <a href="{{ $website->facebook }}" class="text-white text-decoration-none"><img src="{{ asset('facebook.png') }}" alt="facebook" width="20"></a> | <a href="{{ $website->instagram }}" class="text-white text-decoration-none"> <img src="{{ asset('insta.png') }}" alt="insta" width="20"> </a>  |<a href="{{ $website->youtube }}" class="text-white text-decoration-none"><img src="{{ asset('trip.png') }}" alt="tripadvisior" width="40"> </a></p>
         </div>
     </div>
 </footer>
