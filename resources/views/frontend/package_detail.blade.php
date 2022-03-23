@@ -42,6 +42,9 @@ color: #fff!important;
     height:  38px!important;
 
 }
+.boder-0{
+    border: 0px!important
+}
 </style>
 
 @section('content')
@@ -632,12 +635,12 @@ color: #fff!important;
 
 {{-- video Model  --}}
 <!-- Modal -->
-<div class="modal fade " id="video" tabindex="-1" aria-labelledby="videoy" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+<div class="modal fade border-0" id="video" tabindex="-1" aria-labelledby="videoy" aria-hidden="true">
+    <div class="modal-dialog modal-md border-0">
       <div class="modal-content bg-transparent">
-        <div class="modal-header bg-transparent">
+        <div class="modal-header bg-transparent border-0">
           
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-transparent">
        
