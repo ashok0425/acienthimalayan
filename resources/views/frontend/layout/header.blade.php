@@ -56,13 +56,20 @@
                                 active
                                 @endif" aria-current="page" href="{{ route('/') }}" >Home</a>
                             </li>
-                            <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle @if (PAGE=='destination')
+                            <li class="nav-item dropdown ">
+                                
+                            <a class="nav-link d-block d-md-none  @if (PAGE=='destination')
                             active
-                            @endif" href="{{ route('destination',['id'=>8,'url'=>'nepal']) }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @endif" href="{{ route('destination',['id'=>8,'url'=>'nepal']) }}"  aria-expanded="false">
                           Destination
                         </a>
 
+
+                        <a class="nav-link d-none d-md-block dropdown-toggle @if (PAGE=='destination')
+                        active
+                        @endif" href="{{ route('destination',['id'=>8,'url'=>'nepal']) }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Destination
+                    </a>
                    
                                 <ul class="dropdown-menu " aria-h3ledby="navbarDropdownMenuLink" >
                                     @foreach ($destinations as $destination)
