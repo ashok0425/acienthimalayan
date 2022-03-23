@@ -59,7 +59,7 @@
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle @if (PAGE=='destination')
                             active
-                            @endif" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @endif" href="{{ route('destination',['id'=>8,'url'=>'nepal']) }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Destination
                         </a>
 

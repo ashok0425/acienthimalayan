@@ -44,7 +44,7 @@ color: #fff!important;
       // main hero image 
       $banners=DB::table('main_slider')->where('status',1)->orderBy('id','desc')->where('type',1)->get();
       $destinations=DB::table('destinations')->where('status',1)->get();
-      $categories=DB::table('categories_destinations')->where('status',1)->orderBy('id','desc')->get();
+      $categories=DB::table('categories_destinations')->where('status',1)->where('destination_id',8)->orderBy('id','desc')->get();
 @endphp
 <div class="owl-carousel hero_carousel position-relative">
 @foreach ($banners as $banner)
