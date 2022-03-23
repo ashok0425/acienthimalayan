@@ -131,7 +131,7 @@ color: #fff!important;
 
                                     <h2 class='my-0 py-0'>Current Price</h2>
                                    <p class='my-0 py-0'>
-                                   $USD  <span class="text-danger">{{ $package->discounted_price }} </span> 
+                                   $USD  <span class="text-success">{{ $package->discounted_price }} </span> 
                                    </p>
                                 </div>
                                 @else   
