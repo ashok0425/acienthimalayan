@@ -16,12 +16,12 @@
                         </div>
                         <div class="card">
 
-                            <div class="img-wrapper">
+                            <div class="img-wrapper w-50 mx-auto">
                                 @if ($event->image!==null)
-                                <img src="{{ asset($event->image)}}" class="card-img-top" alt="{{ $event->title }}">
+                                <img src="{{ asset($event->image)}}" class="" alt="{{ $event->title }}">
                                     
                                 @else    
-                                <img src="{{ asset('frontend/assets/event1.png')}}" class="card-img-top" alt="{{ $event->title }}">
+                                <img src="{{ asset('frontend/assets/event1.png')}}" class="" alt="{{ $event->title }}">
 
                                 @endif
                                 <div class="date">

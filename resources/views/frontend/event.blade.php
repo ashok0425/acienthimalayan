@@ -1,4 +1,9 @@
 @extends('frontend.layout.master')
+<style>
+    .events .card-body{
+        height: 110px;
+    }
+</style>
 @php
     define('PAGE','event')
 @endphp
@@ -12,7 +17,7 @@
             <div class="row">
                 @foreach ($events as $event)
                 <div class="col-md-4">
-                    <div class="event-card-1">
+                    <div class="event-card-1 shadow">
                         <a href="{{ route('event.detail',['id'=>$event->id]) }}" class="text-decoration-none custom-text-primary">
                         <div class="card">
                             <div class="img-wrapper">
@@ -36,7 +41,22 @@
                                         <p>{{ carbon\carbon::parse($event->end_date)->format('Y') }}</p>
                                     </div>
                                 </div>
+
+                                @php
+                                    $enddate=carbon\carbon::parse($event->end_date)->format('d-m-Y');
+                                    $today=carbon\carbon::parse(today())->format('d-m-Y');
+
+
+                                @endphp
+                                @if ($today>$enddate)
+                                <div class="places">
+                                                Expired
+                                </div>
+                                @endif
+
                             </div>
+
+                           
                             <div class="card-body">
                                 <h3 class="card-title text-dark">{{ $event->title }}</h3>
                             </div>

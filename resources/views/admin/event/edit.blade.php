@@ -113,6 +113,20 @@
                   </div>
                   <img src="{{ asset($event->image) }}" alt="" width="100">
             </div>
+
+            <div class=" col-md-12 my-2">
+                <label class="form-label">Cover </label>
+                    <div class="image-input">
+                        <input type="file" accept="image/*" id="imageInput2" name="cover" value="{{ old('cover') }}">
+                        <label for="imageInput2" class="image-button"><i class="far fa-image"></i> Choose image</label>
+                        <img src="" class="image-preview2">
+
+                  </div>
+                  <img src="{{ asset($event->cover) }}" alt="" width="100">
+
+            </div>
+
+
             <div class=" col-md-12 my-2">
                 <label class="form-label">Content</label>
                 <textarea name="content" id="summernote" cols="30" rows="10">{{ $event->content}}</textarea>
@@ -150,6 +164,23 @@ if($input.val().length > 0) {
 }
 });
 
+
+
+// Add the following code if you want the name of the file appear on select
+$('#imageInput2').on('change', function() {
+$input = $(this);
+
+if($input.val().length > 0) {
+  fileReader = new FileReader();
+  fileReader.onload = function (data) {
+  $('.image-preview2').attr('src', data.target.result);
+  }
+  fileReader.readAsDataURL($input.prop('files')[0]);
+//   $('.image-button').css('display', 'none');
+  $('.image-preview2').css('display', 'block');
+  $('.change-image').css('display', 'block');
+}
+});
 
 	  </script>
 	  @endpush

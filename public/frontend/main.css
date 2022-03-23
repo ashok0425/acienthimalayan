@@ -78,7 +78,7 @@
   line-height: 46.88px;
 }
 
-.card-style-1 .places {
+.card-style-1 .places ,.event-card-1 .places{
   background: linear-gradient(103.86deg, #00c6ff -22.01%, #0183e7 117.6%);
   width: 180px;
   height: 60px;
@@ -91,6 +91,11 @@
   color: #fff;
   border-radius: 30px 0px 0px 30px;
   padding: 11px 25px;
+}
+
+.event-card-1 .places{
+  background: linear-gradient(103.86deg, #f31924 -22.01%, #f31924 117.6%);
+
 }
 
 .card-style-2 {
@@ -812,14 +817,14 @@ header .sub {
   height: 84vh;
 }
 .search-box{
-  top: 40%;
+  top: 40vh;
   left: 40%;
   z-index: 99;
 }
 .hero-title{
 position: absolute;
 z-index: 99;
-top: 10%;
+top: 7vh;
 left: 40.3%;
 }
 .search-box, .search-box-2 {
@@ -1322,7 +1327,7 @@ footer .bottom-footer {
   .card-style-1 .place-name {
     font-size: 20px;
   }
-  .card-style-1 .places {
+  .card-style-1 .places , .event-card-1 .places {
     width: 120px;
     height: 40px;
     font-weight: 500;

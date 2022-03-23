@@ -123,15 +123,15 @@ color: #fff!important;
                                 <div class="col-12 py-2">
 
                                     <h2 class='my-0 py-0'>Previous Price</h2>
-                                   <p class='my-0 py-0'>
-                               $USD {{ $package->price }} 
+                                   <p class='my-0 py-0 '>
+                               $USD <span class="text-danger">{{ $package->price }} </span>
                                    </p></div>
 
                                    <div class="col-12 py-2">
 
                                     <h2 class='my-0 py-0'>Current Price</h2>
                                    <p class='my-0 py-0'>
-                                   $USD  {{ $package->discounted_price }} 
+                                   $USD  <span class="text-danger">{{ $package->discounted_price }} </span> 
                                    </p>
                                 </div>
                                 @else   
@@ -640,7 +640,7 @@ color: #fff!important;
       <div class="modal-content bg-transparent border-0">
         <div class="modal-header bg-transparent border-0">
           
-          <button type="button" class="btn-close text-light bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close text-light  text-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-transparent">
        

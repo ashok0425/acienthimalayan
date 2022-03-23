@@ -57,7 +57,7 @@ class EventController extends Controller
 
 
         ]);
-        // try {
+        try {
        $blog=[];
 
             $file=$request->file('image');
@@ -68,6 +68,16 @@ class EventController extends Controller
                 // $path=Image::make($file)->resize(200,300);
                 $file->move(public_path().'/upload/event/',$fname);
             }
+
+
+
+            $file=$request->file('cover');
+            if($file){
+                $fname=rand().'event.'.$file->getClientOriginalExtension();
+                $blog['cover']='upload/event/cover/'.$fname;
+                $file->move(public_path().'/upload/event/cover/',$fname);
+            }
+
             $blog['title']=$request->title;
             $blog['date']=$request->date;
             $blog['end_date']=$request->end_date;
@@ -84,15 +94,15 @@ class EventController extends Controller
             
 
 
-        // } catch (\Throwable $th) {
-        //     $notification=array(
-        //         'alert-type'=>'error',
-        //         'messege'=>'Something went wrong. Please try again later.',
+        } catch (\Throwable $th) {
+            $notification=array(
+                'alert-type'=>'error',
+                'messege'=>'Something went wrong. Please try again later.',
 
-        //      );
-        //      return redirect()->back()->with($notification);
+             );
+             return redirect()->back()->with($notification);
 
-        // }
+        }
 
     }
 
@@ -123,6 +133,17 @@ class EventController extends Controller
                 $file->move(public_path().'/upload/event/',$fname);
             }
           
+
+
+            $file=$request->file('cover');
+            if($file){
+                $event=Event::where('id',$id)->first();
+                File::delete(public_path($event->cover));
+                $fname=rand().'event.'.$file->getClientOriginalExtension();
+                $blog['cover']='upload/event/cover/'.$fname;
+                // $path=Image::make($file)->resize(200,300);
+                $file->move(public_path().'/upload/event/cover/',$fname);
+            }
            
             $blog['title']=$request->title;
             if ($request->date) {

@@ -10,7 +10,7 @@ width: 100%!important;
 
     }
 </style>
-<x-page-header title="Blog" :route="route('blog')"  />
+<x-page-header title="Blog" :route="route('blog')"    :img="asset('blog.jpg')"/>
 
             <div class="container mt-4">
                 <div class="event-header">

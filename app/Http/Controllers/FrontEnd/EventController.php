@@ -9,7 +9,7 @@ class EventController extends Controller
 {
 
 public function index(){
-     $events=Event::orderBy('id','desc')->where('status',1)->where('title','!=',null)->paginate(12);
+     $events=Event::where('status',1)->where('title','!=',null)->orderBy('end_date','desc')->paginate(12);
      return view('frontend.event',compact('events'));
 }
 
