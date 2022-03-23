@@ -637,10 +637,10 @@ color: #fff!important;
 <!-- Modal -->
 <div class="modal fade border-0" id="video" tabindex="-1" aria-labelledby="videoy" aria-hidden="true">
     <div class="modal-dialog modal-md border-0">
-      <div class="modal-content bg-transparent">
+      <div class="modal-content bg-transparent border-0">
         <div class="modal-header bg-transparent border-0">
           
-          <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close text-light bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-transparent">
        
