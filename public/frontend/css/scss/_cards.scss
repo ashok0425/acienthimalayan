@@ -1,0 +1,115 @@
+.card__3 {
+    display: flex;
+    background-color: #e1f0f4;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    max-width: 900px;
+    justify-content: center;
+    .img__wrap {
+        position: relative;
+        img {
+            width: 100%;
+            max-width: 350px;
+            object-fit: cover;
+            height: 100%;
+        }
+        .flash__offer {
+            color: #fff;
+            background-color: var(--custom-secondary);
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+            position: absolute;
+            top: 5%;
+            left: 0;
+            font-size: 14px;
+        }
+        .heart {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            z-index: 1;
+            width: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+    }
+    .text {
+        display: grid;
+        place-content: center;
+        padding: 20px;
+        .info {
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .price {
+            .price {
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+    }
+}
+.card__4 {
+    .img__wrap {
+        margin-bottom: 20px;
+        img {
+            object-fit: cover;
+            aspect-ratio: 1/0.7;
+            border-radius: 20px;
+        }
+    }
+    h5 {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 575px) {
+    .card__3 {
+        display: flex;
+        background-color: #e1f0f4;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 5px;
+        max-width: 900px;
+        flex-direction: column;
+        .img__wrap {
+            position: relative;
+            img {
+                width: 100%;
+                max-width: 100%;
+                object-fit: cover;
+                height: 100%;
+            }
+            .flash__offer {
+                color: #fff;
+                background-color: var(--custom-secondary);
+                padding: 10px;
+                border-radius: 0 5px 5px 0;
+                position: absolute;
+                top: 5%;
+                left: 0;
+                font-size: 14px;
+            }
+            .heart {
+                position: absolute;
+                top: 5%;
+                right: 5%;
+                z-index: 1;
+                width: 30px;
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+        .text {
+            display: grid;
+            place-content: center;
+            padding: 20px;
+            .info {
+                margin: 20px 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}

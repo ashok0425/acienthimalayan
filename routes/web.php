@@ -5,6 +5,8 @@
 
 // index page 
     Route::get('/','HomeController@getIndex')->name('/');
+
+	
 	Route::get('cms/{page?}','HomeController@Page')->name('cms.page');
 	Route::get('cms/page/{page}/{id?}','HomeController@PageDetail')->name('cms.detail');
 	Route::get('contact','ContactController@index')->name('contactus');
