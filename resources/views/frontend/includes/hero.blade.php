@@ -1,11 +1,13 @@
-
-    <section class="home_banner">
+@php
+    $banner=DB::table('main_slider')->where('status',1)->orderBy('id','desc')->first();
+@endphp
+    <section class="home_banner" style="background: url('{{asset($banner->image)}}') no-repeat!important;">
         <div class="container">
-            <div class="banner_text">
-                <h2>Tours and Trip packages, Globally
+            <div class="banner_text mt-2">
+                <h2>{{$banner->title}}
                 </h2>
                 <p>
-                    Search, compare and book 100+ multiday tours all over the Nepal.
+                   {!!strip_tags($banner->details)!!}
                 </p>
             </div>
 

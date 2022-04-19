@@ -147,7 +147,7 @@
               <div class="col-md-12">
                 <div class="card-header bg-gray">
                   <div class="card-title">
-                    Nepal Branch Info
+                    Office Info
                   </div>
                 </div>
                 <br>
@@ -191,88 +191,6 @@
                   </div>
             </div>
 
-
-            <div class="col-md-12">
-              <div class="card-header bg-gray">
-                <div class="card-title">
-                  USA Branch Info
-                </div>
-              </div>
-              <br>
-
-            </div>
-
-            <div class="col-md-6">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    </div>
-                    <input type="email" class="form-control" value="{{$website->email2}}" name="email2">
-
-                  </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
-                    </div>
-                    <input type="tel" class="form-control" value="{{$website->phone2}}" name="phone2">
-                  </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                    </div>
-                    <input type="text" class="form-control" value="{{$website->address2}}" name="address2">
-                  </div>
-            </div>
-
-
-            <div class="col-md-12">
-              <div class="card-header bg-gray">
-                <div class="card-title">
-                  Expert Contact No
-                </div>
-              </div>
-      <br>
-
-            </div>
-            <div class="col-md-6">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
-                    </div>
-                    <input type="tel" class="form-control" value="{{$website->expert_phone1}}" name="expert_phone1">
-                  </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
-                  </div>
-                  <input type="tel" class="form-control" value="{{$website->expert_phone2}}" name="expert_phone2">
-                </div>
-          </div>
-
-
-          <div class="col-md-12">
-            <div class="card-header bg-gray">
-              <div class="card-title">
-                Map
-              </div>
-            </div>
-    <br>
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control" value="{{$website->longitude}}" name="longitude">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control" value="{{$website->latitude}}" name="latitude">
-          </div>
             <input type="submit" value="update" class="btn btn-block btn-info">
         </div>
     </form>

@@ -30,25 +30,25 @@
                   @foreach($blogs as $blog)
                     <tr id="{{ $blog->id }}">
                         <td>
-                            <img src="{{ asset($blog->guid) }}" width="80">
+                            <img src="{{ asset($blog->image) }}" width="80">
                         </td>
-                        <td>{{ $blog->post_title }}</td>
-                        <td>{!! Str::limit(strip_tags($blog->post_content), 100, '...') !!}</td>
+                        <td>{{ $blog->title }}</td>
+                        <td>{!! Str::limit(strip_tags($blog->detail), 100, '...') !!}</td>
                          
 
 
                         <td>{!! $blog->post_status=='publish' ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Deactive</span>' !!}</td>
                         <td>
-                           <a href="{{ route('admin.blogs.edit',$blog->ID) }}" class="btn btn-primary btn-sm pull-left m-r-10"><i class="fa fa-edit"></i>
+                           <a href="{{ route('admin.blogs.edit',$blog->id) }}" class="btn btn-primary btn-sm pull-left m-r-10"><i class="fa fa-edit"></i>
                            </a>
 
-                           <a href="{{ route('admin.blogs.delete',$blog->ID ) }}" class="btn btn-danger btn-sm delete_row" id="" ><i class="fa fa-trash"></i>
+                           <a href="{{ route('admin.blogs.delete',$blog->id ) }}" class="btn btn-danger btn-sm delete_row" id="" ><i class="fa fa-trash"></i>
                            </a>
 
                            @if ($blog->status==1)
-                           <a href="{{route('admin.blog.deactive',['id'=>$blog->ID,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
+                           <a href="{{route('admin.blog.deactive',['id'=>$blog->id,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-down"></i></a>
                            @else
-                           <a href="{{route('admin.blog.active',['id'=>$blog->ID,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                           <a href="{{route('admin.blog.active',['id'=>$blog->id,'table'=>'blogs'])}}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
                         @endif
                         </td>
                     </tr>

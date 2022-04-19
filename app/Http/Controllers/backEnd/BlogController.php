@@ -57,16 +57,15 @@ class BlogController extends Controller
 
             if($file){
                 $fname=rand().'blog.'.$file->getClientOriginalExtension();
-                $blog['guid']='upload/blog/'.$fname;
+                $blog['image']='upload/blog/'.$fname;
                 // $path=Image::make($file)->resize(200,300);
                 $file->move(public_path().'/upload/blog/',$fname);
             }
-            $blog['post_title']=$request->title;
-            $blog['post_date']=today();
-            $blog['post_status']='publish';
+            $blog['title']=$request->title;
+            $blog['status']=1;
 
 
-            $blog['post_content']=$request->content;
+            $blog['detail']=$request->content;
            DB::table('blogs')->insert($blog);
           
                 $notification=array(
@@ -92,7 +91,7 @@ class BlogController extends Controller
 
     public function edit(Blog $blog)
     {
-              $blog=Blog::find($blog->ID);
+              $blog=Blog::find($blog->id);
         return view('admin.blog.edit',compact('blog'));
     }
 
@@ -109,16 +108,16 @@ class BlogController extends Controller
             $file=$request->file('image');
 
             if($file){
-                $category=Blog::where('ID',$id)->first();
+                $category=Blog::where('id',$id)->first();
                 File::delete(public_path($category->image));
-                $fname=rand().'category.'.$file->getClientOriginalExtension();
+                $fname=rand().'blog.'.$file->getClientOriginalExtension();
                 $blog['guid']='upload/blog/'.$fname;
                 // $path=Image::make($file)->resize(200,300);
                 $file->move(public_path().'/upload/blog/',$fname);
             }
-            $blog['post_title']=$request->title;
-            $blog['post_content']=$request->content;
-           DB::table('blogs')->where('ID',$id)->update($blog);
+            $blog['title']=$request->title;
+            $blog['detail']=$request->content;
+           DB::table('blogs')->where('id',$id)->update($blog);
           
                 $notification=array(
                     'alert-type'=>'success',
@@ -144,7 +143,7 @@ class BlogController extends Controller
     public function destroy($id)
     {
         try {
-        DB::table('blogs')->where('ID',$id)->delete();
+        DB::table('blogs')->where('id',$id)->delete();
             $notification=array(
                 'alert-type'=>'success',
                 'messege'=>'Successfully deleted .',

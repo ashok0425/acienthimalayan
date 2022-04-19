@@ -49,7 +49,8 @@
  <link rel="stylesheet" href="{{ asset('frontend/css/main.css')}}">
          {{-- toastr --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-      
+      <!-- Font awesome 5 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  />
     <meta property="fb:app_id" content="160443599540603" />
     <meta property="og:url"                content="@yield('url')" />
     <meta property="og:type"               content="website" />
@@ -89,6 +90,7 @@
     @include('frontend.layout.footer')
 
     <!-- JS  -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="{{ asset('frontend/js/aos.js')}}"></script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.js')}}"></script>
     <script src="{{ asset('frontend/js/splide.min.js')}}"></script>

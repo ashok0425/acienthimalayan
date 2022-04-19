@@ -85,17 +85,17 @@
 
     <div class="card-body">
 <x-errormsg/>
-        <form action="{{route('admin.blogs.update',$blog->ID)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.blogs.update',$blog->id)}}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <div class="row">
             <div class=" col-md-12">
                 <label class="form-label">Banner Title</label>
-             <input name="title"   class='form-control' maxlength="225" value=' {{ $blog->post_title }}' type='text' placeholder="Enter  Title">
+             <input name="title"   class='form-control' maxlength="225" value=' {{ $blog->title }}' type='text' placeholder="Enter  Title">
             </div>
             <div class=" col-md-12 my-2">
                 <label class="form-label">Detail</label>
-                <textarea name="content" id="summernote" cols="30" rows="10">{{ $blog->post_content}}</textarea>
+                <textarea name="content" id="summernote" cols="30" rows="10">{{ $blog->detail}}</textarea>
             </div>
           
 

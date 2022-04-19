@@ -65,6 +65,7 @@ class PackagesController extends Controller
             $package = new Package;
             $package->name = $request->name;
             $package->trip_id = $request->trip_id;
+            $package->popular_package = $request->popular_package;
             
             // $package->category_id = ($request->category_id == "")? null : $request->category;;
             $package->destination_id = $request->destination_id;
@@ -213,6 +214,7 @@ class PackagesController extends Controller
             $package = Package::findOrFail($id);
             $package->name = $request->name;
             $package->trip_id = $request->trip_id;
+            $package->popular_package = $request->popular_package;
             
             // $package->category_id = ($request->category_id == "")? null : $request->category;;
             $package->destination_id = $request->destination_id;
