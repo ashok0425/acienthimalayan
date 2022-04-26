@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 //   packages 
 	Route::resource('/categories-packages', 'Travel\PackagesController');
-	Route::get('categories-package/delete/{id}', 'Travel\CategoriesPlacesController@destroy')->name('categories-packages.delete');
+	Route::get('categories-package/delete/{id}', 'Travel\PackagesController@destroy')->name('categories-packages.delete');
 
 	// testimonials
 	Route::resource('/testimonials', 'Testimonials\TestimonialsController');

@@ -38,7 +38,7 @@
                            <a href="{{ route('admin.categories-packages.edit',$package->id) }}" class="btn btn-primary btn-sm pull-left m-r-10"><i class="fa fa-edit"></i>
                            </a>
 
-                           <a href="{{ route('admin.categories-packages.delete',$package->id ) }}" class="btn btn-danger btn-sm delete_row" id="delete_row" ><i class="fa fa-trash"></i>
+                           <a href="{{ route('admin.categories-packages.delete',['id'=>$package->id ]) }}" class="btn btn-danger btn-sm delete_row"  ><i class="fa fa-trash"></i>
                            </a>
 
                       

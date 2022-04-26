@@ -322,18 +322,32 @@ class PackagesController extends Controller
     {
         try {
             $package = Package::findOrFail($id);
-            $package->newimages()->detach();
-            $package->homeimages()->detach();
-            $package->routemapimages()->detach();
             $package->delete();
 
-            $this->status_message = "Successfully deleted package.";
+            $notification=array(
+                'alert-type'=>'success',
+                'messege'=>' package Deleted.',
+               
+             );
+
+    return redirect()->route('admin.categories-packages.index')->with($notification);
+        
+
         } catch (QueryException $e) {
-            $this->status_message = "Failed to delete package, Try again.";
-            $this->alert_type = "danger";
+            $notification=array(
+                'alert-type'=>'error',
+                'messege'=>'Failed to delete package, Try again.',
+               
+             );
+             return redirect()->route('admin.categories-packages.index')->with($notification);
+
+        
+
         }
 
-        return redirect()->route('admin.packages.index')->with(['status_message' => $this->status_message, 'alert_type' => $this->alert_type]);
+      
+
+
     }
 
     // public function removeImage($id, Request $request) {
