@@ -111,15 +111,15 @@ class PackagesController extends Controller
             $banner=$request->file('thumbnail');
             if($banner){
                 $fname=rand().$request->name.$banner->getClientOriginalExtension();
-                $package->banner='upload/package/banner/'.$fname;
-                $banner->move(public_path().'/upload/package/banner/',$fname);
+                $package->thumbnail='upload/package/thumbnail/'.$fname;
+                $banner->move(public_path().'/upload/package/thumbnail/',$fname);
             }
 
             $roadmap=$request->file('cover');
             if($roadmap){
                 $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
-                $package->thumbnail='upload/package/thumbnail/'.$fname;
-                $roadmap->move(public_path().'/upload/package/thumbnail/',$fname);
+                $package->cover='upload/package/banner/'.$fname;
+                $roadmap->move(public_path().'/upload/package/banner/',$fname);
             }
 
             
@@ -261,18 +261,18 @@ class PackagesController extends Controller
            
             $banner=$request->file('thumbnail');
             if($banner){
-                File::delete($package->banner);
+                File::delete($package->thumbnail);
                 $fname=rand().$request->name.$banner->getClientOriginalExtension();
-                $package->banner='upload/package/banner/'.$fname;
-                $banner->move(public_path().'/upload/package/banner/',$fname);
+                $package->thumbnail='upload/package/thumbnail/'.$fname;
+                $banner->move(public_path().'/upload/package/thumbnail/',$fname);
             }
 
             $roadmap=$request->file('cover');
             if($roadmap){
-                File::delete($package->thumbnail);
+                File::delete($package->banner);
                 $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
-                $package->thumbnail='upload/package/thumbnail/'.$fname;
-                $roadmap->move(public_path().'/upload/package/thumbnail/',$fname);
+                $package->cover='upload/package/banner/'.$fname;
+                $roadmap->move(public_path().'/upload/package/banner/',$fname);
             }
 
 

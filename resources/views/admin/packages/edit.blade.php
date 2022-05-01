@@ -291,7 +291,7 @@
                                     <img src="" class="image-preview1">
     
                                   </div>
-                                  <img src="{{ asset($package->banner) }}" class="image-fluid" width="100">
+                                  <img src="{{ asset($package->thumbnail) }}" class="image-fluid" width="100">
 
                             </div>
                             <div class="col-md-6">
@@ -302,7 +302,7 @@
                                     <img src="" class="image-preview2">
     
                                   </div>
-                                  <img src="{{ asset($package->thumbnail) }}" class="image-fluid" width="100">
+                                  <img src="{{ asset($package->cover) }}" class="image-fluid" width="100">
 
                             </div>
                         </div>
