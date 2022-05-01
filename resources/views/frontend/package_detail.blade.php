@@ -1,159 +1,174 @@
 @extends('frontend.layout.master')
 
 @section('content')
- 
-<section class="detail__banner">
-    @if($package->cover!=null)
-    <img src="{{asset($package->cover)}}" alt="cover image" class="img-fluid banner__image">
+    <section class="detail__banner">
+        @if ($package->cover != null)
+            <img src="{{ asset($package->cover) }}" alt="cover image" class="img-fluid banner__image">
+        @else
+            <img src="{{ asset('frontend/img/ashok-acharya-mYjORLebCyM-unsplash.jpg') }}" alt="cver image"
+                class="img-fluid banner__image">
+        @endif
 
-    @else 
-    <img src="{{asset('frontend/img/ashok-acharya-mYjORLebCyM-unsplash.jpg')}}" alt="cver image" class="img-fluid banner__image">
+        <div class="container">
+            <div class="text">
+                <h1>{{ $package->name }}</h1>
 
-    @endif 
-
-    <div class="container">
-        <div class="text">
-            <h1 >{{$package->name}}</h1>
-
-            {{-- <div class="d-flex flex-wrap gap-3 justify-content-center">
+                {{-- <div class="d-flex flex-wrap gap-3 justify-content-center">
                 <a href="#" class="btn btn_transparent"  data-aos-delay="200">Book This Your</a>
                 <a href="#" class="btn btn_transparent"  data-aos-delay="300">View Photos</a>
                 <a href="#" class="btn btn_transparent"  data-aos-delay="400">Video Preview</a>
             </div> --}}
-        </div>
-    </div>
-</section>
-
-<section class="detail py-5">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-3 order-1 order-lg-0">
-                <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Other Tours</h2>
-
-                @foreach ($packages as $packaged)
-                <div class="card card_style_2 h-auto mb-3" bis_skin_checked="1">
-                    
-                    <div class="card-img" bis_skin_checked="1">
-                        @if ($packaged->thumbnai!=null)
-                        <img src="{{asset($packaged->thumbnail)}}" class="card-img-top">
-                            
-                        @else  
-                        <img src="{{asset('frontend/img/mustang.jpg')}}" class="card-img-top">
-
-                        @endif
-
-                        <a href="{{route('package.detail',['id'=>$packaged->id])}}" class="btn btn_secondary">View Detail</a>
-                        <h5 class="card-title">{{$packaged->name}}</h5>
-                    </div>
-                </div>
-                @endforeach
-              
-               
             </div>
-            <div class="col-lg-9 order-0 order-lg-1">
-                <div class="row">
-                    <div class="col-md-6 order-1 order-md-0">
-                        <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Package Summery</h2>
+        </div>
+    </section>
 
-                        <div class="package__summery mb-4">
-                            <div class="header">
-                                Included
-                            </div>
-                            <div class="text">
-                                    {!!$package->include_exclude!!}
-                            </div>
+    <section class="detail py-5">
+        <div class="container">
 
-                        </div>
-                        <div class="package__summery mb-4">
-                            <div class="header">
-                                Not Included
-                            </div>
-                            <div class="text">
-{!!$package->trip_excludes!!}
-                            </div>
-                        </div>
-                        <div class="package__summery">
-                            <div class="header">
-                                OUTLINE ITINERARY
+            <div class="row">
+                <div class="col-lg-3 order-1 order-lg-0">
+                    <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Other Tours</h2>
 
+                    @foreach ($packages as $packaged)
+                        <div class="card card_style_2 h-auto mb-3" bis_skin_checked="1">
+                            <a href="{{route('package.detail',['id'=>$package->id])}}">
 
-                            </div>
-                            <div class="text">
-                               {!! $package->outline_itinerary!!}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 order-0 order-md-1">
-                        <div class="book__now">
-                            <div
-                                class="filter__wrap__head custom-bg-primary text-center text-white py-4 custom-fs-30" >
-                                @if (!empty($package->discounted_price))
-                                    
-                                <p class="mb-0 lh-1"><small><s>NRP {{$package->price}}</s></small></p>
-                                <p class="mb-0 lh-1">NRP {{$package->discounted_price}}</p>
-
-                                @else   
-                                <p class="mb-0 lh-1">NRP {{$package->price}}</p>
-
+                            <div class="card-img" bis_skin_checked="1">
+                                @if ($packaged->thumbnai != null)
+                                    <img src="{{ asset($packaged->thumbnail) }}" class="card-img-top">
+                                @else
+                                    <img src="{{ asset('frontend/img/mustang.jpg') }}" class="card-img-top">
                                 @endif
-                                <p class="mb-0 lh-1">(per person)</p>
+
+                                <a href="{{ route('package.detail', ['id' => $packaged->id]) }}" class="btn btn_secondary">View
+                                    Detail</a>
+                                <h5 class="card-title">{{ $packaged->name }}</h5>
                             </div>
-                            <form action="#">
-                                <div class="filters">
-                                    <div class="wrap">
-                                        <label for="">Full Name</label>
-                                        <p><input type="text" name="" id="" class="form-control"></p>
+                            </a>
+                        </div>
+                    @endforeach
+
+
+                </div>
+                <div class="col-lg-9 order-0 order-lg-1">
+                    <div class="row">
+                        <div class="col-md-6 order-1 order-md-0">
+                            <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Package Summery</h2>
+
+                            @empty(!$package->overview)
+                                <div class="package__summery mb-4">
+                                    <div class="header">
+                                        Package Overview
+
                                     </div>
-                                    <div class="wrap">
-                                        <label for="">Email Address</label>
-                                        <p><input type="text" name="" id="" class="form-control"></p>
-                                    </div>
-                                    <div class="wrap">
-                                        <label for="">Phone Number</label>
-                                        <p><input type="text" name="" id="" class="form-control"></p>
-                                    </div>
-                                    <div class="wrap">
-                                        <label for="">Age</label>
-                                        <p><input type="text" name="" id="" class="form-control"></p>
-                                    </div>
-                                    <div class="wrap">
-                                        <label for="">Address</label>
-                                        <p><input type="text" name="" id="" class="form-control"></p>
-                                    </div>
-                                    <div class="wrap">
-                                        <label for="">Gender</label>
-                                        <p><select class="form-select form-select-sm">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">Male</option>
-                                                <option value="2">Female</option>
-                                                <option value="3">Others</option>
-                                            </select>
-                                        </p>
-                                    </div>
-                                    <div class="wrap">
-                                        <label for="">Depature Date</label>
-                                        <p><input type="date" name="" id="" class="form-control"></p>
-                                    </div>
-                                    <div class="wrap">
-                                        <label for="">Number of Person</label>
-                                        <p><input type="number" name="" id="" class="form-control"></p>
-                                    </div>
-                                    <div class="d-flex justify-content-center pb-4">
-                                        <button class="btn btn_primary ">Book Now</button>
+                                    <div class="text">
+                                        {!! $package->overview !!}
                                     </div>
                                 </div>
-                            </form>
+                            @endempty
+
+
+                            @empty(!$package->include_exclude)
+                                <div class="package__summery mb-4">
+                                    <div class="header">
+                                        Included
+                                    </div>
+                                    <div class="text">
+                                        {!! $package->include_exclude !!}
+                                    </div>
+
+                                </div>
+                            @endempty
+
+                            @empty(!$package->trip_excludes)
+                                <div class="package__summery mb-4">
+                                    <div class="header">
+                                        Not Included
+                                    </div>
+                                    <div class="text">
+                                        {!! $package->trip_excludes !!}
+                                    </div>
+                                </div>
+                            @endempty
+
+                            @empty(!$package->outline_itinerary)
+                                <div class="package__summery">
+                                    <div class="header">
+                                        OUTLINE ITINERARY
+
+
+                                    </div>
+                                    <div class="text">
+                                        {!! $package->outline_itinerary !!}
+                                    </div>
+                                </div>
+                            @endempty
+
+
 
                         </div>
-                    </div>
-                    <div class="col-lg-11  my-4 order-3">
-                        <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Package Summery</h2>
-                        <p>
-                           {!! $package->overview !!}
-                        </p>
-                    </div>
-                    {{-- <div class="col-lg-11  my-4 order-4">
+
+                        <div class="col-md-5 order-0 order-md-1">
+                            <div class="book__now">
+                                <div class="filter__wrap__head custom-bg-primary text-center text-white py-4 custom-fs-30">
+                                    @if (!empty($package->discounted_price))
+                                        <p class="mb-0 lh-1"><small><s>USD {{ $package->price }}</s></small></p>
+                                        <p class="mb-0 lh-1">USD {{ $package->discounted_price }}</p>
+                                    @else
+                                        <p class="mb-0 lh-1">USD {{ $package->price }}</p>
+                                    @endif
+                                    <p class="mb-0 lh-1">(per person)</p>
+                                </div>
+                                <form action="#">
+                                    <div class="filters">
+                                        <div class="wrap">
+                                            <label for="">Full Name</label>
+                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                        </div>
+                                        <div class="wrap">
+                                            <label for="">Email Address</label>
+                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                        </div>
+                                        <div class="wrap">
+                                            <label for="">Phone Number</label>
+                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                        </div>
+                                        <div class="wrap">
+                                            <label for="">Age</label>
+                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                        </div>
+                                        <div class="wrap">
+                                            <label for="">Address</label>
+                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                        </div>
+                                        <div class="wrap">
+                                            <label for="">Gender</label>
+                                            <p><select class="form-select form-select-sm">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">Male</option>
+                                                    <option value="2">Female</option>
+                                                    <option value="3">Others</option>
+                                                </select>
+                                            </p>
+                                        </div>
+                                        <div class="wrap">
+                                            <label for="">Depature Date</label>
+                                            <p><input type="date" name="" id="" class="form-control"></p>
+                                        </div>
+                                        <div class="wrap">
+                                            <label for="">Number of Person</label>
+                                            <p><input type="number" name="" id="" class="form-control"></p>
+                                        </div>
+                                        <div class="d-flex justify-content-center pb-4">
+                                            <button class="btn btn_primary ">Book Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        {{-- <div class="col-lg-11  my-4 order-4">
                         <div class="row justify-content-between">
                             <div class="col-sm-5 mb-5 mb-sm-0">
                                 <div class="package__summery ">
@@ -399,16 +414,15 @@
                         </div>
                     </div> --}}
 
+                    </div>
+
                 </div>
-                
+
+
             </div>
 
-
         </div>
+        @include('frontend.includes.testimonial')
 
-    </div>
-    @include('frontend.includes.testimonial')
-
-</section>
-
+    </section>
 @endsection

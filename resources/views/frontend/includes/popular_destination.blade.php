@@ -14,7 +14,7 @@
                     
                 <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
                     <div class="card card_style_1">
-                        <a href="#">
+                        <a href="{{route('package.detail',['id'=>$package->id])}}">
                             <div class="card-img">
                                 <img src="{{asset($package->thumbnail)}}" class="card-img-top">
                                 <a href="{{route('package.detail',['id'=>$package->id])}}" class="btn btn_secondary">View Detail</a>

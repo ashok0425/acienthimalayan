@@ -10,7 +10,8 @@
                 @foreach ($packages as $package)
                     
                 <div class="card card_style_2">
-                    <a href="#">
+                    <a href="{{route('package.detail',['id'=>$package->id])}}">
+
                         <div class="card-img">
                             <img src="{{$package->thumbnail}}" class="card-img-top">
                             <a href="{{route('package.detail',['id'=>$package->id])}}" class="btn btn_secondary">View Detail</a>
