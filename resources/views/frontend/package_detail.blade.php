@@ -422,6 +422,7 @@
             </div>
 
         </div>
+        <br>
         @include('frontend.includes.testimonial')
 
     </section>
