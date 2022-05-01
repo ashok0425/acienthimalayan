@@ -3,7 +3,7 @@
 @section('content')
     <section class="detail__banner">
         @if ($package->banner != null && file_exists($package->banner))
-            <img src="{{ asset($package->cover) }}" alt="cover image" class="img-fluid banner__image">
+            <img src="{{ asset($package->banner) }}" alt="cover image" class="img-fluid banner__image">
         @else
             <img src="{{ asset('frontend/img/ashok-acharya-mYjORLebCyM-unsplash.jpg') }}" alt="cver image"
                 class="img-fluid banner__image">

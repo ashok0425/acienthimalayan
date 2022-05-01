@@ -118,7 +118,7 @@ class PackagesController extends Controller
             $roadmap=$request->file('cover');
             if($roadmap){
                 $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
-                $package->cover='upload/package/banner/'.$fname;
+                $package->banner='upload/package/banner/'.$fname;
                 $roadmap->move(public_path().'/upload/package/banner/',$fname);
             }
 
@@ -271,7 +271,7 @@ class PackagesController extends Controller
             if($roadmap){
                 File::delete($package->banner);
                 $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
-                $package->cover='upload/package/banner/'.$fname;
+                $package->banner='upload/package/banner/'.$fname;
                 $roadmap->move(public_path().'/upload/package/banner/',$fname);
             }
 
