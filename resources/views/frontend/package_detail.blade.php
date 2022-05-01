@@ -34,7 +34,7 @@
                             <a href="{{route('package.detail',['id'=>$package->id])}}">
 
                             <div class="card-img" bis_skin_checked="1">
-                                @if ($packaged->thumbnai != null)
+                                @if ($packaged->thumbnail != null)
                                     <img src="{{ asset($packaged->thumbnail) }}" class="card-img-top">
                                 @else
                                     <img src="{{ asset('frontend/img/mustang.jpg') }}" class="card-img-top">
