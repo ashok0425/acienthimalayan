@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use File;
+
 class PackagesController extends Controller
 {
-   
+
     /**
      * Display a listing of the resource.
      *
@@ -35,11 +36,11 @@ class PackagesController extends Controller
      */
     public function create()
     {
-        $featured_package = Package::where('status',1)->orderBy('name')->get();
-        $destinations= Destination::orderBy('name')->get();
+        $featured_package = Package::where('status', 1)->orderBy('name')->get();
+        $destinations = Destination::orderBy('name')->get();
         $categories_destinations = CategoryDestination::all();
-        $places= CategoryPlace::orderBy('name')->get();
-        return view('admin.packages.create', compact('destinations','categories_destinations','featured_package','places'));
+        $places = CategoryPlace::orderBy('name')->get();
+        return view('admin.packages.create', compact('destinations', 'categories_destinations', 'featured_package', 'places'));
     }
 
     /**
@@ -50,12 +51,12 @@ class PackagesController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $url = $this->toAscii($request->name);
         $this->validate($request, [
             'name' => 'required|min:3|max:255|unique:packages',
-            'destination_id' =>'required',
-            'category_destination_id' =>'required'
+            'destination_id' => 'required',
+            'category_destination_id' => 'required'
 
         ]);
 
@@ -66,17 +67,17 @@ class PackagesController extends Controller
             $package->name = $request->name;
             $package->trip_id = $request->trip_id;
             $package->popular_package = $request->popular_package;
-            
+
             // $package->category_id = ($request->category_id == "")? null : $request->category;;
             $package->destination_id = $request->destination_id;
-            $package->category_place_id = ($request->category_place_id)?$request->category_place_id:null;
+            $package->category_place_id = ($request->category_place_id) ? $request->category_place_id : null;
             $package->category_destination_id = $request->category_destination_id;
             $package->status = 1;
             $package->duration = $request->duration;
             $package->difficulty = $request->difficulty;
             $package->max_altitude = $request->max_altitude;
             // $package->min_people_required = $request->min_people_required;
-            $package->url = ($request->url)?$request->url:$url;
+            $package->url = ($request->url) ? $request->url : $url;
             $package->outline_itinerary = $request->outline_itinerary;
             $package->detailed_itinerary = $request->detailed_itinerary;
             $package->include_exclude = $request->include_exclude;
@@ -91,9 +92,9 @@ class PackagesController extends Controller
             $package->best_month = $request->best_month;
             $package->group_size = $request->group_size;
             $package->faq = $request->faq;
-            if($request->price)$package->price = $request->price;
+            if ($request->price) $package->price = $request->price;
             $package->rating = $request->rating;
-            if($request->discounted_price)$package->discounted_price = $request->discounted_price;
+            if ($request->discounted_price) $package->discounted_price = $request->discounted_price;
             $package->overview = $request->overview;
             $package->important_notes = $request->important_notes;
             $package->physical_condition = $request->physical_condition;
@@ -108,21 +109,21 @@ class PackagesController extends Controller
             $package->meta_description = $request->meta_description;
             $package->video = $request->video;
 
-            $banner=$request->file('thumbnail');
-            if($banner){
-                $fname=rand().$request->name.$banner->getClientOriginalExtension();
-                $package->thumbnail='upload/package/thumbnail/'.$fname;
-                $banner->move(public_path().'/upload/package/thumbnail/',$fname);
+            $banner = $request->file('thumbnail');
+            if ($banner) {
+                $fname = rand() . $request->name . $banner->getClientOriginalExtension();
+                $package->thumbnail = 'upload/package/thumbnail/' . $fname;
+                $banner->move(public_path() . '/upload/package/thumbnail/', $fname);
             }
 
-            $roadmap=$request->file('cover');
-            if($roadmap){
-                $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
-                $package->banner='upload/package/banner/'.$fname;
-                $roadmap->move(public_path().'/upload/package/banner/',$fname);
+            $roadmap = $request->file('cover');
+            if ($roadmap) {
+                $fname = rand() . $request->name . $roadmap->getClientOriginalExtension();
+                $package->banner = 'upload/package/banner/' . $fname;
+                $roadmap->move(public_path() . '/upload/package/banner/', $fname);
             }
 
-            
+
             // $video=$request->file('video');
             // if($video){
             //     $fname=rand().$request->name.$video->getClientOriginalExtension();
@@ -131,33 +132,32 @@ class PackagesController extends Controller
             // }
 
             $package->save();
-           
-            
-          
 
-            if (isset($request->featured_package)){
+
+
+
+            if (isset($request->featured_package)) {
                 foreach ($request->featured_package as $value) {
                     DB::table('package_featured')->insert(['package_id' => $package->id, 'featured_id' => $value]);
                 }
             }
 
-          
+
 
             DB::commit();
-            $notification=array(
-                'alert-type'=>'success',
-                'messege'=>'Successfully Added package.',
-               
-             );
+            $notification = array(
+                'alert-type' => 'success',
+                'messege' => 'Successfully Added package.',
+
+            );
         } catch (QueryException $e) {
             return $e->getMessage();
             DB::rollback();
-            $notification=array(
-                'alert-type'=>'error',
-                'messege'=>'Failed to Add package, Try again.',
-               
-             );
+            $notification = array(
+                'alert-type' => 'error',
+                'messege' => 'Failed to Add package, Try again.',
 
+            );
         }
 
         return redirect()->route('admin.categories-packages.index')->with($notification);
@@ -182,11 +182,11 @@ class PackagesController extends Controller
      */
     public function edit($id)
     {
-        $featured_package = Package::where('status',1)->orderBy('name')->get();
+        $featured_package = Package::where('status', 1)->orderBy('name')->get();
         $package = Package::findOrFail($id);
         $destinations = Destination::orderBy('name')->get();
         $categories_destinations = CategoryDestination::orderBy('name')->get();
-        return view('admin.packages.edit',compact('featured_package','package','destinations','categories_destinations'));
+        return view('admin.packages.edit', compact('featured_package', 'package', 'destinations', 'categories_destinations'));
     }
 
     /**
@@ -203,29 +203,29 @@ class PackagesController extends Controller
         // dd($request->all());
 
         $this->validate($request, [
-            'name' => 'required|min:3|max:255|unique:packages,name,'. $id,
-            'destination_id' =>'required',
-            'category_destination_id' =>'required'
+            'name' => 'required|min:3|max:255|unique:packages,name,' . $id,
+            'destination_id' => 'required',
+            'category_destination_id' => 'required'
         ]);
 
-         try {
+        try {
             DB::beginTransaction();
 
             $package = Package::findOrFail($id);
             $package->name = $request->name;
             $package->trip_id = $request->trip_id;
             $package->popular_package = $request->popular_package;
-            
+
             // $package->category_id = ($request->category_id == "")? null : $request->category;;
             $package->destination_id = $request->destination_id;
-            $package->category_place_id = ($request->category_place_id)?$request->category_place_id:null;
+            $package->category_place_id = ($request->category_place_id) ? $request->category_place_id : null;
             $package->category_destination_id = $request->category_destination_id;
             $package->status = 1;
             $package->duration = $request->duration;
             $package->difficulty = $request->difficulty;
             $package->max_altitude = $request->max_altitude;
             // $package->min_people_required = $request->min_people_required;
-            $package->url = ($request->url)?$request->url:$url;
+            $package->url = ($request->url) ? $request->url : $url;
             $package->outline_itinerary = $request->outline_itinerary;
             $package->detailed_itinerary = $request->detailed_itinerary;
             $package->include_exclude = $request->include_exclude;
@@ -240,9 +240,9 @@ class PackagesController extends Controller
             $package->best_month = $request->best_month;
             $package->group_size = $request->group_size;
             $package->faq = $request->faq;
-            if($request->price)$package->price = $request->price;
+            if ($request->price) $package->price = $request->price;
             $package->rating = $request->rating;
-            if($request->discounted_price)$package->discounted_price = $request->discounted_price;
+            if ($request->discounted_price) $package->discounted_price = $request->discounted_price;
             $package->overview = $request->overview;
             $package->important_notes = $request->important_notes;
             $package->physical_condition = $request->physical_condition;
@@ -258,21 +258,21 @@ class PackagesController extends Controller
             $package->video = $request->video;
 
 
-           
-            $banner=$request->file('thumbnail');
-            if($banner){
+
+            $banner = $request->file('thumbnail');
+            if ($banner) {
                 File::delete($package->thumbnail);
-                $fname=rand().$request->name.$banner->getClientOriginalExtension();
-                $package->thumbnail='upload/package/thumbnail/'.$fname;
-                $banner->move(public_path().'/upload/package/thumbnail/',$fname);
+                $fname = rand() . $request->name . $banner->getClientOriginalExtension();
+                $package->thumbnail = 'upload/package/thumbnail/' . $fname;
+                $banner->move(public_path() . '/upload/package/thumbnail/', $fname);
             }
 
-            $roadmap=$request->file('cover');
-            if($roadmap){
+            $roadmap = $request->file('cover');
+            if ($roadmap) {
                 File::delete($package->banner);
-                $fname=rand().$request->name.$roadmap->getClientOriginalExtension();
-                $package->banner='upload/package/banner/'.$fname;
-                $roadmap->move(public_path().'/upload/package/banner/',$fname);
+                $fname = rand() . $request->name . $roadmap->getClientOriginalExtension();
+                $package->banner = 'upload/package/banner/' . $fname;
+                $roadmap->move(public_path() . '/upload/package/banner/', $fname);
             }
 
 
@@ -287,26 +287,25 @@ class PackagesController extends Controller
 
             $package->save();
 
-            if (isset($request->featured_package)){
+            if (isset($request->featured_package)) {
                 foreach ($request->featured_package as $value) {
                     DB::table('package_featured')->insert(['package_id' => $package->id, 'featured_id' => $value]);
                 }
             }
             DB::commit();
-            $notification=array(
-                'alert-type'=>'success',
-                'messege'=>'Successfully updated package.',
-               
-             );
+            $notification = array(
+                'alert-type' => 'success',
+                'messege' => 'Successfully updated package.',
+
+            );
         } catch (QueryException $e) {
             return $e->getMessage();
             DB::rollback();
-            $notification=array(
-                'alert-type'=>'error',
-                'messege'=>'Failed to updated package, Try again.',
-               
-             );
+            $notification = array(
+                'alert-type' => 'error',
+                'messege' => 'Failed to updated package, Try again.',
 
+            );
         }
 
         return redirect()->route('admin.categories-packages.index')->with($notification);
@@ -324,30 +323,21 @@ class PackagesController extends Controller
             $package = Package::findOrFail($id);
             $package->delete();
 
-            $notification=array(
-                'alert-type'=>'success',
-                'messege'=>' package Deleted.',
-               
-             );
+            $notification = array(
+                'alert-type' => 'success',
+                'messege' => ' package Deleted.',
 
-    return redirect()->route('admin.categories-packages.index')->with($notification);
-        
+            );
 
+            return redirect()->route('admin.categories-packages.index')->with($notification);
         } catch (QueryException $e) {
-            $notification=array(
-                'alert-type'=>'error',
-                'messege'=>'Failed to delete package, Try again.',
-               
-             );
-             return redirect()->route('admin.categories-packages.index')->with($notification);
+            $notification = array(
+                'alert-type' => 'error',
+                'messege' => 'Failed to delete package, Try again.',
 
-        
-
+            );
+            return redirect()->route('admin.categories-packages.index')->with($notification);
         }
-
-      
-
-
     }
 
     // public function removeImage($id, Request $request) {
@@ -358,7 +348,8 @@ class PackagesController extends Controller
     //     return response()->json(['status' => 'success']);
     // }
 
-    private function toAscii($str) {
+    private function toAscii($str)
+    {
         $clean = preg_replace('~[^\\pL\d]+~u', '-', $str);
         $clean = strtolower(trim($clean, '-'));
 

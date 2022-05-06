@@ -1,7 +1,7 @@
 @php
     $banner=DB::table('main_slider')->where('status',1)->orderBy('id','desc')->first();
 @endphp
-    <section class="home_banner" style="background: url('{{asset($banner->image)}}') no-repeat!important;">
+    <section class="home_banner" style="background: url('{{asset($banner->image)}}') no-repeat!important;background-size:cover!important;">
         <div class="container">
             <div class="banner_text mt-2">
                 <h2>{{$banner->title}}

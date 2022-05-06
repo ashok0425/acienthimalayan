@@ -31,19 +31,20 @@
 
                     @foreach ($packages as $packaged)
                         <div class="card card_style_2 h-auto mb-3" bis_skin_checked="1">
-                            <a href="{{route('package.detail',['id'=>$package->id])}}">
+                            <a href="{{ route('package.detail', ['id' => $package->id]) }}">
 
-                            <div class="card-img" bis_skin_checked="1">
-                                @if ($packaged->thumbnail != null)
-                                    <img src="{{ asset($packaged->thumbnail) }}" class="card-img-top">
-                                @else
-                                    <img src="{{ asset('frontend/img/mustang.jpg') }}" class="card-img-top">
-                                @endif
+                                <div class="card-img" bis_skin_checked="1">
+                                    @if ($packaged->thumbnail != null)
+                                        <img src="{{ asset($packaged->thumbnail) }}" class="card-img-top">
+                                    @else
+                                        <img src="{{ asset('frontend/img/mustang.jpg') }}" class="card-img-top">
+                                    @endif
 
-                                <a href="{{ route('package.detail', ['id' => $packaged->id]) }}" class="btn btn_secondary">View
-                                    Detail</a>
-                                <h5 class="card-title">{{ $packaged->name }}</h5>
-                            </div>
+                                    <a href="{{ route('package.detail', ['id' => $packaged->id]) }}"
+                                        class="btn btn_secondary">View
+                                        Detail</a>
+                                    <h5 class="card-title">{{ $packaged->name }}</h5>
+                                </div>
                             </a>
                         </div>
                     @endforeach
