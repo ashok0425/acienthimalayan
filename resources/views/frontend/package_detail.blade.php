@@ -26,34 +26,10 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-3 order-1 order-lg-0">
-                    <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Other Tours</h2>
-
-                    @foreach ($packages as $packaged)
-                        <div class="card card_style_2 h-auto mb-3" bis_skin_checked="1">
-                            <a href="{{ route('package.detail', ['id' => $package->id]) }}">
-
-                                <div class="card-img" bis_skin_checked="1">
-                                    @if ($packaged->thumbnail != null)
-                                        <img src="{{ asset($packaged->thumbnail) }}" class="card-img-top">
-                                    @else
-                                        <img src="{{ asset('frontend/img/mustang.jpg') }}" class="card-img-top">
-                                    @endif
-
-                                    <a href="{{ route('package.detail', ['id' => $packaged->id]) }}"
-                                        class="btn btn_secondary">View
-                                        Detail</a>
-                                    <h5 class="card-title">{{ $packaged->name }}</h5>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-
-
-                </div>
-                <div class="col-lg-9 order-0 order-lg-1">
+              
+                <div class="col-md-12 ">
                     <div class="row">
-                        <div class="col-md-6 order-1 order-md-0">
+                        <div class="col-md-8 order-1 order-md-0">
                             <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Package Summery</h2>
 
                             @empty(!$package->overview)
@@ -109,7 +85,7 @@
 
                         </div>
 
-                        <div class="col-md-5 order-0 order-md-1">
+                        <div class="col-md-4 order-0 order-md-1">
                             <div class="book__now">
                                 <div class="filter__wrap__head custom-bg-primary text-center text-white py-4 custom-fs-30">
                                     @if (!empty($package->discounted_price))
@@ -167,253 +143,36 @@
                                 </form>
 
                             </div>
-                        </div>
 
-                        {{-- <div class="col-lg-11  my-4 order-4">
-                        <div class="row justify-content-between">
-                            <div class="col-sm-5 mb-5 mb-sm-0">
-                                <div class="package__summery ">
-                                    <div class="text text-center">
-                                        <h3 class="mb-3">How many stars would you give to them?</h3>
-                                        <p>According to service provide by
-                                            ABC travels you can rate them.</p>
 
-                                        <form action="#" class="d-flex justify-content-center gap-2 mt-3">
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                    id="Capa_1" x="0px" y="0px" width="26.09px" height="26.09px"
-                                                    viewBox="0 0 36.09 36.09"
-                                                    style="enable-background:new 0 0 36.09 36.09;"
-                                                    xml:space="preserve">
-                                                    <g>
-                                                        <path
-                                                            d="M36.042,13.909c-0.123-0.377-0.456-0.646-0.85-0.688l-11.549-1.172L18.96,1.43c-0.16-0.36-0.519-0.596-0.915-0.596   s-0.755,0.234-0.915,0.598L12.446,12.05L0.899,13.221c-0.394,0.04-0.728,0.312-0.85,0.688c-0.123,0.377-0.011,0.791,0.285,1.055   l8.652,7.738L6.533,34.045c-0.083,0.387,0.069,0.787,0.39,1.02c0.175,0.127,0.381,0.191,0.588,0.191   c0.173,0,0.347-0.045,0.503-0.137l10.032-5.84l10.03,5.84c0.342,0.197,0.77,0.178,1.091-0.059c0.32-0.229,0.474-0.633,0.391-1.02   l-2.453-11.344l8.653-7.737C36.052,14.699,36.165,14.285,36.042,13.909z M25.336,21.598c-0.268,0.24-0.387,0.605-0.311,0.957   l2.097,9.695l-8.574-4.99c-0.311-0.182-0.695-0.182-1.006,0l-8.576,4.99l2.097-9.695c0.076-0.352-0.043-0.717-0.311-0.957   l-7.396-6.613l9.87-1.002c0.358-0.035,0.668-0.264,0.814-0.592l4.004-9.077l4.003,9.077c0.146,0.328,0.456,0.557,0.814,0.592   l9.87,1.002L25.336,21.598z" />
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                </svg></a>
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                    id="Capa_1" x="0px" y="0px" width="26.09px" height="26.09px"
-                                                    viewBox="0 0 36.09 36.09"
-                                                    style="enable-background:new 0 0 36.09 36.09;"
-                                                    xml:space="preserve">
-                                                    <g>
-                                                        <path
-                                                            d="M36.042,13.909c-0.123-0.377-0.456-0.646-0.85-0.688l-11.549-1.172L18.96,1.43c-0.16-0.36-0.519-0.596-0.915-0.596   s-0.755,0.234-0.915,0.598L12.446,12.05L0.899,13.221c-0.394,0.04-0.728,0.312-0.85,0.688c-0.123,0.377-0.011,0.791,0.285,1.055   l8.652,7.738L6.533,34.045c-0.083,0.387,0.069,0.787,0.39,1.02c0.175,0.127,0.381,0.191,0.588,0.191   c0.173,0,0.347-0.045,0.503-0.137l10.032-5.84l10.03,5.84c0.342,0.197,0.77,0.178,1.091-0.059c0.32-0.229,0.474-0.633,0.391-1.02   l-2.453-11.344l8.653-7.737C36.052,14.699,36.165,14.285,36.042,13.909z M25.336,21.598c-0.268,0.24-0.387,0.605-0.311,0.957   l2.097,9.695l-8.574-4.99c-0.311-0.182-0.695-0.182-1.006,0l-8.576,4.99l2.097-9.695c0.076-0.352-0.043-0.717-0.311-0.957   l-7.396-6.613l9.87-1.002c0.358-0.035,0.668-0.264,0.814-0.592l4.004-9.077l4.003,9.077c0.146,0.328,0.456,0.557,0.814,0.592   l9.87,1.002L25.336,21.598z" />
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                </svg></a>
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                    id="Capa_1" x="0px" y="0px" width="26.09px" height="26.09px"
-                                                    viewBox="0 0 36.09 36.09"
-                                                    style="enable-background:new 0 0 36.09 36.09;"
-                                                    xml:space="preserve">
-                                                    <g>
-                                                        <path
-                                                            d="M36.042,13.909c-0.123-0.377-0.456-0.646-0.85-0.688l-11.549-1.172L18.96,1.43c-0.16-0.36-0.519-0.596-0.915-0.596   s-0.755,0.234-0.915,0.598L12.446,12.05L0.899,13.221c-0.394,0.04-0.728,0.312-0.85,0.688c-0.123,0.377-0.011,0.791,0.285,1.055   l8.652,7.738L6.533,34.045c-0.083,0.387,0.069,0.787,0.39,1.02c0.175,0.127,0.381,0.191,0.588,0.191   c0.173,0,0.347-0.045,0.503-0.137l10.032-5.84l10.03,5.84c0.342,0.197,0.77,0.178,1.091-0.059c0.32-0.229,0.474-0.633,0.391-1.02   l-2.453-11.344l8.653-7.737C36.052,14.699,36.165,14.285,36.042,13.909z M25.336,21.598c-0.268,0.24-0.387,0.605-0.311,0.957   l2.097,9.695l-8.574-4.99c-0.311-0.182-0.695-0.182-1.006,0l-8.576,4.99l2.097-9.695c0.076-0.352-0.043-0.717-0.311-0.957   l-7.396-6.613l9.87-1.002c0.358-0.035,0.668-0.264,0.814-0.592l4.004-9.077l4.003,9.077c0.146,0.328,0.456,0.557,0.814,0.592   l9.87,1.002L25.336,21.598z" />
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                </svg></a>
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                    id="Capa_1" x="0px" y="0px" width="26.09px" height="26.09px"
-                                                    viewBox="0 0 36.09 36.09"
-                                                    style="enable-background:new 0 0 36.09 36.09;"
-                                                    xml:space="preserve">
-                                                    <g>
-                                                        <path
-                                                            d="M36.042,13.909c-0.123-0.377-0.456-0.646-0.85-0.688l-11.549-1.172L18.96,1.43c-0.16-0.36-0.519-0.596-0.915-0.596   s-0.755,0.234-0.915,0.598L12.446,12.05L0.899,13.221c-0.394,0.04-0.728,0.312-0.85,0.688c-0.123,0.377-0.011,0.791,0.285,1.055   l8.652,7.738L6.533,34.045c-0.083,0.387,0.069,0.787,0.39,1.02c0.175,0.127,0.381,0.191,0.588,0.191   c0.173,0,0.347-0.045,0.503-0.137l10.032-5.84l10.03,5.84c0.342,0.197,0.77,0.178,1.091-0.059c0.32-0.229,0.474-0.633,0.391-1.02   l-2.453-11.344l8.653-7.737C36.052,14.699,36.165,14.285,36.042,13.909z M25.336,21.598c-0.268,0.24-0.387,0.605-0.311,0.957   l2.097,9.695l-8.574-4.99c-0.311-0.182-0.695-0.182-1.006,0l-8.576,4.99l2.097-9.695c0.076-0.352-0.043-0.717-0.311-0.957   l-7.396-6.613l9.87-1.002c0.358-0.035,0.668-0.264,0.814-0.592l4.004-9.077l4.003,9.077c0.146,0.328,0.456,0.557,0.814,0.592   l9.87,1.002L25.336,21.598z" />
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                </svg></a>
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                    id="Capa_1" x="0px" y="0px" width="26.09px" height="26.09px"
-                                                    viewBox="0 0 36.09 36.09"
-                                                    style="enable-background:new 0 0 36.09 36.09;"
-                                                    xml:space="preserve">
-                                                    <g>
-                                                        <path
-                                                            d="M36.042,13.909c-0.123-0.377-0.456-0.646-0.85-0.688l-11.549-1.172L18.96,1.43c-0.16-0.36-0.519-0.596-0.915-0.596   s-0.755,0.234-0.915,0.598L12.446,12.05L0.899,13.221c-0.394,0.04-0.728,0.312-0.85,0.688c-0.123,0.377-0.011,0.791,0.285,1.055   l8.652,7.738L6.533,34.045c-0.083,0.387,0.069,0.787,0.39,1.02c0.175,0.127,0.381,0.191,0.588,0.191   c0.173,0,0.347-0.045,0.503-0.137l10.032-5.84l10.03,5.84c0.342,0.197,0.77,0.178,1.091-0.059c0.32-0.229,0.474-0.633,0.391-1.02   l-2.453-11.344l8.653-7.737C36.052,14.699,36.165,14.285,36.042,13.909z M25.336,21.598c-0.268,0.24-0.387,0.605-0.311,0.957   l2.097,9.695l-8.574-4.99c-0.311-0.182-0.695-0.182-1.006,0l-8.576,4.99l2.097-9.695c0.076-0.352-0.043-0.717-0.311-0.957   l-7.396-6.613l9.87-1.002c0.358-0.035,0.668-0.264,0.814-0.592l4.004-9.077l4.003,9.077c0.146,0.328,0.456,0.557,0.814,0.592   l9.87,1.002L25.336,21.598z" />
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                    <g>
-                                                    </g>
-                                                </svg></a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="tour__company">
-                                    <div class="d-flex gap-3">
-                                        <div class="tour__company__logo">
-                                            <img src="img/logo.webp" alt="" class="img-fluid">
-                                        </div>
-                                        <div class="text">
-                                            <p class="text-black-50">Tour is operated by:</p>
-                                            <h5>Nepal Eco Adventure Pvt Ltd</h5>
-
-                                            <div class="rating d-flex gap-1 align-items-center">
-                                                <i class="fa-solid fa-star checked"></i><i
-                                                    class="fa-solid fa-star checked"></i><i
-                                                    class="fa-solid fa-star checked"></i><i
-                                                    class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <span class="text-success">376 Reviews</span>
+                            <div class="">
+                                <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Other Tours</h2>
+            
+                                @foreach ($packages as $packaged)
+                                    <div class="card card_style_2 h-auto mb-3" bis_skin_checked="1">
+                                        <a href="{{ route('package.detail', ['id' => $package->id]) }}">
+            
+                                            <div class="card-img" bis_skin_checked="1">
+                                                @if ($packaged->thumbnail != null)
+                                                    <img src="{{ asset($packaged->thumbnail) }}" class="card-img-top">
+                                                @else
+                                                    <img src="{{ asset('frontend/img/mustang.jpg') }}" class="card-img-top">
+                                                @endif
+            
+                                                <a href="{{ route('package.detail', ['id' => $packaged->id]) }}"
+                                                    class="btn btn_secondary">View
+                                                    Detail</a>
+                                                <h5 class="card-title">{{ $packaged->name }}</h5>
                                             </div>
-
-                                        </div>
+                                        </a>
                                     </div>
-                                    <a href="#" class="btn btn_primary d-block mt-5">MAKE AND ENQUIRY</a>
-                                </div>
+                                @endforeach
+            
+            
                             </div>
                         </div>
-                    </div> --}}
+
+                    
 
                     </div>
 
