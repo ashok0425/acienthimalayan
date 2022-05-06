@@ -25,7 +25,7 @@ $packages = DB::table('packages')
                                     class="btn btn_secondary">View Detail</a>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">{{ Str::limit($package->name, 15, ' ') }}
+                                <h5 class="card-title">{{ $package->name }}
                                     <span
                                         class="text-end">{{ $package->discounted_price ? $package->discounted_price : $package->price }}/-</span>
                                 </h5>
