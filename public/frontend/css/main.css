@@ -687,6 +687,7 @@ p {
 .card_style_1 .card-img img {
     border-radius: 25px;
     transition: all 0.4s ease;
+    height: 250px;
 }
 
 .card_style_1 .card-body .card-title,
