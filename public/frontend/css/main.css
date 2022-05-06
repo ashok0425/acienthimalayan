@@ -470,7 +470,7 @@
     overflow: hidden;
     border-radius: 5px;
     max-width: 900px;
-    justify-content: center;
+    justify-content: left;
 }
 
 .card__3 .img__wrap {
@@ -952,7 +952,7 @@ header+section {
 
 .grid-5 {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 

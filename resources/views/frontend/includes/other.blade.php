@@ -10,7 +10,7 @@ $packages = DB::table('packages')
 <section class="py-5">
     <div class="container">
         <h2 class="custom-fs-24 my-5 text-uppercase custom-fw-600">Other Package</h2>
-        <div class="grid-5">
+        <div class="grid-4">
             @foreach ($packages as $package)
                 <div class="card card_style_2">
                     <a href="{{ route('package.detail', ['id' => $package->id]) }}">

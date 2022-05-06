@@ -96,12 +96,12 @@
                                    
                                     <div class="price">
                                         @if ($package->discounted_price!=null)
-                                        <p class="text-decoration-line-through">Nrs {{$package->price}}</p>
-                                        <p class="price">Nrs {{$package->discounted_price}}</p> 
+                                        <p class="text-decoration-line-through">USD {{$package->price}}</p>
+                                        <p class="price">USD {{$package->discounted_price}}</p> 
 
                                         @else 
                                    
-                                        <p class="price">Nrs {{$package->price}}</p> 
+                                        <p class="price">USD {{$package->price}}</p> 
 
                                         @endif
                                         
