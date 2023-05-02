@@ -89,10 +89,10 @@
                             <div class="book__now">
                                 <div class="filter__wrap__head custom-bg-primary text-center text-white py-4 custom-fs-30">
                                     @if (!empty($package->discounted_price))
-                                        <p class="mb-0 lh-1"><small><s>USD {{ $package->price }}</s></small></p>
-                                        <p class="mb-0 lh-1">USD {{ $package->discounted_price }}</p>
+                                        <p class="mb-0 lh-1"><small><s>Rs {{ $package->price }}</s></small></p>
+                                        <p class="mb-0 lh-1">Rs {{ $package->discounted_price }}</p>
                                     @else
-                                        <p class="mb-0 lh-1">USD {{ $package->price }}</p>
+                                        <p class="mb-0 lh-1">Rs {{ $package->price }}</p>
                                     @endif
                                     <p class="mb-0 lh-1">(per person)</p>
                                 </div>

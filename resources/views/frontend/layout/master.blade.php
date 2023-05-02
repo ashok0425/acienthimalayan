@@ -44,7 +44,6 @@
  <link rel="stylesheet" href="{{ asset('frontend/css/splide-core.min.css')}}">
  <link rel="stylesheet" href="{{ asset('frontend/css/splide.min.css')}}">
  <link rel="stylesheet" href="{{ asset('frontend/css/hamburgers.min.css')}}">
- <link rel="stylesheet" href="{{ asset('frontend/css/aos.css')}}">
  <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css')}}">
  <link rel="stylesheet" href="{{ asset('frontend/css/main.css')}}">
          {{-- toastr --}}
@@ -67,7 +66,8 @@
         <meta name="description" content="@yield('descr')">
     
         <link rel="shortcut  icon" href="@yield('fev')" type="image/icon type">
-    
+        
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
             <title>@yield('title')</title>
             <style>
           
@@ -85,20 +85,18 @@
      @yield('content')   
     </main>
     
-
     {{-- include header  --}}
     @include('frontend.layout.footer')
 
     <!-- JS  -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('frontend/js/aos.js')}}"></script>
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.js')}}"></script>
     <script src="{{ asset('frontend/js/splide.min.js')}}"></script>
     <script src="{{ asset('frontend/js/main.js')}}"></script>
 {{-- toastr  --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-  {{-- toastr  --}}
   <script>
 	@if(Session::has('messege'))//toatser
 	  var type="{{Session::get('alert-type','info')}}"

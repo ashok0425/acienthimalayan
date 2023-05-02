@@ -36,11 +36,8 @@ class PackagesController extends Controller
      */
     public function create()
     {
-        $featured_package = Package::where('status', 1)->orderBy('name')->get();
         $destinations = Destination::orderBy('name')->get();
-        $categories_destinations = CategoryDestination::all();
-        $places = CategoryPlace::orderBy('name')->get();
-        return view('admin.packages.create', compact('destinations', 'categories_destinations', 'featured_package', 'places'));
+        return view('admin.packages.create', compact('destinations'));
     }
 
     /**
@@ -56,19 +53,14 @@ class PackagesController extends Controller
         $this->validate($request, [
             'name' => 'required|min:3|max:255|unique:packages',
             'destination_id' => 'required',
-            'category_destination_id' => 'required'
-
         ]);
 
         try {
             DB::beginTransaction();
-
             $package = new Package;
             $package->name = $request->name;
             $package->trip_id = $request->trip_id;
             $package->popular_package = $request->popular_package;
-
-            // $package->category_id = ($request->category_id == "")? null : $request->category;;
             $package->destination_id = $request->destination_id;
             $package->category_place_id = ($request->category_place_id) ? $request->category_place_id : null;
             $package->category_destination_id = $request->category_destination_id;
@@ -76,7 +68,6 @@ class PackagesController extends Controller
             $package->duration = $request->duration;
             $package->difficulty = $request->difficulty;
             $package->max_altitude = $request->max_altitude;
-            // $package->min_people_required = $request->min_people_required;
             $package->url = ($request->url) ? $request->url : $url;
             $package->outline_itinerary = $request->outline_itinerary;
             $package->detailed_itinerary = $request->detailed_itinerary;
@@ -122,28 +113,12 @@ class PackagesController extends Controller
                 $package->banner = 'upload/package/banner/' . $fname;
                 $roadmap->move(public_path() . '/upload/package/banner/', $fname);
             }
-
-
-            // $video=$request->file('video');
-            // if($video){
-            //     $fname=rand().$request->name.$video->getClientOriginalExtension();
-            //     $package->video='upload/package/video/'.$fname;
-            //     $video->move(public_path().'/upload/package/video/',$fname);
-            // }
-
             $package->save();
-
-
-
-
             if (isset($request->featured_package)) {
                 foreach ($request->featured_package as $value) {
                     DB::table('package_featured')->insert(['package_id' => $package->id, 'featured_id' => $value]);
                 }
             }
-
-
-
             DB::commit();
             $notification = array(
                 'alert-type' => 'success',
@@ -185,8 +160,7 @@ class PackagesController extends Controller
         $featured_package = Package::where('status', 1)->orderBy('name')->get();
         $package = Package::findOrFail($id);
         $destinations = Destination::orderBy('name')->get();
-        $categories_destinations = CategoryDestination::orderBy('name')->get();
-        return view('admin.packages.edit', compact('featured_package', 'package', 'destinations', 'categories_destinations'));
+        return view('admin.packages.edit', compact('package', 'destinations'));
     }
 
     /**
@@ -199,13 +173,11 @@ class PackagesController extends Controller
     public function update(Request $request, $id)
     {
         $url = $this->toAscii($request->name);
-        // $request['url'] = $url;
-        // dd($request->all());
+
 
         $this->validate($request, [
             'name' => 'required|min:3|max:255|unique:packages,name,' . $id,
             'destination_id' => 'required',
-            'category_destination_id' => 'required'
         ]);
 
         try {
@@ -276,13 +248,7 @@ class PackagesController extends Controller
             }
 
 
-            // $video=$request->file('video');
-            // if($video){
-            //     File::delete($package->video);
-            //     $fname=rand().$request->name.$video->getClientOriginalExtension();
-            //     $package->video='upload/package/video/'.$fname;
-            //     $video->move(public_path().'/upload/package/video/',$fname);
-            // }
+         
 
 
             $package->save();

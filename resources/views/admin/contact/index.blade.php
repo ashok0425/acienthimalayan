@@ -16,14 +16,8 @@
                     <th>#</th>
                     <th>Full name</th>
                     <th>Email</th>
-                   
+                    <th>Phone</th>
                     <th>Message</th>
-
-                    <th>
-                        status
-                    </th>
-                    <th>Reply</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -31,20 +25,9 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$item->name}}</td>
-
                         <td>{{$item->email}}</td>
-                        <td>{{$item->comment}}</td>
-
-                        <td>@if ($item->status==0)
-                            <div class="badge bg-warning">Not replied</div>
-                            @else
-                            <div class="badge bg-success">replied</div>
-
-                        @endif</td>
-
-                        <td>
-                            <a  href="{{route('admin.contacts.edit',$item->id)}}" class="btn btn-info"><i class="fab fa-telegram"></i></a>
-                        </td>
+                        <td>{{$item->phone}}</td>
+                        <td>{{$item->message}}</td>
                     </tr>
                 @endforeach
             </tbody>

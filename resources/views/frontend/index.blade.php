@@ -5,7 +5,7 @@
 
     @include('frontend.includes.filter')
 
-    @include('frontend.includes.popular_destination')
+    @include('frontend.includes.featured')
 
     @include('frontend.includes.other')
 

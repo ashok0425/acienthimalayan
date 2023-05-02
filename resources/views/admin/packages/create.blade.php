@@ -140,19 +140,6 @@
                                         </select>
                                         </div>
 
-                                        <div class="form-group ">
-                                         
-                                            <label > Destination wise Category</label>
-                                            <input type="hidden" id="all_category_destination" value="{{ $categories_destinations }}">
-                                         <select name="category_destination_id" id="category_destination_id" class="form-control" >
-                                            
-                                            
-                                        </select>
-                                        </div>
-                                        <div class="form-group">
-                                             <label >Duration</label>
-                                            <input type="text" name="duration" class="form-control"  placeholder="Enter Duration">
-                                        </div>
                                         
                                         <div class="form-group">
                                             <label >Price</label>
@@ -161,7 +148,6 @@
                                         
                                         <div class="row">
                                          
-                                            
                                             <div class="col-md-12" id="addSelect">
                                                 <div class="form-group">
                                                     <label class="ckbox ckbox-success">
@@ -179,12 +165,7 @@
                                             <input type="number" name="discounted_price" class="form-control"  placeholder="Enter Discounted Price">
                                         </div>
                                         
-                                        <div class="form-group" id="region_display" style="display: none;">
-                                            {{-- {{ Form::label('category_place_id', 'Select Region(optional)') }} {{ Form::select('category_place_id', $places,null, ['class' => 'form-control', 'placeholder' => 'Select Region']) }} --}}
-    {{-- 
-                                            <label >Price</label>
-                                            <input type="number" name="price" class="form-control" required placeholder="Enter Price"> --}}
-                                        </div>
+                                      
                                        
                                         <div class="form-group">
                                          
@@ -200,15 +181,11 @@
                                           </select>
     
                                         </div>
-                                        
-                                        
-                                        <div class="form-group">
+                                        {{--                  <div class="form-group">
                                             <label >Enter Menu Order</label>
                                             <input type="number" name="order" class="form-control" min="1" value="1">
                                         </div>
-                                    
-                                       
-                                        
+                                         --}}
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -294,11 +271,6 @@
                             </div> --}}
                         
                         <div class="row">
-                            <div class="col-md-12 my-2">
-                            <label >Package Video</label>
-
-                                    <input class="form-control" type="text" id="formFile" name="video">
-                                  </div>
                             <div class="col-md-12">
                                <label >Trip Introduction:</label>
                                 <textarea name="overview"  cols="30" rows="10" id="summernote"></textarea>
@@ -370,18 +342,7 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabcard" class="tab-pane" id="package">
-                    
-               
-                            <label class="font-weight-bold">Click to select featured Package</label>
-                            <div class="row">
-                           @foreach ($featured_package as $item)
-                           <div class="col-md-4">
-                            <label><input type="checkbox" name="featured_package[]" value="{{ $item->id }}"> {{ $item->name }}</label>
-                        </div>
-                           @endforeach
-                        </div>
-                </div>
+         
                 <div role="tabcard" class="tab-pane" id="seo">
                     <div class="form-group">
                        

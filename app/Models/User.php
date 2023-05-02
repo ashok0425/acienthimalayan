@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Models\Article;
 class User extends Authenticatable
 {
     use Notifiable;
 
+    public function Article()
+    {
+      return $this->hasMany(Article::class,'user_id','id');
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -27,5 +31,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+     
    
 }

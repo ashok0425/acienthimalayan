@@ -5,7 +5,9 @@
 <section class="package__listing py-5 ">
     <div class="py-5"></div>
     <div class="container">
-      
+     <div class="my-4">
+        @include('frontend.includes.filter')
+     </div>
         <div class="row justify-content-between">
             
 
@@ -96,12 +98,12 @@
                                    
                                     <div class="price">
                                         @if ($package->discounted_price!=null)
-                                        <p class="text-decoration-line-through">USD {{$package->price}}</p>
-                                        <p class="price">USD {{$package->discounted_price}}</p> 
+                                        <p class="text-decoration-line-through">Rs {{$package->price}}</p>
+                                        <p class="price">Rs {{$package->discounted_price}}</p> 
 
                                         @else 
                                    
-                                        <p class="price">USD {{$package->price}}</p> 
+                                        <p class="price">Rs {{$package->price}}</p> 
 
                                         @endif
                                         

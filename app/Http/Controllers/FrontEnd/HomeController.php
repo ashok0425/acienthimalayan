@@ -56,17 +56,6 @@ public function contact() {
 
 
 
-public function blog() {
-     
-      return view('frontend.blogs');
-}
-
-
-public function BlogDetail($id) {
-     $blog=Blog::find($id);
-      return view('frontend.blog_detail',compact('blog'));
-}
-
 
 
 
@@ -86,8 +75,8 @@ public function contactStore(Request $request) {
      $contact->status=0;
      $contact->save();
 
-Notification::route('mail', ['info@falcontechnepal.com',$request->email])
-  ->notify(new Enquiry($contact->id));
+// Notification::route('mail', ['info@falcontechnepal.com',$request->email])
+//   ->notify(new Enquiry($contact->id));
 
 
   $notification=array(
@@ -100,6 +89,11 @@ Notification::route('mail', ['info@falcontechnepal.com',$request->email])
 }
 
 
+public function search(Request $request){
+      $keyword=$request->keyword;
+      $packages=Package::where('name','LIKE',"%$keyword%")->get();
+      return view('frontend.packages',compact('packages'));
 
+}
 
 }

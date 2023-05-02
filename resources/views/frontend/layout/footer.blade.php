@@ -20,7 +20,6 @@
                         <a href="{{route('packages')}}">Tours</a>
                         <a href="{{route('about')}}">About</a>
                         <a href="{{route('contact')}}">Contact</a>
-                        <a href="{{route('blog')}}">Blog</a>
 
                     </div>
                 </div>

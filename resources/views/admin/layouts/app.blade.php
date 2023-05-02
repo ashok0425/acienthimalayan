@@ -1,4 +1,4 @@
-{{-- @php
+@php
 	$setting=DB::table('websites')->first();
 
 @endphp
@@ -24,7 +24,7 @@
 @section('fev')
 {{ asset($setting->fev) }} --}}
 
-{{-- @endsection --}}
+{{-- @endsection
 <!DOCTYPE HTML>
 <html lang="en">
 

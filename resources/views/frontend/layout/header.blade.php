@@ -19,24 +19,13 @@
                         <li class="navbar-item">
                             <a href="{{route('packages')}}" class="navbar-link">Tour</a>
                         </li>
-                        {{-- <li class="navbar-item">
-                            <a href="blog__listing.html" class="navbar-link">Blog</a>
-                        </li> --}}
+                      
                         <li class="navbar-item">
                             <a href="{{route('contact')}}" class="navbar-link">Contact</a>
                         </li>
-                        <li class="navbar-item">
-                            <a href="{{route('blog')}}" class="navbar-link">Blog</a>
-                        </li>
+                    
                     </ul>
-                    {{-- <div class="search">
-                        <form action="#">
-                            <input type="search" name="" placeholder="Search Location" class="form_control" id="">
-                            <button class="btn btn_primary">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </form>
-                    </div> --}}
+                   
                 </nav>
                 <button class="hamburger hamburger--slider" type="button">
                     <span class="hamburger-box">
