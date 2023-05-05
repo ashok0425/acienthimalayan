@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row ">
                 <div class="col-md-3 offset-md-1">
-                    <img src="{{asset($contact->image)}}" alt="Logo" class="img-fluid w-75 mt-0 mt-md-5">
+                    <img src="{{asset($contact->image)}}" alt="Logo" class="img-fluid w-75 mt-0 mt-md-5 bg-white">
                 </div>
                 <div class="col-md-2">
                     <div class="footer_header">

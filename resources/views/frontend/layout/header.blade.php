@@ -6,7 +6,7 @@
         <div class="container">
             <div class="header">
                 <a class="logo" href="{{route('/')}}">
-                    <img src="{{asset($setting->image)}}" alt="" class="img-fluid">
+                    <img src="{{asset($setting->image)}}" alt="" class="img-fluid" width="70x">
                 </a>
                 <nav class="navbar">
                     <ul class="navbar-nav">

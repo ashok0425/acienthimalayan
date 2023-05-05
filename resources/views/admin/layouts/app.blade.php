@@ -24,8 +24,8 @@
 @section('fev')
 {{ asset($setting->fev) }} --}}
 
-{{-- @endsection
-<!DOCTYPE HTML>
+ @endsection
+ <!DOCTYPE HTML>
 <html lang="en">
 
 <head>

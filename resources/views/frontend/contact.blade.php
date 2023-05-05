@@ -30,16 +30,12 @@
                 <form action="{{route('contact.store')}}" method="POST">
 @csrf
                     <div class="row">
-                        <div class="col-sm-6 mb-3">
+                        <div class="col-sm-12 mb-3">
                             <div class="form__wrap">
-                                <input type="text" class="form-control" required name="fname" placeholder="First name">
+                                <input type="text" class="form-control" required name="name" placeholder="Full name">
                             </div>
                         </div>
-                        <div class="col-sm-6 mb-3">
-                            <div class="form__wrap">
-                                <input type="text" class="form-control" required name='lname' placeholder="Last name">
-                            </div>
-                        </div>
+                      
                         <div class="col-12 mb-3">
                             <div class="form__wrap">
                                 <input type="email" class="form-control" required name='email' placeholder="Email address">

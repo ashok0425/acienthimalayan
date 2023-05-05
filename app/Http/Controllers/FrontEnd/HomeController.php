@@ -62,16 +62,18 @@ public function contact() {
 public function contactStore(Request $request) {
      
       $request->validate([
-            'fname'=>'required',
+            'name'=>'required',
             'email'=>'required|email',
             'phone'=>'required',
-            'message'=>'required',
       ]);
      $contact=new Contact;
-     $contact->name=$request->fname.$request->lname;
+     $contact->name=$request->name;
      $contact->email=$request->email;
      $contact->phone=$request->phone;
      $contact->message=$request->message;
+     $contact->departure_date=$request->departure_date;
+     $contact->no_of_person=$request->no_of_person;
+
      $contact->status=0;
      $contact->save();
 

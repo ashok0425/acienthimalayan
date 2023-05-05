@@ -27,7 +27,16 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{$item->phone}}</td>
-                        <td>{{$item->message}}</td>
+                        <td>
+                            @if ($item->message!=null)
+                            {{$item->message}}
+                            @else 
+                            No. of person : {{$item->no_of_person}}
+                            <br>
+                            Departure Date: {{Carbon\carbon::parse($item->departure_date)->format('d/M/Y')}}
+
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

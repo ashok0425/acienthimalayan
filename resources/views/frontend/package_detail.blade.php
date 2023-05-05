@@ -96,45 +96,29 @@
                                     @endif
                                     <p class="mb-0 lh-1">(per person)</p>
                                 </div>
-                                <form action="#">
+                                <form action="{{route('contact.store')}}" method="POST">
+                                    @csrf
                                     <div class="filters">
                                         <div class="wrap">
                                             <label for="">Full Name</label>
-                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                            <p><input type="text" name="name" id="" class="form-control" required></p>
                                         </div>
                                         <div class="wrap">
                                             <label for="">Email Address</label>
-                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                            <p><input type="text" name="email" id="" class="form-control" required></p>
                                         </div>
                                         <div class="wrap">
                                             <label for="">Phone Number</label>
-                                            <p><input type="text" name="" id="" class="form-control"></p>
+                                            <p><input type="number" name="phone" id="" class="form-control" required></p>
                                         </div>
-                                        <div class="wrap">
-                                            <label for="">Age</label>
-                                            <p><input type="text" name="" id="" class="form-control"></p>
-                                        </div>
-                                        <div class="wrap">
-                                            <label for="">Address</label>
-                                            <p><input type="text" name="" id="" class="form-control"></p>
-                                        </div>
-                                        <div class="wrap">
-                                            <label for="">Gender</label>
-                                            <p><select class="form-select form-select-sm">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                    <option value="3">Others</option>
-                                                </select>
-                                            </p>
-                                        </div>
+                                       
                                         <div class="wrap">
                                             <label for="">Depature Date</label>
-                                            <p><input type="date" name="" id="" class="form-control"></p>
+                                            <p><input type="date" name="departure_date" id="" class="form-control" required></p>
                                         </div>
                                         <div class="wrap">
                                             <label for="">Number of Person</label>
-                                            <p><input type="number" name="" id="" class="form-control"></p>
+                                            <p><input type="number" name="no_of_person" id="" class="form-control" required></p>
                                         </div>
                                         <div class="d-flex justify-content-center pb-4">
                                             <button class="btn btn_primary ">Book Now</button>
