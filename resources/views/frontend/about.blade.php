@@ -17,11 +17,10 @@
                         and full life</h1>
 
                     <p  data-aos-delay="100">
-                        Built Wicket longer admire do barton vanity itself do in it. Preferred to sportsmen it
-                        engrossed
-                        listening. Park gate sell they west hard for the.
+                        NSN Hotels was founded as a sincere endeavor to eliminate the recurrent common issues that travelers face before and during their much-awaited trips.
+                        Whether it is economical hotels, resorts, banquets, or farmhouses across India, NSN is committed to providing travel seekers with top-notch service and an impeccable experience - right from conceptualizing their stays to executing them
                     </p>
-                    <a href="#" class="btn btn_primary"  data-aos-delay="200">Find out more</a>
+                  
                 </div>
             </div>
             <div class="col-md-6">
@@ -168,7 +167,19 @@
         </div>
 
 
+<p>
+    <h2>Tour Packages:</h2>
 
+●	New-stay-nest began as a promise to provide customers comfort and assurance at every point of their journey.
+<br>
+●	Keeping this thought intact, we at NSN design all-inclusive tour packages comprising flights, accommodations, rental transfers, day tours and activities, and meals for our clients.
+<br>
+ 
+●	NSN houses a separate team of experts that assists in planning domestic and international trips based on the mood, budget, and occasion.
+<br>
+
+●	They are efficient in laying down all information and activities to help clients decide the course of their travel conveniently.
+</p>
     </div>
 </section>
 
