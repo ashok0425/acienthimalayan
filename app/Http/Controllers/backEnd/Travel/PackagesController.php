@@ -99,6 +99,8 @@ class PackagesController extends Controller
             $package->meta_author = $request->meta_author;
             $package->meta_description = $request->meta_description;
             $package->video = $request->video;
+            $package->type = $request->type;
+
 
             $banner = $request->file('thumbnail');
             if ($banner) {
@@ -228,6 +230,7 @@ class PackagesController extends Controller
             $package->meta_author = $request->meta_author;
             $package->meta_description = $request->meta_description;
             $package->video = $request->video;
+            $package->type = $request->type;
 
 
 
@@ -248,7 +251,7 @@ class PackagesController extends Controller
             }
 
 
-         
+
 
 
             $package->save();

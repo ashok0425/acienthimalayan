@@ -66,7 +66,7 @@
         margin: 10px 17px;
     }
     .nav-tabs{
-    
+
     }
     </style>
 @endpush
@@ -90,12 +90,12 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs d-flex justify-content-between" role="tablist">
                 <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Trip Details</a></li>
-                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Itinerary</a></li>
+                {{-- <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Itinerary</a></li>
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Whats included</a></li>
                 <li role="presentation"><a href="#equipment" aria-controls="equipment" role="tab" data-toggle="tab">Equipment</a></li>
                 <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Useful Information </a></li>
                  <li role="presentation"><a href="#faq" aria-controls="faq" role="tab" data-toggle="tab">FAQ</a></li>
-                <li role="presentation"><a href="#package" aria-controls="package" role="tab" data-toggle="tab">Recommended package</a></li>
+                <li role="presentation"><a href="#package" aria-controls="package" role="tab" data-toggle="tab">Recommended package</a></li> --}}
                 <li role="presentation"><a href="#seo" aria-controls="seo" role="tab" data-toggle="tab">Seo</a></li>
                 <button type="submit" class="pull-right btn btn-success btn-lg">Submit</button>
             </ul>
@@ -107,30 +107,41 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-group ">
                                                <label >Name</label>
                                                 <input type="text" name="name" class="form-control" required placeholder="Trip Name">
                                             </div>
                                         </div>
+
                                         <div class="form-group">
+                                            <div class="form-group ">
+                                               <label >Type</label>
+                                                <select name="type" id="" class="form-control">
+                                                  <option value="package">Package</option>
+                                                  <option value="vehicle">Vehicle</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        {{-- <div class="form-group">
                                             <div class="form-group ">
                                                 <label >Trip ID</label>
                                                 <input type="text" name="trip_id" class="form-control" required placeholder="Trip ID">
                                             </div>
-    
-                                        </div>
-                                        <div class="form-group">
+
+                                        </div> --}}
+                                        {{-- <div class="form-group">
                                             <div class="form-group ">
                                                 <label >Slugable url</label>
                                                 <input type="text" name="slug" class="form-control" required placeholder="Enter Slug">
                                             </div>
-                                        </div>
-                                   
+                                        </div> --}}
+
 
                                         <div class="form-group ">
-                                         
+
                                             <label > Destination</label>
                                          <select name="destination_id" id="destination_id" class="form-control" required>
                                              <option value="">--select  destination--</option>
@@ -140,14 +151,14 @@
                                         </select>
                                         </div>
 
-                                        
+
                                         <div class="form-group">
                                             <label >Price</label>
                                             <input type="number" name="price" class="form-control" required placeholder="Enter Price">
                                         </div>
-                                        
+
                                         <div class="row">
-                                         
+
                                             <div class="col-md-12" id="addSelect">
                                                 <div class="form-group">
                                                     <label class="ckbox ckbox-success">
@@ -164,77 +175,13 @@
                                         <div class="form-group" id="show" style="display: none;">
                                             <input type="number" name="discounted_price" class="form-control"  placeholder="Enter Discounted Price">
                                         </div>
-                                        
-                                      
-                                       
-                                        <div class="form-group">
-                                         
-                                            <label >Price</label>
-                                          <select name="rating"  class="form-control">
-                                              <option value="">--select rating</option>
-                                              <option value="1">1 star</option>
-                                              <option value="2">2 star</option>
-                                              <option value="3">3 star</option>
-                                              <option value="4">4 star</option>
-                                              <option value="5">5 star</option>
-    
-                                          </select>
-    
-                                        </div>
-                                        {{--                  <div class="form-group">
-                                            <label >Enter Menu Order</label>
-                                            <input type="number" name="order" class="form-control" min="1" value="1">
-                                        </div>
-                                         --}}
+
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                                                                <label >Activity</label>
-                                            <input type="text" name="activity" class="form-control"  placeholder="Enter Activity">
-                                        </div> 
-                                        <div class="form-group">
-                                            
-                                            <label >Difficulty level</label>
-                                            <input type="text" name="fitness_level" class="form-control"  placeholder="Enter Fitness level">
-                                        </div>
-                                        <div class="form-group">                                       
-                                            <label >Max Altitude</label>
-                                            <input type="text" name="max_altitude" class="form-control"  placeholder="Enter Max Altitude">
-                                        </div>
-                                        <div class="form-group">
-                                           
-                                            <label >Transport</label>
-                                            <input type="text" name="transport" class="form-control"  placeholder="Enter about transport">
-                                        </div> 
-                                        <div class="form-group">
-                                         <label >Best Month</label>
-                                            <input type="text" name="best_month" class="form-control"  placeholder="Enter about best month">
-                                        </div>
-                                        <div class="form-group">
-                                            <label >Group Size</label>
-                                            <input type="text" name="group_size" class="form-control"  placeholder="Enter Group size">
-                                        </div>
-                                         <div class="form-group">
-                                             <label >Enter Arrival</label>
-                                            <input type="text" name="arrival" class="form-control"  placeholder="Enter Arrival">
-                                        </div>
-                                        <div class="form-group">
-                                            <label >Departure from</label>
-                                            <input type="text" name="departure_from" class="form-control"  placeholder="Enter Departure from">
-                                        </div>
-                                        <div class="form-group">
-                                            <label >Meals</label>
-                                            <input type="text" name="meals" class="form-control"  placeholder="Enter meals">
-                                        </div>
-                                        <div class="form-group">
-                                             <label >Room/Accomodation</label>
-                                            <input type="text" name="room" class="form-control"  placeholder="Room/Accomodation">
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <!-- ./ row -->
                             </div>
-                            
+
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -243,7 +190,7 @@
                                     <input type="file" accept="image/*" id="imageInput1" name="thumbnail" >
                                     <label for="imageInput1" class="image-button"><i class="far fa-image"></i> Choose image</label>
                                     <img src="" class="image-preview1">
-    
+
                                   </div>
                             </div>
                             <div class="col-md-6">
@@ -253,7 +200,7 @@
                                     <input type="file" accept="image/*" id="imageInput2" name="cover" >
                                     <label for="imageInput2" class="image-button"><i class="far fa-image"></i> Choose image</label>
                                     <img src="" class="image-preview2">
-    
+
                                   </div>
                             </div>
                         </div>
@@ -264,30 +211,30 @@
                                     <input type="file" accept="image/*" id="imageInput3" name="gallery" >
                                     <label for="imageInput3" class="image-button"><i class="far fa-image"></i> Choose image</label>
                                     <img src="" class="image-preview3">
-    
+
                                   </div>
                                 </div>
-                              
+
                             </div> --}}
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                <label >Trip Introduction:</label>
                                 <textarea name="overview"  cols="30" rows="10" id="summernote"></textarea>
                             </div>
-    
+
                             <div class="col-md-12">
                                 <label >Outline itinerary:</label>
                                  <textarea name="outline_itinerary"  cols="30" rows="10" id="summernote7"></textarea>
                              </div>
-                         
-                            
+
+
                         </div>
                     </div>
                     <!-- ./ first tab ends -->
                 </div>
-                <div role="tabcard" class="tab-pane" id="profile">
-                    
+                {{-- <div role="tabcard" class="tab-pane" id="profile">
+
                     <div>
                         <div class="form-group">
                              <div class="col-md-12">
@@ -295,35 +242,35 @@
                                  <textarea name="detailed_itinerary"  cols="30" rows="10" id="summernote1"></textarea>
                              </div>
                         </div>
-                   
+
                     </div>
                 </div>
                 <div role="tabcard" class="tab-pane" id="messages">
-                    
+
                     <div>
                         <div class="form-group">
-                          
+
                             <label >Useful Info:</label>
                                  <textarea name="useful_info"  cols="30" rows="10" id="summernote2"></textarea>
                         </div>
-                     
+
                     </div>
                 </div>
                 <div role="tabcard" class="tab-pane" id="faq">
-                    
+
                     <div>
                         <div class="form-group">
-              
+
                             <label >FAQ:</label>
                             <textarea name="faq"  cols="30" rows="10" id="summernote3"></textarea>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div role="tabcard" class="tab-pane" id="settings">
-                  
+
                     <div>
-                        <div class="form-group">                 
+                        <div class="form-group">
                             <label >Whats Included:</label>
                             <textarea name="include_exclude"  cols="30" rows="10" id="summernote4"></textarea>
                         </div>
@@ -333,19 +280,19 @@
                         </div>
                     </div>
                 </div>
-    
-                <div role="tabcard" class="tab-pane" id="equipment"> 
+
+                <div role="tabcard" class="tab-pane" id="equipment">
                     <div>
                         <div class="form-group">
                          <label >Equipments required:</label>
                             <textarea name="equipment"  cols="30" rows="10" id="summernote6"></textarea>
                         </div>
                     </div>
-                </div>
-         
+                </div> --}}
+
                 <div role="tabcard" class="tab-pane" id="seo">
                     <div class="form-group">
-                       
+
                         <label >Meta Title</label>
                         <input type="text" name="page_title"  class="form-control">
                     </div>
@@ -372,11 +319,11 @@
 </div>
     <!-- row -->
 </div>
-   
+
     @endsection
- 
+
     @push('scripts')
-         
+
 {{-- custom input fielsd file  --}}
 	  <script>
 	// Add the following code if you want the name of the file appear on select
@@ -429,7 +376,7 @@ if($input.val().length > 0) {
   $('.change-image').css('display', 'block');
 }
 });
-	
+
 
             if($("#deal").attr("checked")){
                  $('#show').show();
@@ -437,11 +384,11 @@ if($input.val().length > 0) {
             $("#deal").click(function(){
                  $('#show').slideToggle();
                  $('#show').show();
-                
+
             })
-            
-            
-            
+
+
+
             function ajaxCategory() {
                 category_destination = $('#all_category_destination').val();
               let arr= JSON.parse(category_destination)
@@ -456,9 +403,9 @@ if($input.val().length > 0) {
             }
 
             ajaxCategory();
-           
-    
-        
-    
+
+
+
+
         </script>
     @endpush

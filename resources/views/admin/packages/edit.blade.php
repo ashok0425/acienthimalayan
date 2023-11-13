@@ -75,7 +75,6 @@
         }
 
         .nav-tabs {}
-
     </style>
 @endpush
 @extends('admin.layouts.app')
@@ -98,20 +97,9 @@
                         <div class="col-md-12">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs d-flex justify-content-between" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" aria-controls="home"
-                                        role="tab" data-toggle="tab">Trip Details</a></li>
-                                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
-                                        data-toggle="tab">Itinerary</a></li>
-                                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab"
-                                        data-toggle="tab">Whats included</a></li>
-                                <li role="presentation"><a href="#equipment" aria-controls="equipment" role="tab"
-                                        data-toggle="tab">Equipment</a></li>
-                                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab"
-                                        data-toggle="tab">Useful Information </a></li>
-                                <li role="presentation"><a href="#faq" aria-controls="faq" role="tab"
-                                        data-toggle="tab">FAQ</a></li>
-                                <li role="presentation"><a href="#package" aria-controls="package" role="tab"
-                                        data-toggle="tab">Recommended package</a></li>
+                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                        data-toggle="tab">Trip Details</a></li>
+
                                 <li role="presentation"><a href="#seo" aria-controls="seo" role="tab"
                                         data-toggle="tab">Seo</a></li>
                                 <button type="submit" class="pull-right btn btn-success btn-lg">Submit</button>
@@ -123,7 +111,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="form-group ">
                                                                 <label>Name</label>
@@ -131,19 +119,17 @@
                                                                     required value="{{ $package->name }}">
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <div class="form-group ">
-                                                                <label>Trip ID</label>
-                                                                <input type="text" name="trip_id" class="form-control"
-                                                                    required value="{{ $package->trip_id }}">
-                                                            </div>
 
-                                                        </div>
                                                         <div class="form-group">
                                                             <div class="form-group ">
-                                                                <label>Slugable url</label>
-                                                                <input type="text" name="slug" class="form-control"
-                                                                    required value="{{ $package->url }}">
+                                                                <label>Type</label>
+                                                                <select name="type" id="" class="form-control">
+                                                                    <option value="package"
+                                                                        @if ($package->type == 'package') selected @endif>
+                                                                        Package</option>
+                                                                    <option value="vehicle"  @if ($package->type == 'vehicle') selected @endif>Vehicle</option>
+
+                                                                </select>
                                                             </div>
                                                         </div>
 
@@ -178,8 +164,8 @@
                                                             <div class="col-md-12" id="addSelect">
                                                                 <div class="form-group">
                                                                     <label class="ckbox ckbox-success">
-                                                                        <input type="checkbox" name="deal_package" value="1"
-                                                                            id="deal"
+                                                                        <input type="checkbox" name="deal_package"
+                                                                            value="1" id="deal"
                                                                             @if ($package->discounted_price) checked @endif>
                                                                         <span>Deal/discount Package</span>
                                                                     </label>
@@ -198,104 +184,8 @@
                                                                 class="form-control"
                                                                 value="{{ $package->discounted_price }}">
                                                         </div>
-
-                                                        <div class="form-group" id="region_display"
-                                                            style="display: none;">
-                                                            {{-- {{ Form::label('category_place_id', 'Select Region(optional)') }} {{ Form::select('category_place_id', $places,null, ['class' => 'form-control', 'placeholder' => 'Select Region']) }} --}}
-                                                            {{-- <label >Price</label>
-                                            <input type="number" name="price" class="form-control" required placeholder="Enter Price"> --}}
-                                                        </div>
-
-                                                        <div class="form-group">
-
-                                                            <label>Rating</label>
-                                                            <select name="rating" class="form-control">
-                                                                <option value="">--select rating</option>
-                                                                <option value="1"
-                                                                    @if ($package->rating == 1) selected @endif>1 star
-                                                                </option>
-                                                                <option value="2"
-                                                                    @if ($package->rating == 2) selected @endif>2 star
-                                                                </option>
-                                                                <option value="3"
-                                                                    @if ($package->rating == 3) selected @endif>3 star
-                                                                </option>
-                                                                <option value="4"
-                                                                    @if ($package->rating == 4) selected @endif>4 star
-                                                                </option>
-                                                                <option value="5"
-                                                                    @if ($package->rating == 5) selected @endif>5
-                                                                    star</option>
-
-                                                            </select>
-
-                                                        </div>
-{{-- 
-
-                                                        <div class="form-group">
-                                                            <label>Enter Menu Order</label>
-                                                            <input type="number" name="order" class="form-control" min="1"
-                                                                value="{{ $package->order }}">
-                                                        </div> --}}
-
-
-
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Activity</label>
-                                                            <input type="text" name="activity" class="form-control"
-                                                                value="{{ $package->activity }}">
-                                                        </div>
-                                                        <div class="form-group">
 
-                                                            <label>Difficulty level</label>
-                                                            <input type="text" name="fitness_level" class="form-control"
-                                                                value="{{ $package->fitness_level }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Max Altitude</label>
-                                                            <input type="text" name="max_altitude" class="form-control"
-                                                                value="{{ $package->max_altitude }}">
-                                                        </div>
-                                                        <div class="form-group">
-
-                                                            <label>Transport</label>
-                                                            <input type="text" name="transport" class="form-control"
-                                                                value="{{ $package->transport }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Best Month</label>
-                                                            <input type="text" name="best_month" class="form-control"
-                                                                value="{{ $package->best_month }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Group Size</label>
-                                                            <input type="text" name="group_size" class="form-control"
-                                                                value="{{ $package->group_size }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Enter Arrival</label>
-                                                            <input type="text" name="arrival" class="form-control"
-                                                                value="{{ $package->arrival }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Departure from</label>
-                                                            <input type="text" name="departure_from" class="form-control"
-                                                                value="{{ $package->departure_from }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Meals</label>
-                                                            <input type="text" name="meals" class="form-control"
-                                                                value="{{ $package->meals }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Room/Accomodation</label>
-                                                            <input type="text" name="room" class="form-control"
-                                                                placeholder="Room/Accomodation"
-                                                                value="{{ $package->room }}">
-                                                        </div>
-                                                    </div>
                                                 </div>
                                                 <!-- ./ row -->
                                             </div>
@@ -305,7 +195,8 @@
                                             <div class="col-md-6">
                                                 <label>Thumbnail Image</label>
                                                 <div class="image-input">
-                                                    <input type="file" accept="image/*" id="imageInput1" name="thumbnail">
+                                                    <input type="file" accept="image/*" id="imageInput1"
+                                                        name="thumbnail">
                                                     <label for="imageInput1" class="image-button"><i
                                                             class="far fa-image"></i> Choose image</label>
                                                     <img src="" class="image-preview1">
@@ -318,7 +209,8 @@
                                             <div class="col-md-6">
                                                 <label>Cover Image</label>
                                                 <div class="image-input">
-                                                    <input type="file" accept="image/*" id="imageInput2" name="cover">
+                                                    <input type="file" accept="image/*" id="imageInput2"
+                                                        name="cover">
                                                     <label for="imageInput2" class="image-button"><i
                                                             class="far fa-image"></i> Choose image</label>
                                                     <img src="" class="image-preview2">
@@ -336,14 +228,14 @@
                                     <input type="file" accept="image/*" id="imageInput3" name="gallery" >
                                     <label for="imageInput3" class="image-button"><i class="far fa-image"></i> Choose image</label>
                                     <img src="" class="image-preview3">
-    
+
                                   </div>
                                 </div>
-                              
+
                             </div> --}}
 
                                         <div class="row">
-                                           
+
                                             <div class="col-md-12">
                                                 <label>Trip Introduction:</label>
                                                 <textarea name="overview" cols="30" rows="10" id="summernote">
@@ -364,7 +256,7 @@
                                     </div>
                                     <!-- ./ first tab ends -->
                                 </div>
-                                <div role="tabcard" class="tab-pane" id="profile">
+                                {{-- <div role="tabcard" class="tab-pane" id="profile">
 
                                     <div>
                                         <div class="form-group">
@@ -439,8 +331,8 @@
                             </textarea>
                                         </div>
                                     </div>
-                                </div>
-                                
+                                </div> --}}
+
                                 <div role="tabcard" class="tab-pane" id="seo">
                                     <div class="form-group">
 
@@ -462,7 +354,7 @@
                                         <label>Meta Description</label>
 
                                         <textarea name="meta_description" cols="30" rows="5" class="form-control">
-                            {{ $package->meta_description }} 
+                            {{ $package->meta_description }}
                         </textarea>
                                     </div>
                                 </div>

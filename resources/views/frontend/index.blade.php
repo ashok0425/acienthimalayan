@@ -4,6 +4,7 @@
     @include('frontend.includes.hero')
 
     @include('frontend.includes.filter')
+    @include('frontend.includes.vehicle')
 
     @include('frontend.includes.featured')
 
