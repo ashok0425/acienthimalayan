@@ -18,7 +18,7 @@ class HomeController extends Controller
 
 
 public function getIndex() {
-     
+
       return view('frontend.index');
 }
 
@@ -26,7 +26,7 @@ public function getIndex() {
 
 
 public function about() {
-     
+
       return view('frontend.about');
 }
 
@@ -49,7 +49,7 @@ public function packageDetail($id) {
 
 
 public function contact() {
-     
+
       return view('frontend.contact');
 }
 
@@ -60,7 +60,7 @@ public function contact() {
 
 
 public function contactStore(Request $request) {
-     
+
       $request->validate([
             'name'=>'required',
             'email'=>'required|email',
@@ -70,15 +70,18 @@ public function contactStore(Request $request) {
      $contact->name=$request->name;
      $contact->email=$request->email;
      $contact->phone=$request->phone;
-     $contact->message=$request->message;
+     $contact->location=$request->location;
+     $contact->message=$request->message??"Vehicle booking request";
      $contact->departure_date=$request->departure_date;
      $contact->no_of_person=$request->no_of_person;
 
      $contact->status=0;
      $contact->save();
 
-// Notification::route('mail', ['info@falcontechnepal.com',$request->email])
-//   ->notify(new Enquiry($contact->id));
+     if ($request->type=='vehicle') {
+Notification::route('mail', ['amit@nsnhotels.com','disha.samanta@gmail.com'])
+  ->notify(new Enquiry($contact->id));
+}
 
 
   $notification=array(

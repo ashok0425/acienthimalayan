@@ -86,7 +86,7 @@
                         </div>
 
                         @if ($package->type=='package')
-                        <div class="col-md-4 order-0 order-md-1">
+                        <div class="col-md-4">
                             <div class="book__now">
                                 <div class="filter__wrap__head custom-bg-primary text-center text-white py-4 custom-fs-30">
                                     @if (!empty($package->discounted_price))
@@ -157,18 +157,13 @@
                             </div>
                         </div>
                         @else
-                        <div class="col-md-4 order-0 order-md-1">
+                        <div class="col-md-4">
                             <div class="book__now">
                                 <div class="filter__wrap__head custom-bg-primary text-center text-white py-4 custom-fs-30">
-                                    @if (!empty($package->discounted_price))
-                                        <p class="mb-0 lh-1"><small><s>Rs {{ $package->price }}</s></small></p>
-                                        <p class="mb-0 lh-1">Rs {{ $package->discounted_price }}</p>
-                                    @else
-                                        <p class="mb-0 lh-1">Rs {{ $package->price }}</p>
-                                    @endif
-                                    <p class="mb-0 lh-1">(per person)</p>
+                                        <p class="mb-0 lh-1"><small>Book Now</p>
                                 </div>
                                 <form action="{{route('contact.store')}}" method="POST">
+                                    <input type="hidden" name="type" value="vehicle">
                                     @csrf
                                     <div class="filters">
                                         <div class="wrap">
@@ -185,12 +180,12 @@
                                         </div>
 
                                         <div class="wrap">
-                                            <label for="">Depature Date</label>
+                                            <label for="">Date</label>
                                             <p><input type="date" name="departure_date" id="" class="form-control" required></p>
                                         </div>
                                         <div class="wrap">
-                                            <label for="">Number of Person</label>
-                                            <p><input type="number" name="no_of_person" id="" class="form-control" required></p>
+                                            <label for="">Location</label>
+                                            <p><input type="text" name="location" id="" class="form-control" required></p>
                                         </div>
                                         <div class="d-flex justify-content-center pb-4">
                                             <button class="btn btn_primary ">Book Now</button>
