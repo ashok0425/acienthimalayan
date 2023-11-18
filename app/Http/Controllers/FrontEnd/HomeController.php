@@ -63,23 +63,25 @@ public function contactStore(Request $request) {
 
       $request->validate([
             'name'=>'required',
-            'email'=>'required|email',
+            'email'=>'nullable|email',
             'phone'=>'required',
       ]);
      $contact=new Contact;
      $contact->name=$request->name;
-     $contact->email=$request->email;
+     $contact->email=$request->email??'disha.samanta@gmail.com';
      $contact->phone=$request->phone;
      $contact->location=$request->location;
      $contact->message=$request->message??"Vehicle booking request";
      $contact->departure_date=$request->departure_date;
+     $contact->departure_to=$request->departure_to;
+     $contact->type=$request->type??'contact';
      $contact->no_of_person=$request->no_of_person;
 
      $contact->status=0;
      $contact->save();
 
      if ($request->type=='vehicle') {
-Notification::route('mail', ['amit@nsnhotels.com','disha.samanta@gmail.com'])
+Notification::route('mail', ['disha.samanta@gmail.com'])
   ->notify(new Enquiry($contact->id));
 }
 

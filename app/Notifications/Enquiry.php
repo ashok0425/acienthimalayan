@@ -52,6 +52,8 @@ class Enquiry extends Notification
         ->line("Phone: $con->phone")
         ->line("Message: $con->message")
         ->line("Location: $con->location")
+        ->line("Date From: $con->departure_date")
+        ->line("Date To: $con->departure_to")
         ->subject('Enquery about Tour')
         ->line('Thank you for using our application!');
     }

@@ -160,7 +160,7 @@
                         <div class="col-md-4">
                             <div class="book__now">
                                 <div class="filter__wrap__head custom-bg-primary text-center text-white py-4 custom-fs-30">
-                                        <p class="mb-0 lh-1"><small>Book Now</p>
+                                        <p class="mb-0 lh-1"><small>Book Tempo Now</p>
                                 </div>
                                 <form action="{{route('contact.store')}}" method="POST">
                                     <input type="hidden" name="type" value="vehicle">
@@ -170,25 +170,33 @@
                                             <label for="">Full Name</label>
                                             <p><input type="text" name="name" id="" class="form-control" required></p>
                                         </div>
-                                        <div class="wrap">
+                                        {{-- <div class="wrap">
                                             <label for="">Email Address</label>
                                             <p><input type="text" name="email" id="" class="form-control" required></p>
-                                        </div>
+                                        </div> --}}
                                         <div class="wrap">
                                             <label for="">Phone Number</label>
                                             <p><input type="number" name="phone" id="" class="form-control" required></p>
                                         </div>
 
                                         <div class="wrap">
-                                            <label for="">Date</label>
-                                            <p><input type="date" name="departure_date" id="" class="form-control" required></p>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Date From</label>
+                                                <p><input type="date" name="departure_date" id="" class="form-control" required></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Date To</label>
+                                                <p><input type="date" name="departure_to" id="" class="form-control" required></p>
+                                            </div>
+                                          </div>
                                         </div>
                                         <div class="wrap">
-                                            <label for="">Location</label>
+                                            <label for="">From Delhi To</label>
                                             <p><input type="text" name="location" id="" class="form-control" required></p>
                                         </div>
                                         <div class="d-flex justify-content-center pb-4">
-                                            <button class="btn btn_primary ">Book Now</button>
+                                            <button class="btn btn_primary ">Submit Now</button>
                                         </div>
                                     </div>
                                 </form>

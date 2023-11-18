@@ -16,16 +16,20 @@ class ContactController extends Controller
 
 
     use status;
- 
+
     public function index()
     {
-        $contact=DB::table('contacts')->orderBy('id','desc')->get();
+        if (request()->query('tab')=='vehicle') {
+            $contact=DB::table('contacts')->where('type','vehicle')->orderBy('id','desc')->get();
+            return view('admin.contact.vehicle',compact('contact'));
+        }
+        $contact=DB::table('contacts')->where('type','!=','vehicle')->orderBy('id','desc')->get();
        return view('admin.contact.index',compact('contact'));
     }
     public function create($id)
 { }
-   
-  
+
+
 
     public function store(Request $request){
 
@@ -36,7 +40,7 @@ class ContactController extends Controller
          $mail->title=$request->title;
          $mail->detail=$request->detail;
          $file=$request->file('file');
- 
+
          if($file){
              $fname=rand().'email.'.$file->getClientOriginalExtension();
              $mail->image='upload/email/vendor/'.$fname;
@@ -56,28 +60,28 @@ class ContactController extends Controller
                  'email'=>$request->email,
                  'title'=>$request->title,
                  'emailId'=>$emailId,
- 
- 
+
+
              ];
-     
+
                  // $detail=$request->detail;
- 
+
             Mail::send('mail.subscriberemail', $set, function($message)use($set) {
         $message->to($set['email'])
                 ->subject($set['title']);
     });
- 
+
          $notification=array(
              'alert-type'=>'success',
              'messege'=>'Email Sent successfully',
-            
+
           );
          return redirect()->route('admin.contacts.index')->with($notification);
      } catch (\Throwable $th) {
          $notification=array(
              'alert-type'=>'error',
              'messege'=>'Something went wrong.Try again later.',
-            
+
           );
          return redirect()->route('admin.contact.index')->with($notification);
      }
@@ -89,7 +93,7 @@ class ContactController extends Controller
      {
       $con=DB::table('contacts')->where('id',$id)->first();
         return view('admin.contact.create',compact('con'));
-         
+
      }
 
 

@@ -120,6 +120,15 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item ">
+                    <a href="{{ route('admin.contacts.index',['tab'=>'vehicle']) }}" class="nav-link ">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Vehicle Request
+                        </p>
+                    </a>
+                </li>
                   {{-- setting --}}
                   <li class="nav-item <?php echo Request::segment(2) == 'websites' ? 'menu-open' : ''; ?>">
                       <a href="#" class="nav-link <?php echo Request::segment(2) == 'websites' ? 'active' : ''; ?> ">
